@@ -1,0 +1,27 @@
+images {
+  image: "/builtins/graphics/particle_blob.png"
+}
+images {
+  image: "/assets/images/white_empty_square.png"
+}
+images {
+  image: "/assets/images/white_marker.png"
+}
+images {
+  image: "/assets/images/white_marker_empty.png"
+}
+images {
+  image: "/assets/images/white_square.png"
+}
+images {
+  image: "/assets/images/grey_room.png"
+}
+images {
+  image: "/assets/images/text_box.png"
+}
+images {
+  image: "/assets/images/white_heart.png"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0
