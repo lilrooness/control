@@ -69,7 +69,7 @@ nodes {
 }
 nodes {
   position {
-    x: -457.0
+    x: -425.0
     y: 85.0
     z: -1.0
     w: 1.0
@@ -81,8 +81,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 0.5
+    y: 0.5
     z: 1.0
     w: 1.0
   }
@@ -100,7 +100,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "<NAME>"
+  text: "Emily:"
   font: "computer_font"
   id: "name"
   xanchor: XANCHOR_NONE
@@ -132,8 +132,8 @@ nodes {
 }
 nodes {
   position {
-    x: -421.0
-    y: 54.0
+    x: -201.0
+    y: 15.0
     z: 0.0
     w: 1.0
   }
@@ -144,8 +144,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 0.5
+    y: 0.5
     z: 1.0
     w: 1.0
   }
@@ -163,7 +163,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "<SPEECH>"
+  text: "Hello . . . .Can anyone hear me?"
   font: "computer_font"
   id: "speech"
   xanchor: XANCHOR_NONE

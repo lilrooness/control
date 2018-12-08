@@ -21,7 +21,7 @@ instances {
 }
 instances {
   id: "bloom"
-  prototype: "/main/objects/bloom.go"
+  prototype: "/main/objects/bloom_render_target.go"
   position {
     x: 0.0
     y: 0.0
@@ -54,8 +54,8 @@ collection_instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.5
+    y: 0.5
     z: 1.0
   }
 }
