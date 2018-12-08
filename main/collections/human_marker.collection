@@ -82,8 +82,8 @@ embedded_instances {
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
   "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
+  "    x: 5.0\n"
+  "    y: -7.0\n"
   "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
@@ -117,7 +117,7 @@ embedded_instances {
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"tile_set: \\\"/main/main.atlas\\\"\\n"
-  "default_animation: \\\"white_marker_empty\\\"\\n"
+  "default_animation: \\\"human_marker\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "\"\n"
@@ -146,8 +146,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 0.25
-    y: 0.25
+    x: 0.5
+    y: 0.5
     z: 1.0
   }
 }

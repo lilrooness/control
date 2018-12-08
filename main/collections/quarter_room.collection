@@ -6,7 +6,7 @@ embedded_instances {
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"tile_set: \\\"/main/main.atlas\\\"\\n"
-  "default_animation: \\\"grey_room\\\"\\n"
+  "default_animation: \\\"quarter_room\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "\"\n"
@@ -35,8 +35,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 0.25
-    y: 0.25
+    x: 0.5
+    y: 0.5
     z: 1.0
   }
 }
