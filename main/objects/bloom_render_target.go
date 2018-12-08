@@ -2,7 +2,7 @@ embedded_components {
   id: "model"
   type: "model"
   data: "mesh: \"/assets/quad.dae\"\n"
-  "material: \"/assets/bloom.material\"\n"
+  "material: \"/assets/materials/bloom_mat/bloom.material\"\n"
   "skeleton: \"\"\n"
   "animations: \"\"\n"
   "default_animation: \"\"\n"

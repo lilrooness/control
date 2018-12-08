@@ -1,7 +1,7 @@
 name: "unnamed"
 tags: "bloom"
-vertex_program: "/assets/shaders/bloom .vp"
-fragment_program: "/assets/shaders/bloom.fp"
+vertex_program: "/assets/materials/bloom_mat/bloom .vp"
+fragment_program: "/assets/materials/bloom_mat/bloom.fp"
 vertex_constants {
   name: "view_proj"
   type: CONSTANT_TYPE_VIEWPROJ
