@@ -1,9 +1,11 @@
 local state = require("main.modules.human_state")
+local ps = require("main.modules.pubsub")
 
 go.property("BPM", 50)
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	ps.subscribe("textbox", go.get_id())
 	self.selected = false;
 	self.name = "Emily";
 end
@@ -28,7 +30,15 @@ function on_message(self, message_id, message, sender)
 
 	if(message_id == hash("room_selected")) then
 		tbox = factory.create("/tbox_factory#factory")
-		msg.post(tbox, "text", {name = self.name, text = "Attempting to open the door ..."})
+		msg.post(tbox, "text", {name = self.name, text = "Attempting to open the door ...", parent_obj = tbox})
+	end
+
+	if message_id == hash("textbox") then
+		if message.created then
+			msg.post(".", "release_input_focus")
+		else
+			msg.post(".", "acquire_input_focus")
+		end
 	end
 end
 

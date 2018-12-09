@@ -1,8 +1,17 @@
 local state = require("main.modules.human_state")
+local ps = require("main.modules.pubsub")
+
+go.property("rad_warning", false)
+go.property("power_off", false)
 
 function init(self)
 	msg.post('.', 'acquire_input_focus')
+	ps.subscribe("textbox", go.get_id())
 	self.mouseover = false
+
+	if self.rad_warning then
+		factory.create("#rad_warn_factory")
+	end
 end
 
 function final(self)
@@ -21,6 +30,14 @@ end
 function on_message(self, message_id, message, sender)
 	if(message_id == hash("trigger_response")) then
 		self.mouseover = message.enter
+	end
+
+	if message_id == hash("textbox") then
+		if message.created then
+			msg.post(".", "release_input_focus")
+		else
+			msg.post(".", "acquire_input_focus")
+		end
 	end
 end
 

@@ -1,17 +1,19 @@
+local ps = require("main.modules.pubsub")
+
 function init(self)
 	self.text = ""
 	self.last_text_update = 0.0;
 	self.target_text = nil
 	self.target_index = 1;
+	msg.post(".", "acquire_input_focus")
+	ps.publish("textbox", {created = true})
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
+	ps.publish("textbox", {created = false})
 end
 
 function update(self, dt)
-	print(self.target_text[1])
 	if(self.target_text ~= nil and self.last_text_update > 0.01 and string.len(self.target_text) >= string.len(self.text)) then
 		self.text = self.text .. self.target_text:sub(self.target_index, self.target_index)
 		gui.set_text(gui.get_node("speech"), self.text)
@@ -26,12 +28,16 @@ function on_message(self, message_id, message, sender)
 		gui.set_text(gui.get_node("name"), message.name)
 		gui.set_text(gui.get_node("speech"), self.text)
 		self.target_text = message.text
+		self.parent = message.parent_obj
 	end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+	if action_id == hash("click") and action.released == true then
+		if gui.pick_node(gui.get_node("box"), action.x, action.y) then
+			msg.post(self.parent, "delete")
+		end
+	end
 end
 
 function on_reload(self)

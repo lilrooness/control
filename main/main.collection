@@ -93,6 +93,17 @@ collection_instances {
     z: 0.0
     w: 1.0
   }
+  instance_properties {
+    id: "sprite_obj"
+    properties {
+      id: "room"
+      properties {
+        id: "rad_warning"
+        value: "true"
+        type: PROPERTY_TYPE_BOOLEAN
+      }
+    }
+  }
   scale3 {
     x: 1.0
     y: 1.0
