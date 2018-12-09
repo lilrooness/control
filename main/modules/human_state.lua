@@ -4,8 +4,13 @@ local state = {
 	selected = {}
 }
 
+function M.get_selected()
+	return state.selected
+end
+
 function M.register_select(human_id)
 	state.selected = human_id
+	print(human_id)
 end
 
 function M.register_unselect()

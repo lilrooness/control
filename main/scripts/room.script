@@ -1,3 +1,5 @@
+local state = require("main.modules.human_state")
+
 function init(self)
 	msg.post('.', 'acquire_input_focus')
 	self.mouseover = false
@@ -24,7 +26,9 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("click") and self.mouseover and action.released then
-		print("click")
+		if state.is_anything_selected() then
+			msg.post(state.get_selected(), "room_selected")
+		end
 	end
 end
 
