@@ -28,6 +28,12 @@ images {
 images {
   image: "/assets/images/new/x.png"
 }
+images {
+  image: "/assets/images/new/chriopod.png"
+}
+images {
+  image: "/assets/images/new/grid.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

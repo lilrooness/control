@@ -1,25 +1,5 @@
 name: "main"
 instances {
-  id: "HUD_gui_obj"
-  prototype: "/main/objects/HUD_gui_obj.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
   id: "bloom"
   prototype: "/main/objects/bloom_render_target.go"
   position {
@@ -59,6 +39,26 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "room_floor_grid"
+  prototype: "/main/objects/room_floor_grid.go"
+  position {
+    x: 641.0
+    y: 360.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+  }
+}
 collection_instances {
   id: "emily"
   collection: "/main/collections/human_marker.collection"
@@ -80,82 +80,11 @@ collection_instances {
   }
 }
 collection_instances {
-  id: "room"
-  collection: "/main/collections/quarter_room.collection"
+  id: "chriopod"
+  collection: "/main/collections/chriopod.collection"
   position {
-    x: 1131.0
-    y: 577.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  instance_properties {
-    id: "sprite_obj"
-    properties {
-      id: "room"
-      properties {
-        id: "rad_warning"
-        value: "true"
-        type: PROPERTY_TYPE_BOOLEAN
-      }
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-collection_instances {
-  id: "room1"
-  collection: "/main/collections/quarter_room.collection"
-  position {
-    x: 1133.0
-    y: 146.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-collection_instances {
-  id: "room2"
-  collection: "/main/collections/quarter_room.collection"
-  position {
-    x: 143.0
-    y: 146.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-collection_instances {
-  id: "room3"
-  collection: "/main/collections/quarter_room.collection"
-  position {
-    x: 876.0
-    y: 146.0
+    x: 322.0
+    y: 425.0
     z: 0.0
   }
   rotation {
