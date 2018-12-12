@@ -1,6 +1,6 @@
 components {
-  id: "text_box"
-  component: "/main/guis/textbox.gui"
+  id: "room_manifest"
+  component: "/main/guis/room_manifest.gui"
   position {
     x: 0.0
     y: 0.0
@@ -14,8 +14,8 @@ components {
   }
 }
 components {
-  id: "textbox_gui_obj"
-  component: "/main/scripts/gui/textbox_gui_obj.script"
+  id: "room_info_gui_obj"
+  component: "/main/scripts/room_info_proxy_obj.script"
   position {
     x: 0.0
     y: 0.0

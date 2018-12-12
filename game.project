@@ -2,7 +2,7 @@
 title = control
 
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /main/screens/levels/level_1.collectionc
 render = /main/custom.renderc
 
 [input]

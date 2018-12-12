@@ -29,7 +29,7 @@ function on_message(self, message_id, message, sender)
 	end
 
 	if(message_id == hash("room_selected")) then
-		tbox = factory.create("/tbox_factory#factory")
+		tbox = factory.create(":/tbox_factory#factory")
 		msg.post(tbox, "text", {name = self.name, text = "Attempting to open the door ...", parent_obj = tbox})
 	end
 
@@ -49,7 +49,7 @@ function on_input(self, action_id, action)
 			self.selected = false;
 			go.delete(self.hmenu)
 		else
-			self.hmenu = factory.create("/hmenu_factory#factory")
+			self.hmenu = factory.create(":/hmenu_factory#factory")
 			state.register_select(go.get_id())
 			self.selected = true;
 		end
