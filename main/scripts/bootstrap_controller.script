@@ -1,6 +1,8 @@
+local monarch = require("monarch.monarch")
+
 function init(self)
-	-- Add initialization code here
-	-- Remove this function if not needed
+	msg.post(".", "acquire_input_focus")
+	msg.post("#", "start")
 end
 
 function final(self)
@@ -14,18 +16,8 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("show_room_info_gui") then
-		msg.post("#collectionproxy", "load")
-	end
-
-	if message_id == hash("proxy_loaded") then
-		msg.post(sender, "init")
-		msg.post(sender, "enable")
-		msg.post("room_info:/loader", "parent", {name = msg.url()})
-	end
-
-	if message_id == hash("back_to_room") then
-		--msg.post()
+	if message_id == hash("start") then
+		monarch.show(hash("level_1"))
 	end
 end
 

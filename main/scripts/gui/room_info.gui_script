@@ -20,8 +20,8 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("click") and gui.pick_node(gui.get_node("room_info"), action.x, action.y) and action.released then
-		monarch.show("room_info")
+	if action_id == hash("click") and gui.pick_node(gui.get_node("back"), action.x, action.y) then
+		monarch.show("level_1")
 	end
 end
 

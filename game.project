@@ -1,8 +1,9 @@
 [project]
 title = control
+dependencies = https://github.com/britzl/monarch/archive/master.zip
 
 [bootstrap]
-main_collection = /main/screens/levels/level_1.collectionc
+main_collection = /main/main.collectionc
 render = /main/custom.renderc
 
 [input]

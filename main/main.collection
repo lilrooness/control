@@ -1,7 +1,7 @@
 name: "default"
 collection_instances {
-  id: "level_1"
-  collection: "/main/screens/levels/level_1.collection"
+  id: "bootstrap"
+  collection: "/main/collections/bootstrap.collection"
   position {
     x: 0.0
     y: 0.0

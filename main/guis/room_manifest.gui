@@ -1,4 +1,4 @@
-script: ""
+script: "/main/scripts/gui/room_info.gui_script"
 fonts {
   name: "computer_font"
   font: "/main/computer_font.font"
@@ -304,7 +304,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "[B]ack"
   font: "computer_font"
-  id: "text1"
+  id: "back"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
