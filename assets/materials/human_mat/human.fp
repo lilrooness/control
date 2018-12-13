@@ -9,7 +9,7 @@ void main()
 {
 	vec4 color = texture2D(sprite, var_texcoord0.xy);
 	if(selected.x  == 1 && color.a > 0) {
-		color.xyz = vec4(1.0, 1.0, 0.0, 1.0);
+		color.xyzw = vec4(1.0, 1.0, 0.0, 1.0);
 	}
 	gl_FragColor = color;
 }
