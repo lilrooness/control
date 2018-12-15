@@ -38,14 +38,20 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash("click") and action.released == true then
 		if gui.pick_node(gui.get_node("box"), action.x, action.y) then
-			if self.done then
-				print("clicked!")
-				print(self.done)
-				msg.post(self.parent, "delete")
-			else
-				self.text = self.target_text
-			end
+			skip_or_close(self)
 		end
+	end
+
+	if action_id == hash("space") and action.pressed then
+		skip_or_close(self)
+	end
+end
+
+function skip_or_close(self)
+	if self.done then
+		msg.post(self.parent, "delete")
+	else
+		self.text = self.target_text
 	end
 end
 
