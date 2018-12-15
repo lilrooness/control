@@ -1,0 +1,51 @@
+go.property("gain", 0.1)
+go.property("fading", true)
+
+local TIME = 2
+local DELAY = 1
+
+function init(self)
+	
+end
+
+function final(self)
+
+end
+
+function update(self, dt)
+	if self.fading then
+		msg.post("#sound", "set_gain", {gain = self.gain})
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("fade_in") then
+		msg.post("#sound", "play_sound")
+		self.fading = true
+		
+		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR. TIME, DELAY,
+		function()
+			self.fading = false
+		end)
+	end
+
+	if message_id == hash("fade_out") then
+		msg.post("#sound", "play_sound")
+		self.fading = true
+
+		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR. TIME, DELAY,
+		function()
+			self.fading = false
+		end)
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

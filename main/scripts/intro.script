@@ -18,6 +18,8 @@ function init(self)
 	}
 
 	self.textNumber = 1
+
+	msg.post(":/alarm_sound_muffled#sound", "play_sound", {gain= 0.1})
 end
 
 function final(self)
