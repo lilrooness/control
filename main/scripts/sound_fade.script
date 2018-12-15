@@ -1,8 +1,8 @@
-go.property("gain", 0.1)
-go.property("fading", true)
+go.property("gain", 0.0)
+go.property("fading", false)
 
-local TIME = 2
-local DELAY = 1
+local TIME = 3
+local DELAY = 0
 
 function init(self)
 	
@@ -20,20 +20,29 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("fade_in") then
-		msg.post("#sound", "play_sound")
+		msg.post("#sound", "play_sound", {gain=self.gain})
 		self.fading = true
 		
-		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR. TIME, DELAY,
+		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, message.target_gain, go.EASING_LINEAR, TIME, DELAY,
 		function()
+			print("finished fading")
 			self.fading = false
 		end)
 	end
 
 	if message_id == hash("fade_out") then
-		msg.post("#sound", "play_sound")
 		self.fading = true
 
-		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR. TIME, DELAY,
+		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR, TIME, DELAY,
+		function()
+			self.fading = false
+		end)
+	end
+
+	if message_id == hash("change") then
+		self.fading = true
+
+		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, message.target_gain, go.EASING_LINEAR, TIME, DELAY,
 		function()
 			self.fading = false
 		end)

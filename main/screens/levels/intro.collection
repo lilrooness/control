@@ -21,7 +21,7 @@ instances {
 }
 scale_along_z: 0
 embedded_instances {
-  id: "go"
+  id: "intro"
   data: "components {\n"
   "  id: \"intro\"\n"
   "  component: \"/main/scripts/intro.script\"\n"
@@ -75,7 +75,22 @@ embedded_instances {
 }
 embedded_instances {
   id: "alarm_sound_muffled"
-  data: "embedded_components {\n"
+  data: "components {\n"
+  "  id: \"sound_fade\"\n"
+  "  component: \"/main/scripts/sound_fade.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
   "  id: \"sound\"\n"
   "  type: \"sound\"\n"
   "  data: \"sound: \\\"/assets/sfx/evac_alarm_muffled.wav\\\"\\n"
