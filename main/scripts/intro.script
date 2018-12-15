@@ -1,0 +1,55 @@
+local ps = require("main.modules.pubsub")
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	ps.subscribe("textbox", go.get_id())
+	msg.post(".", "next_text")
+
+	self.texts = {
+		"[muffled alarm sound]",
+		"You are ripped from a deep sleep",
+		"Pulled from a hot spring into a chilly breeze ...",
+		"[alarm sounds getting louder]",
+		"Mission critical emergency alarm ... threat to life",
+		"Your heart is pounding thick sleepy blood",
+		"Your limbs hurt and your ears feel strange",
+		"Like waking up on a plane back on earth",
+		"Head to the Bridge."
+	}
+
+	self.textNumber = 1
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("textbox") then
+		if message.created == false then
+			msg.post(".", "next_text")
+		end
+	end
+
+	if message_id == hash("next_text") then
+		textbox = factory.create("#factory")
+		msg.post(textbox, "text", {name = "", text = self.texts[self.textNumber], parent_obj = textbox})
+		self.textNumber = self.textNumber + 1
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

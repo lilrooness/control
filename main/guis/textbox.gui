@@ -150,7 +150,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
+    x: 1900.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -163,7 +163,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Hello . . . .Can anyone hear me?"
+  text: "Hello . . . .Can anyone hear me? ;lksdflkjsdflkjsd f l kjdsf lkjsdflkjsdflks djflk\tj\t"
   font: "computer_font"
   id: "speech"
   xanchor: XANCHOR_NONE
@@ -182,7 +182,7 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   parent: "box"
   layer: ""
   inherit_alpha: true

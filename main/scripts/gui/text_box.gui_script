@@ -1,6 +1,7 @@
 local ps = require("main.modules.pubsub")
 
 function init(self)
+	self.done = false
 	self.text = ""
 	self.last_text_update = 0.0;
 	self.target_text = nil
@@ -19,6 +20,8 @@ function update(self, dt)
 		gui.set_text(gui.get_node("speech"), self.text)
 		self.target_index = self.target_index + 1
 		self.last_text_update = 0.0
+	else
+		self.done = true
 	end
 	self.last_text_update = self.last_text_update + dt
 end
@@ -35,7 +38,13 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash("click") and action.released == true then
 		if gui.pick_node(gui.get_node("box"), action.x, action.y) then
-			msg.post(self.parent, "delete")
+			if self.done then
+				print("clicked!")
+				print(self.done)
+				msg.post(self.parent, "delete")
+			else
+				self.text = self.target_text
+			end
 		end
 	end
 end

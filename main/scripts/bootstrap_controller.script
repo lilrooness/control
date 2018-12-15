@@ -17,7 +17,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start") then
-		monarch.show(hash("level_1"))
+		monarch.show(hash("intro"))
 	end
 end
 
