@@ -1,5 +1,7 @@
 local monarch = require("monarch.monarch")
 
+go.property("start", hash("intro"))
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#", "start")
@@ -17,7 +19,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("start") then
-		monarch.show(hash("intro_2"))
+		monarch.show(self.start)
 	end
 end
 
