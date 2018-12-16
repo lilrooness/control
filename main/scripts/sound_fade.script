@@ -25,7 +25,6 @@ function on_message(self, message_id, message, sender)
 		
 		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, message.target_gain, go.EASING_LINEAR, TIME, DELAY,
 		function()
-			print("finished fading")
 			self.fading = false
 			msg.post(sender, "fade_in_complete")
 		end)
