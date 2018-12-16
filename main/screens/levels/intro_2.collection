@@ -1,4 +1,4 @@
-name: "intro"
+name: "intro_2"
 instances {
   id: "bloom_render_target"
   prototype: "/main/objects/bloom_render_target.go"
@@ -21,28 +21,10 @@ instances {
 }
 scale_along_z: 0
 embedded_instances {
-  id: "intro"
+  id: "go"
   data: "components {\n"
-  "  id: \"intro\"\n"
-  "  component: \"/main/scripts/level_scripts/intro.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"factory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/objects/textbox_gui_obj.go\\\"\\n"
-  "load_dynamically: false\\n"
-  "\"\n"
+  "  id: \"empty\"\n"
+  "  component: \"/main/guis/empty.gui\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
@@ -74,7 +56,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "alarm_sound_muffled"
+  id: "ambiance"
   data: "components {\n"
   "  id: \"sound_fade\"\n"
   "  component: \"/main/scripts/sound_fade.script\"\n"
@@ -93,7 +75,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"sound\"\n"
   "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/assets/sfx/evac_alarm_muffled.wav\\\"\\n"
+  "  data: \"sound: \\\"/assets/sfx/ship_ambiance.wav\\\"\\n"
   "looping: 1\\n"
   "group: \\\"master\\\"\\n"
   "gain: 1.0\\n"
@@ -129,15 +111,10 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "alarm_sound"
-  data: "embedded_components {\n"
-  "  id: \"sound\"\n"
-  "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/assets/sfx/evac_alarm.wav\\\"\\n"
-  "looping: 1\\n"
-  "group: \\\"master\\\"\\n"
-  "gain: 1.0\\n"
-  "\"\n"
+  id: "script"
+  data: "components {\n"
+  "  id: \"intro_2\"\n"
+  "  component: \"/main/scripts/level_scripts/intro_2.script\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"

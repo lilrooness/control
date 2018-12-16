@@ -27,6 +27,7 @@ function on_message(self, message_id, message, sender)
 		function()
 			print("finished fading")
 			self.fading = false
+			msg.post(sender, "fade_in_complete")
 		end)
 	end
 
@@ -36,15 +37,17 @@ function on_message(self, message_id, message, sender)
 		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR, TIME, DELAY,
 		function()
 			self.fading = false
+			msg.post(sender, "fade_out_complete")
 		end)
 	end
 
-	if message_id == hash("change") then
+	if message_id == hash("fade_change") then
 		self.fading = true
 
 		go.animate("#", "gain", go.PLAYBACK_ONCE_FORWARD, message.target_gain, go.EASING_LINEAR, TIME, DELAY,
 		function()
 			self.fading = false
+			msg.post(sender, "fade_change_complete")
 		end)
 	end
 end

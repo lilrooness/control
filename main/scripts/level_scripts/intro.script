@@ -1,3 +1,4 @@
+local monarch = require("monarch.monarch")
 local ps = require("main.modules.pubsub")
 
 function init(self)
@@ -18,6 +19,8 @@ function init(self)
 	self.textNumber = 1
 
 	msg.post(":/alarm_sound_muffled#sound_fade", "fade_in", {target_gain = 0.05})
+
+	self.numberOfTexts = table_length(self.texts)
 	
 end
 
@@ -39,12 +42,21 @@ function on_message(self, message_id, message, sender)
 	end
 
 	if message_id == hash("next_text") then
-		if self.textNumber == 3 then
-			msg.post(":/alarm_sound_muffled#sound_fade", "change", {target_gain = 0.3})
+
+		if self.textNumber > self.numberOfTexts then
+			msg.post(":/alarm_sound_muffled#sound_fade", "fade_out")
+		else	
+			if self.textNumber == 3 then
+				msg.post(":/alarm_sound_muffled#sound_fade", "fade_change", {target_gain = 0.3})
+			end
+			textbox = factory.create("#factory")
+			msg.post(textbox, "text", {name = "", text = self.texts[self.textNumber], parent_obj = textbox})
+			self.textNumber = self.textNumber + 1
 		end
-		textbox = factory.create("#factory")
-		msg.post(textbox, "text", {name = "", text = self.texts[self.textNumber], parent_obj = textbox})
-		self.textNumber = self.textNumber + 1
+	end
+
+	if message_id == hash("fade_out_complete") then
+		monarch.show("intro_2")
 	end
 end
 
@@ -56,4 +68,10 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
+end
+
+function table_length(T)
+	local count = 0
+	for _ in pairs(T) do count = count + 1 end
+	return count
 end
