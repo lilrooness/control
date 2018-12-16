@@ -1,7 +1,8 @@
 local M = {}
 
 local state = {
-	textbox = {}
+	textbox = {},
+	objects = {}
 }
 
 function M.subscribe(queue, id)
@@ -13,9 +14,7 @@ function M.create_queue(queue)
 end
 
 function M.publish(queue, message)
-	print("publishing messages ...")
 	for i, v in ipairs(state[queue]) do
-		print(v)
 		msg.post(v, queue, message)
 	end
 end

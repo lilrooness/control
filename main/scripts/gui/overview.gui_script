@@ -1,3 +1,5 @@
+ov_state = require("main.modules.overview_screen")
+
 function init(self)
 	self.menu_nodes = {
 		hash("main_deck"),
@@ -12,6 +14,7 @@ function init(self)
 	self.selected = 1
 
 	msg.post(".", "acquire_input_focus")
+	ov_state.set(self.menu_nodes[self.selected], true)
 end
 
 function final(self)
@@ -25,15 +28,16 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("down") and action.pressed and self.selected < self.menu_nodes_length then
+		ov_state.set(self.menu_nodes[self.selected], false)
 		self.selected = self.selected + 1
 		select_new_node(self)
 	elseif action_id == hash("up") and action.pressed and self.selected > 1 then
+		ov_state.set(self.menu_nodes[self.selected], false)
 		self.selected = self.selected - 1
 		select_new_node(self)
 	end
@@ -43,6 +47,7 @@ function select_new_node(self)
 	local selected_node_y = gui.get_position(gui.get_node(self.menu_nodes[self.selected])).y
 	gui.animate(gui.get_node("selection"), "position.y", selected_node_y, gui.EASING_LINEAR, 0.1)
 	msg.post(":/menu_sounds#440", "play_sound")
+	ov_state.set(self.menu_nodes[self.selected], true)
 end
 
 function on_reload(self)

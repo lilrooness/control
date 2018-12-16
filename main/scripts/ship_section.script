@@ -1,0 +1,57 @@
+ov_state = require("main.modules.overview_screen")
+
+go.property("section_type", hash("main_deck"))
+go.property("offline", false)
+go.property("partial_operation", false)
+go.property("selected_color", vmath.vector4(0.1, 0.1, 0.1, 1.0))
+
+function init(self)
+
+	if self.offline then
+		self.selected_color = vmath.vector4(0.25, 0.0, 0.0, 1.0)
+		label.set_text("#label", "OFFLINE")
+	elseif self.partial_operation then
+		self.selected_color = vmath.vector4(0.2, 0.2, 0.0, 1.0)
+		label.set_text("#label", "PARTIAL")
+	else
+		self.selected_color = vmath.vector4(0.15, 0.15, 0.15, 1.0)
+		label.set_text("#label", "NORMAL")
+	end
+	
+	msg.post("#label", "disable")
+	self.on = false
+	go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_PINGPONG, self.selected_color, go.EASING_LINEAR, 1)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	if self.on and not ov_state.get(self.section_type) then
+		sprite.set_constant('#sprite', "selected", vmath.vector4(0,0,0,0))
+		msg.post("#label", "disable")
+		self.on = false
+	end
+
+	if not self.on and ov_state.get(self.section_type) then
+		sprite.set_constant('#sprite', "selected", vmath.vector4(1, 0, 0, 0))
+		msg.post("#label", "enable")
+		self.on = true
+	end
+end
+
+function on_message(self, message_id, message, sender)
+
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

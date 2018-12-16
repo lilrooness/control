@@ -19,6 +19,427 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "ship_section"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 465.0
+    y: 571.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "main_deck"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section1"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 233.0
+    y: 454.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section2"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 349.0
+    y: 454.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section3"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 464.0
+    y: 454.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "partial_operation"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section4"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 579.0
+    y: 454.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section5"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 696.0
+    y: 454.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section6"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 351.0
+    y: 338.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "atmosphere"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "partial_operation"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section7"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 466.0
+    y: 338.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "fuel"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "partial_operation"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section8"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 581.0
+    y: 338.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "fuel"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "partial_operation"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section9"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 696.0
+    y: 338.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "engines"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section10"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 813.0
+    y: 338.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "engines"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "partial_operation"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section11"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 466.0
+    y: 222.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "chriopods"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section12"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 581.0
+    y: 222.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "chriopods"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "offline"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "ship_section13"
+  prototype: "/main/objects/ship_section.go"
+  position {
+    x: 698.0
+    y: 222.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "ship_section"
+    properties {
+      id: "section_type"
+      value: "chriopods"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "partial_operation"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "go"
