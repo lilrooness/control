@@ -134,7 +134,7 @@ embedded_instances {
   "  }\n"
   "  properties {\n"
   "    id: \"start\"\n"
-  "    value: \"intro_2\"\n"
+  "    value: \"intro\"\n"
   "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
   "}\n"

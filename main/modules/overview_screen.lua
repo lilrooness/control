@@ -12,7 +12,6 @@ function M.set(name, on)
 	for i, v in ipairs(state) do
 		if v.name == name then
 			v.on = on
-			--state[i] = v
 		end
 	end
 end

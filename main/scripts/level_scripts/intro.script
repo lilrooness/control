@@ -25,8 +25,7 @@ function init(self)
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Remove this function if not needed
+	ps.clean("textbox")
 end
 
 function update(self, dt)
