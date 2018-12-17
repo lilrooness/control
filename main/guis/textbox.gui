@@ -69,7 +69,7 @@ nodes {
 }
 nodes {
   position {
-    x: -425.0
+    x: -469.0
     y: 85.0
     z: -1.0
     w: 1.0
@@ -105,7 +105,7 @@ nodes {
   id: "name"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_W
   outline {
     x: 1.0
     y: 1.0
@@ -133,7 +133,7 @@ nodes {
 nodes {
   position {
     x: -469.0
-    y: 15.0
+    y: 52.0
     z: 0.0
     w: 1.0
   }
@@ -168,7 +168,7 @@ nodes {
   id: "speech"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_W
+  pivot: PIVOT_NW
   outline {
     x: 1.0
     y: 1.0

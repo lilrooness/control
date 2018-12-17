@@ -1,6 +1,8 @@
 local ps = require("main.modules.pubsub")
 ov_state = require("main.modules.overview_screen")
 
+go.property("leaking_section", msg.url())
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("ambiance#sound_fade", "fade_in", {target_gain=1})
@@ -9,10 +11,38 @@ function init(self)
 
 	self.comms_created = false
 	self.comms_waiting = false
+	self.stop_text = false
 
 	self.texts = {
 		{text = "A speaker crackle rips the shocked silence", name = ""},
-		{text = "Hello? This is Emily Karnes, I'm in chriobay 3, is anyone recieving me? Over", name = "Emily"},
+		{text = "Hello? This is Emily Karnes, I'm in chriobay 3, is anyone recieving me? Over", name = "Radio Voice", callback = function()
+			msg.post(":/menu_sounds#static_blip", "play_sound")
+		end},
+		{text = "Emily, this is control responding. What is your status over", name = "You"},
+		{text = "Oh thank god! I thought my comms were down", name = "Emily"},
+		{text = "The power out. It's . . . ", name = "Emily"},
+		{text = "Her radio silence speaks words", name = ""},
+		{text = "It's a mess down here over", name = "Emily", callback = function()
+			msg.post(":/menu_sounds#static_blip", "play_sound")
+		end},
+		{text = "About twenty minutes ago there were a number of bolide strikes.", name = "you"},
+		{text = "It hit part of the main deck, one engine, it took out a fuel tank and completely disabled two chriobays", name = "you"},
+		{text = "Chriobay three is still partially operational, though we're still assessing the damage over", name = "you"},
+		{text = "The chrio pods are open but nobody's awake. They must have opened automatically", name = "Emily", callback = function()
+			msg.post(":/menu_sounds#static_blip", "play_sound")
+		end},
+		{text = "I don't . . . ", name = "Emily"},
+		{text = "", name = "Emily"},
+		{text = "I don't think anyone else made it down here over", name = "Emily", callback = function()
+			msg.post(":/menu_sounds#static_blip", "play_sound")
+		end},
+		{text = "Well, im still breathing, I think this room is secure over", name = "Emily", callback = function()
+			timer.delay(3, false, function()
+				--ov_state.set_alarm(self.leaking_section, true)
+				--ov_state.set_alarm(true)
+				--msg.post("menu_sounds#2_tone_alarm", "play_sound")
+			end)
+		end, stop = true}
 	}
 
 	self.textNumber = 1
@@ -27,7 +57,7 @@ function update(self, dt)
 	if not self.comms_created then
 		if ov_state.get(hash("chriopods")) then
 			self.comms_created = true
-			timer.delay(5, false, function()
+			timer.delay(1, false, function()
 				factory_position = go.get(":/comms_factory", "position")
 				factory.create(":/comms_factory#factory", factory_position, nil, {}, 0.15)
 				msg.post(":/menu_sounds#660", "play_sound")
@@ -38,7 +68,7 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("textbox") and not message.created then
+	if message_id == hash("textbox") and not message.created and not self.stop_text then
 		show_text(self)
 	end
 end
@@ -59,6 +89,14 @@ function show_text(self)
 	textbox = factory.create(":/textbox_factory#factory")
 	msg.post(textbox, "text", {text = text.text, name = text.name, parent_obj = textbox})
 	self.textNumber = self.textNumber + 1
+
+	if text.callback ~= nil then
+		text.callback()
+	end
+
+	if text.stop then
+		self.stop_text = true
+	end
 end
 
 function table_length(T)

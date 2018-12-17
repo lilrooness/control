@@ -26,5 +26,7 @@ void main()
 		result += texture(original, var_texcoord0 + vec2(0.0, tex_offset.y * i)).rgb * weight[i];
 		result += texture(original, var_texcoord0 - vec2(0.0, tex_offset.y * i)).rgb * weight[i];
 	}
-	gl_FragColor = vec4(result, 1.0);;
+	//gl_FragColor = vec4(result, 1.0);
+	gl_FragColor = texture2D(original, var_texcoord0.xy);
+	
 }

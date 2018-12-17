@@ -8,6 +8,8 @@ local state = {
 	{name = hash("chriopods"), on = false}
 }
 
+local alarm = false
+
 function M.set(name, on)
 	for i, v in ipairs(state) do
 		if v.name == name then
@@ -26,5 +28,12 @@ function M.get(name)
 	return false
 end
 
+function M.set_alarm(on)
+	alarm = true
+end
+
+function M.get_alarm()
+	return alarm
+end
 
 return M
