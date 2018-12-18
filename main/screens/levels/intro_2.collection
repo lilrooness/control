@@ -433,6 +433,11 @@ instances {
       value: "true"
       type: PROPERTY_TYPE_BOOLEAN
     }
+    properties {
+      id: "should_alarm"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
   }
   scale3 {
     x: 0.25
@@ -679,7 +684,7 @@ embedded_instances {
   "  data: \"sound: \\\"/assets/sfx/high_2_tone.wav\\\"\\n"
   "looping: 1\\n"
   "group: \\\"master\\\"\\n"
-  "gain: 0.5\\n"
+  "gain: 0.25\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"

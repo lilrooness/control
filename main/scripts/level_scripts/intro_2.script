@@ -1,5 +1,4 @@
 local ps = require("main.modules.pubsub")
-ov_state = require("main.modules.overview_screen")
 
 go.property("leaking_section", msg.url())
 
@@ -38,15 +37,16 @@ function init(self)
 		end},
 		{text = "Well, im still breathing, I think this room is secure over", name = "Emily", callback = function()
 			timer.delay(3, false, function()
-				--ov_state.set_alarm(self.leaking_section, true)
-				--ov_state.set_alarm(true)
-				--msg.post("menu_sounds#2_tone_alarm", "play_sound")
+				ov_state.set_alarm(self.leaking_section.path, true)
+				msg.post("menu_sounds#2_tone_alarm", "play_sound")
 			end)
 		end, stop = true}
 	}
 
 	self.textNumber = 1
 	self.numberOfTexts = table_length(self.texts)
+	print("Property:")
+	print(self.leaking_section.path)
 end
 
 function final(self)
@@ -57,7 +57,7 @@ function update(self, dt)
 	if not self.comms_created then
 		if ov_state.get(hash("chriopods")) then
 			self.comms_created = true
-			timer.delay(1, false, function()
+			timer.delay(3, false, function()
 				factory_position = go.get(":/comms_factory", "position")
 				factory.create(":/comms_factory#factory", factory_position, nil, {}, 0.15)
 				msg.post(":/menu_sounds#660", "play_sound")

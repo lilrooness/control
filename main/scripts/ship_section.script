@@ -1,5 +1,3 @@
-ov_state = require("main.modules.overview_screen")
-
 go.property("section_type", hash("main_deck"))
 go.property("offline", false)
 go.property("partial_operation", false)
@@ -8,24 +6,11 @@ go.property("should_alarm", false)
 
 function init(self)
 
-	if self.offline then
-		self.selected_color = vmath.vector4(0.25, 0.0, 0.0, 1.0)
-		label.set_text("#label", "OFFLINE")
-	elseif self.partial_operation then
-		self.selected_color = vmath.vector4(0.2, 0.2, 0.0, 1.0)
-		label.set_text("#label", "PARTIAL")
-	else
-		self.selected_color = vmath.vector4(0.15, 0.15, 0.15, 1.0)
-		label.set_text("#label", "NORMAL")
-	end
+	reset_selection_color(self)
 	
 	msg.post("#label", "disable")
 	self.on = false
-	self.leak_alarm = false
-
---	self.obj_url = msg.url()
---	self.obj_url.fragment = nil
---	print(self.obj_url)
+	self.alarm = false
 end
 
 function final(self)
@@ -34,32 +19,39 @@ function final(self)
 end
 
 function update(self, dt)
-	if self.on and not ov_state.get(self.section_type) then
+	if self.on and not ov_state.get(self.section_type) and not self.alarm then
 		sprite.set_constant('#sprite', "selected", vmath.vector4(0,0,0,0))
 		msg.post("#label", "disable")
 		self.on = false
 		go.cancel_animations("#sprite", "selected_color")
-		go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_PINGPONG, self.selected_color, go.EASING_LINEAR, 1)
 	end
 
-	if not self.on and ov_state.get(self.section_type) then
+	if not self.on and ov_state.get(self.section_type) and not self.alarm then
+		reset_selection_color(self)
 		sprite.set_constant('#sprite', "selected", vmath.vector4(1, 0, 0, 0))
 		msg.post("#label", "enable")
 		self.on = true
 		go.cancel_animations("#sprite", "selected_color")
-		go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_PINGPONG, self.selected_color, go.EASING_LINEAR, 1)
+		sprite.set_constant("#sprite", "selected_color", self.selected_color)
+		go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(0.0, 0.0, 0.0, 1.0), go.EASING_LINEAR, 1)
 	end
 	
----	if not self.leak_alarm and ov_state.get_alarm() and self.should_alarm then
----		print("SETTING THE ALARM")
----		self.selected_color = vmath.vector4(0.95, 0.96, 0.26, 1.0)
----		sprite.set_constant('#sprite', "selected", vmath.vector4(1, 0, 0, 0))
----		label.set_text("#label", "ATMOSPHERE")
----		msg.post("#label", "enable")
----		go.cancel_animations("#sprite", "selected_color")
----		go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_FORWARD, self.selected_color, go.EASING_LINEAR, 0)
----		self.leak_alarm = true
----	end
+	if not self.alarm and ov_state.get_alarm(go.get_id()) then
+		reset_selection_color(self)
+		label.set_text("#label", "ATMOSPHERE")
+		msg.post("#label", "enable")
+		go.cancel_animations("#sprite", "selected_color")
+		sprite.set_constant('#sprite', "selected", vmath.vector4(1, 0, 0, 0))
+		sprite.set_constant("#sprite", "selected_color", vmath.vector4(0.95, 0.96, 0.26, 1.0))
+		go.animate("#sprite", "selected_color", go.PLAYBACK_LOOP_FORWARD, vmath.vector4(0.0, 0.0, 0.0, 1.0), go.EASING_LINEAR, 0.5)
+		self.alarm = true
+		self.on = false
+	end
+
+	if self.alarm and not ov_state.get_alarm(go.get_id()) then
+		go.cancel_animations("#sprite", "selected_color")
+		self.alarm = false
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -74,4 +66,17 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
+end
+
+function reset_selection_color(self)
+	if self.offline then
+		self.selected_color = vmath.vector4(0.25, 0.0, 0.0, 1.0)
+		label.set_text("#label", "OFFLINE")
+	elseif self.partial_operation then
+		self.selected_color = vmath.vector4(0.2, 0.2, 0.0, 1.0)
+		label.set_text("#label", "PARTIAL")
+	else
+		self.selected_color = vmath.vector4(0.15, 0.15, 0.15, 1.0)
+		label.set_text("#label", "NORMAL")
+	end
 end

@@ -8,7 +8,7 @@ local state = {
 	{name = hash("chriopods"), on = false}
 }
 
-local alarm = false
+local alarms = {}
 
 function M.set(name, on)
 	for i, v in ipairs(state) do
@@ -28,12 +28,12 @@ function M.get(name)
 	return false
 end
 
-function M.set_alarm(on)
-	alarm = true
+function M.set_alarm(id, on)
+	alarms[id] = on
 end
 
-function M.get_alarm()
-	return alarm
+function M.get_alarm(id)
+	return alarms[id]
 end
 
 return M
