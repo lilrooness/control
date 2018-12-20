@@ -9,7 +9,6 @@ function init(self)
 	ps.subscribe("textbox", go.get_id())
 
 	self.comms_created = false
-	self.comms_waiting = false
 	self.stop_text = false
 
 	self.texts = {
@@ -39,6 +38,7 @@ function init(self)
 			timer.delay(3, false, function()
 				ov_state.set_alarm(self.leaking_section.path, true)
 				msg.post("menu_sounds#2_tone_alarm", "play_sound")
+				--factory.create(":/alarm_factory#factory", go.get_position(go.get_id(":/alarm_factory")))
 			end)
 		end, stop = true}
 	}
@@ -59,9 +59,8 @@ function update(self, dt)
 			self.comms_created = true
 			timer.delay(3, false, function()
 				factory_position = go.get(":/comms_factory", "position")
-				factory.create(":/comms_factory#factory", factory_position, nil, {}, 0.15)
+				self.comms_alert_obj = factory.create(":/comms_factory#factory", factory_position, nil, {parent = msg.url()}, 0.15)
 				msg.post(":/menu_sounds#660", "play_sound")
-				self.comms_waiting = true
 			end)
 		end
 	end
@@ -71,12 +70,16 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("textbox") and not message.created and not self.stop_text then
 		show_text(self)
 	end
+
+	if self.comms_alert_obj and message_id == hash("comms_alert_selected") then
+		show_text(self)
+		go.delete(self.comms_alert_obj)
+		self.comms_alert_obj = nil
+	end
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("c") and action.pressed and self.comms_waiting then
-		show_text(self)
-	end
+
 end
 
 function on_reload(self)
