@@ -40,71 +40,11 @@ instances {
   }
 }
 instances {
-  id: "room_floor_grid"
-  prototype: "/main/objects/room_floor_grid.go"
-  position {
-    x: 641.0
-    y: 360.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 0.5
-    y: 0.5
-    z: 1.0
-  }
-}
-instances {
   id: "HUD_gui_obj"
   prototype: "/main/objects/HUD_gui_obj.go"
   position {
     x: 0.0
     y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-collection_instances {
-  id: "emily"
-  collection: "/main/collections/human_marker.collection"
-  position {
-    x: 484.0
-    y: 455.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 0.5
-    y: 0.5
-    z: 1.0
-  }
-}
-collection_instances {
-  id: "chriopod"
-  collection: "/main/collections/chriopod.collection"
-  position {
-    x: 322.0
-    y: 425.0
     z: 0.0
   }
   rotation {
@@ -193,6 +133,61 @@ embedded_instances {
   scale3 {
     x: 1.0
     y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "map_obj"
+  data: "components {\n"
+  "  id: \"level_1_tilemap\"\n"
+  "  component: \"/main/screens/levels/level_1/level_1_tilemap.tilemap\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"map_script\"\n"
+  "  component: \"/main/scripts/map_script.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"speed\"\n"
+  "    value: \"3.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 421.0
+    y: 610.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
     z: 1.0
   }
 }

@@ -1,0 +1,53 @@
+go.property("speed", 1)
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+
+	local xvel = 0
+	local yvel = 0
+	
+	if action_id == hash("up") then
+		yvel = yvel - self.speed
+	end
+
+	if action_id == hash("down") then
+		yvel = yvel + self.speed
+	end
+
+	if action_id == hash("left") then
+		xvel = xvel + self.speed
+	end
+
+	if action_id == hash("right") then
+		xvel = xvel - self.speed
+	end
+
+	local pos = go.get_position()
+	pos.y = pos.y + yvel
+	pos.x = pos.x + xvel
+	go.set_position(pos)
+	
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

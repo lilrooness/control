@@ -453,7 +453,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "CHRIO 1 - 8"
+  text: "CHRIO 1 - 3"
   font: "computer_font"
   id: "text3"
   xanchor: XANCHOR_NONE

@@ -5,37 +5,37 @@ images {
   image: "/assets/images/text_box.png"
 }
 images {
-  image: "/assets/images/new/full_room.png"
+  image: "/assets/images/full_room.png"
 }
 images {
-  image: "/assets/images/new/half_room.png"
+  image: "/assets/images/half_room.png"
 }
 images {
-  image: "/assets/images/new/heart_container.png"
+  image: "/assets/images/heart_container.png"
 }
 images {
-  image: "/assets/images/new/human_marker.png"
+  image: "/assets/images/human_marker.png"
 }
 images {
-  image: "/assets/images/new/quarter_room.png"
+  image: "/assets/images/quarter_room.png"
 }
 images {
-  image: "/assets/images/new/lecy_on.png"
+  image: "/assets/images/lecy_on.png"
 }
 images {
-  image: "/assets/images/new/rad_warn.png"
+  image: "/assets/images/rad_warn.png"
 }
 images {
-  image: "/assets/images/new/x.png"
+  image: "/assets/images/x.png"
 }
 images {
-  image: "/assets/images/new/chriopod.png"
+  image: "/assets/images/chriopod.png"
 }
 images {
-  image: "/assets/images/new/grid.png"
+  image: "/assets/images/grid.png"
 }
 images {
-  image: "/assets/images/new/red_dot.png"
+  image: "/assets/images/red_dot.png"
 }
 margin: 0
 extrude_borders: 2
