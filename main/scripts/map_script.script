@@ -4,7 +4,11 @@ go.property("start", vmath.vector3())
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	--set_alarm(self, self.start.x, self.start.y)
+	start_pos = tile_pos(self, self.start.x, self.start.y)
+	emily = collectionfactory.create(":/emily_factory#collectionfactory", vmath.vector3(start_pos.x, start_pos.y, 1))
+	msg.post(emily["/human_marker_obj"], "set_parent", {parent_id = go.get_id()})
+	
+	set_alarm(self, self.start.x, self.start.y)
 end
 
 function final(self)
@@ -64,8 +68,8 @@ end
 function tile_pos(self, x, y)
 	pos = go.get_position()
 	scale = go.get_scale()
-	xpos = x * self.tilesize * scale.x + pos.x
-	ypos = y * self.tilesize * scale.y + pos.y
+	xpos = ((x - 1) * self.tilesize * scale.x + pos.x)
+	ypos = ((y - 1)* self.tilesize * scale.y + pos.y)
 
 	return {x = xpos, y = ypos};
 end
