@@ -1,7 +1,10 @@
 go.property("speed", 1)
+go.property("tilesize", 128)
+go.property("start", vmath.vector3())
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	--set_alarm(self, self.start.x, self.start.y)
 end
 
 function final(self)
@@ -50,4 +53,19 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
+end
+
+function set_alarm(self, x, y)
+	target = tile_pos(self, x, y)
+	o = factory.create("#alarm_overlay_factory", vmath.vector3(target.x, target.y, 1))
+	msg.post(o, "set_parent", {parent_id = go.get_id()})
+end
+
+function tile_pos(self, x, y)
+	pos = go.get_position()
+	scale = go.get_scale()
+	xpos = x * self.tilesize * scale.x + pos.x
+	ypos = y * self.tilesize * scale.y + pos.y
+
+	return {x = xpos, y = ypos};
 end

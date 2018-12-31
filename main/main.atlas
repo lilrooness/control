@@ -37,6 +37,9 @@ images {
 images {
   image: "/assets/images/red_dot.png"
 }
+images {
+  image: "/assets/images/blank_128.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0
