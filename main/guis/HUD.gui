@@ -15,7 +15,7 @@ background_color {
 }
 nodes {
   position {
-    x: 866.0
+    x: 953.0
     y: 696.0
     z: 0.0
     w: 1.0
@@ -27,8 +27,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 0.25
+    y: 0.25
     z: 1.0
     w: 1.0
   }
@@ -46,9 +46,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "[R]oom"
+  text: "[D]oors"
   font: "computer_font"
-  id: "room_info"
+  id: "doors"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -77,7 +77,7 @@ nodes {
 }
 nodes {
   position {
-    x: 995.0
+    x: 1020.0
     y: 696.0
     z: 0.0
     w: 1.0
@@ -89,8 +89,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 0.25
+    y: 0.25
     z: 1.0
     w: 1.0
   }
@@ -108,9 +108,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "[M]ap"
+  text: "[R]ooms"
   font: "computer_font"
-  id: "text"
+  id: "rooms"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER

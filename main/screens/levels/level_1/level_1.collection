@@ -20,8 +20,8 @@ instances {
   }
 }
 instances {
-  id: "mouse"
-  prototype: "/main/objects/mouse.go"
+  id: "HUD_gui_obj"
+  prototype: "/main/objects/HUD_gui_obj.go"
   position {
     x: 0.0
     y: 0.0
@@ -40,11 +40,11 @@ instances {
   }
 }
 instances {
-  id: "HUD_gui_obj"
-  prototype: "/main/objects/HUD_gui_obj.go"
+  id: "d1"
+  prototype: "/main/objects/door_label.go"
   position {
-    x: 0.0
-    y: 0.0
+    x: 289.0
+    y: -450.0
     z: 0.0
   }
   rotation {
@@ -53,9 +53,365 @@ instances {
     z: 0.0
     w: 1.0
   }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "scale_to"
+      value: "1.5, 1.5, 1.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_tile"
+      value: "2.0, -3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d2"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 446.0
+    y: -613.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "4.0, -5.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d4"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 448.0
+    y: -271.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "scale_to"
+      value: "1.5, 1.5, 1.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_tile"
+      value: "4.0, -1.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d3"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 616.0
+    y: -449.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "6.0, -3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d5"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 65.0
+    y: 240.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d10"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 961.0
+    y: 791.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "scale_to"
+      value: "1.5, 1.5, 1.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "10.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d6"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 448.0
+    y: 240.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "6.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d7"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 834.0
+    y: 240.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d8"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: -60.0
+    y: 782.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "scale_to"
+      value: "1.5, 1.5, 1.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "8.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d9"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 450.0
+    y: 625.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "9.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d12"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 448.0
+    y: 1131.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "9.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d11"
+  prototype: "/main/objects/door_label.go"
+  position {
+    x: 450.0
+    y: 914.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "scale_to"
+      value: "1.5, 1.5, 1.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "10.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
     z: 1.0
   }
 }
@@ -138,7 +494,18 @@ embedded_instances {
 }
 embedded_instances {
   id: "map_obj"
-  children: "door_labels"
+  children: "d1"
+  children: "d10"
+  children: "d11"
+  children: "d12"
+  children: "d2"
+  children: "d3"
+  children: "d4"
+  children: "d5"
+  children: "d6"
+  children: "d7"
+  children: "d8"
+  children: "d9"
   children: "room_labels"
   data: "components {\n"
   "  id: \"level_1_tilemap\"\n"
@@ -202,674 +569,6 @@ embedded_instances {
   position {
     x: 110.0
     y: 899.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "door_labels"
-  data: "embedded_components {\n"
-  "  id: \"d2\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d2\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 448.0\n"
-  "    y: -606.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d4\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d4\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 448.0\n"
-  "    y: -235.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d1\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d1\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 286.0\n"
-  "    y: -448.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d3\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d3\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 615.0\n"
-  "    y: -445.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d8\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d8\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 994.0\n"
-  "    y: 706.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d5\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d5\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 448.0\n"
-  "    y: 410.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d6\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d6\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 65.0\n"
-  "    y: 283.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d7\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d7\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 822.0\n"
-  "    y: 290.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d12\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d12\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 447.0\n"
-  "    y: 1130.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d9\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d9\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -62.0\n"
-  "    y: 733.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d10\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d10\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 445.0\n"
-  "    y: 922.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"d11\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.7019608\\n"
-  "  y: 0.101960786\\n"
-  "  z: 0.101960786\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"d11\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 447.0\n"
-  "    y: 667.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
     z: 0.0
   }
   rotation {
@@ -983,8 +682,8 @@ embedded_instances {
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
   "  position {\n"
-  "    x: 619.0\n"
-  "    y: -788.0\n"
+  "    x: 627.0\n"
+  "    y: -914.0\n"
   "    z: 0.0\n"
   "  }\n"
   "  rotation {\n"
@@ -1073,6 +772,61 @@ embedded_instances {
   "  type: \"collectionfactory\"\n"
   "  data: \"prototype: \\\"/main/collections/human_marker.collection\\\"\\n"
   "load_dynamically: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "sound"
+  data: "components {\n"
+  "  id: \"sound_fade\"\n"
+  "  component: \"/main/scripts/sound_fade.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sound\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/sfx/fridge-ambiance_downsampled.wav\\\"\\n"
+  "looping: 1\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 1.0\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"

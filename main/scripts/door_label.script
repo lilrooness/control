@@ -1,0 +1,84 @@
+go.property("selected", false)
+go.property("scale_to", vmath.vector3(2,2,1))
+go.property("door_tile", vmath.vector3())
+go.property("selected_color", vmath.vector4(1,1,1,1))
+go.property("door_number", 1)
+go.property("open", false)
+
+go.property("closed_tile", 33)
+go.property("open_tile", 53)
+
+function init(self)
+	label.set_text("#label", "d"..tostring(self.door_number))
+	msg.post(".", "acquire_input_focus")
+	if self.open then
+		open_door(self)
+	else
+		close_door(self)
+	end
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+
+	if not self.selected and map_state.doors_selected() then
+		self.selected = true
+		label.set_text("#label", tostring(self.door_number))
+		local tmp_scale = self.scale_to
+		scale = go.get("#label", "scale")
+		self.scale_to = scale
+		go.set("#label", "scale", tmp_scale)
+
+		local tmp_color = self.selected_color
+		color = go.get("#label", "color")
+		self.selected_color = color
+		go.set("#label", "color", tmp_color)
+	elseif self.selected and not map_state.doors_selected() then
+		self.selected = false
+		label.set_text("#label", "d"..tostring(self.door_number))
+		local tmp_scale = self.scale_to
+		scale = go.get("#label", "scale")
+		self.scale_to = scale
+		go.set("#label", "scale", tmp_scale)
+
+		local tmp_color = self.selected_color
+		color = go.get("#label", "color")
+		self.selected_color = color
+		go.set("#label", "color", tmp_color)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	if self.selected and action_id == hash("text") and hash(action.text) == hash(tostring(self.door_number)) then
+		if not self.open then
+			open_door(self)
+		else
+			close_door(self)
+		end
+		map_state.select_doors(false)
+	end
+end
+
+function open_door(self)
+	self.open = true
+	tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.open_tile)
+end
+
+function close_door(self)
+	self.open = false
+	tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.closed_tile)
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
