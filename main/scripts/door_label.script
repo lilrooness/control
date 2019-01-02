@@ -37,6 +37,7 @@ function update(self, dt)
 		color = go.get("#label", "color")
 		self.selected_color = color
 		go.set("#label", "color", tmp_color)
+		
 	elseif self.selected and not map_state.doors_selected() then
 		self.selected = false
 		label.set_text("#label", "d"..tostring(self.door_number))
@@ -49,6 +50,7 @@ function update(self, dt)
 		color = go.get("#label", "color")
 		self.selected_color = color
 		go.set("#label", "color", tmp_color)
+		
 	end
 end
 
@@ -61,8 +63,10 @@ function on_input(self, action_id, action)
 	if self.selected and action_id == hash("text") and hash(action.text) == hash(tostring(self.door_number)) then
 		if not self.open then
 			open_door(self)
+			msg.post(":/sound#660", "play_sound")
 		else
 			close_door(self)
+			msg.post(":/sound#440", "play_sound")
 		end
 		map_state.select_doors(false)
 	end

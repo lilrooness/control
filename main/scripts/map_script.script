@@ -30,6 +30,7 @@ function on_input(self, action_id, action)
 
 	if action_id == hash("d") and action.pressed then
 		map_state.select_doors(not map_state.doors_selected())
+		msg.post(":/sound#440_660", "play_sound")
 	end
 	
 	local xvel = 0

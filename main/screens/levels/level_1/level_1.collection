@@ -193,6 +193,11 @@ instances {
   component_properties {
     id: "door_label"
     properties {
+      id: "door_tile"
+      value: "1.0, 3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
       id: "door_number"
       value: "5.0"
       type: PROPERTY_TYPE_NUMBER
@@ -226,6 +231,11 @@ instances {
       type: PROPERTY_TYPE_VECTOR3
     }
     properties {
+      id: "door_tile"
+      value: "8.0, 6.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
       id: "door_number"
       value: "10.0"
       type: PROPERTY_TYPE_NUMBER
@@ -254,6 +264,11 @@ instances {
   component_properties {
     id: "door_label"
     properties {
+      id: "door_tile"
+      value: "4.0, 3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
       id: "door_number"
       value: "6.0"
       type: PROPERTY_TYPE_NUMBER
@@ -281,6 +296,11 @@ instances {
   }
   component_properties {
     id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "7.0, 3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
     properties {
       id: "door_number"
       value: "7.0"
@@ -315,6 +335,11 @@ instances {
       type: PROPERTY_TYPE_VECTOR3
     }
     properties {
+      id: "door_tile"
+      value: "0.0, 6.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
       id: "door_number"
       value: "8.0"
       type: PROPERTY_TYPE_NUMBER
@@ -342,6 +367,11 @@ instances {
   }
   component_properties {
     id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "4.0, 6.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
     properties {
       id: "door_number"
       value: "9.0"
@@ -827,6 +857,66 @@ embedded_instances {
   "looping: 1\\n"
   "group: \\\"master\\\"\\n"
   "gain: 1.0\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"440\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/sfx/menu/440.wav\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 0.15\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"660\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/sfx/menu/660.wav\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 0.15\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"440_660\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/sfx/menu/440_660.wav\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 0.15\\n"
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"
