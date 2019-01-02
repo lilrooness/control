@@ -41,7 +41,7 @@ instances {
 }
 instances {
   id: "d1"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 289.0
     y: -450.0
@@ -74,7 +74,7 @@ instances {
 }
 instances {
   id: "d2"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 446.0
     y: -613.0
@@ -107,7 +107,7 @@ instances {
 }
 instances {
   id: "d4"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 448.0
     y: -271.0
@@ -145,7 +145,7 @@ instances {
 }
 instances {
   id: "d3"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 616.0
     y: -449.0
@@ -169,6 +169,16 @@ instances {
       value: "3.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "room1"
+      value: ":/r3"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: ":/r4"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -178,7 +188,7 @@ instances {
 }
 instances {
   id: "d5"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 65.0
     y: 240.0
@@ -211,7 +221,7 @@ instances {
 }
 instances {
   id: "d10"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 961.0
     y: 791.0
@@ -249,7 +259,7 @@ instances {
 }
 instances {
   id: "d6"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 448.0
     y: 240.0
@@ -282,7 +292,7 @@ instances {
 }
 instances {
   id: "d7"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 834.0
     y: 240.0
@@ -315,7 +325,7 @@ instances {
 }
 instances {
   id: "d8"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: -60.0
     y: 782.0
@@ -353,7 +363,7 @@ instances {
 }
 instances {
   id: "d9"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 450.0
     y: 625.0
@@ -386,7 +396,7 @@ instances {
 }
 instances {
   id: "d12"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 448.0
     y: 1131.0
@@ -419,7 +429,7 @@ instances {
 }
 instances {
   id: "d11"
-  prototype: "/main/objects/door_label.go"
+  prototype: "/main/objects/door_proxy.go"
   position {
     x: 450.0
     y: 914.0
@@ -448,6 +458,94 @@ instances {
       value: "11.0"
       type: PROPERTY_TYPE_NUMBER
     }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r3"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 990.0
+    y: -278.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r4"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 570.0
+    y: -402.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r1"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: -59.0
+    y: -276.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r2"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 589.0
+    y: -914.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 0.25
@@ -546,6 +644,10 @@ embedded_instances {
   children: "d7"
   children: "d8"
   children: "d9"
+  children: "r1"
+  children: "r2"
+  children: "r3"
+  children: "r4"
   children: "room_labels"
   data: "components {\n"
   "  id: \"level_1_tilemap\"\n"
@@ -608,7 +710,7 @@ embedded_instances {
   ""
   position {
     x: 110.0
-    y: -559.0
+    y: 875.0
     z: 0.0
   }
   rotation {

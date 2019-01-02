@@ -1,6 +1,6 @@
 components {
   id: "door_label"
-  component: "/main/scripts/door_label.script"
+  component: "/main/scripts/door_proxy.script"
   position {
     x: 0.0
     y: 0.0

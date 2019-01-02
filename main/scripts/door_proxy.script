@@ -5,6 +5,9 @@ go.property("selected_color", vmath.vector4(1,1,1,1))
 go.property("door_number", 1)
 go.property("open", false)
 
+go.property("room1", msg.url())
+go.property("room2", msg.url())
+
 go.property("closed_tile", 33)
 go.property("open_tile", 53)
 
