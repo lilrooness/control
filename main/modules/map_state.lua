@@ -2,8 +2,34 @@ local M = {}
 
 local state = {
 	doors = false,
-	rooms = false
+	rooms = false,
+	ids = {
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8",
+		"9",
+		"0",
+		"a",
+		"b",
+		"c",
+		"e",
+		"f",
+		"g",
+		"h",
+		"i",
+		"j",
+		"k"
+	}
 }
+
+function M.get_door_id(n)
+	return state.ids[n]
+end
 
 function M.select_doors(selected)
 	state.doors = selected
