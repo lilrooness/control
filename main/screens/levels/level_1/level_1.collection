@@ -65,6 +65,16 @@ instances {
       value: "2.0, -3.0, 0.0"
       type: PROPERTY_TYPE_VECTOR3
     }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -171,12 +181,12 @@ instances {
     }
     properties {
       id: "room1"
-      value: ":/r3"
+      value: "/r3#room_proxy"
       type: PROPERTY_TYPE_URL
     }
     properties {
       id: "room2"
-      value: ":/r4"
+      value: "/r4#room_proxy"
       type: PROPERTY_TYPE_URL
     }
   }
@@ -469,7 +479,7 @@ instances {
   id: "r3"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 990.0
+    x: 956.0
     y: -278.0
     z: 0.0
   }
@@ -503,7 +513,7 @@ instances {
     id: "room_proxy"
     properties {
       id: "pressure"
-      value: "0.0"
+      value: "100.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -517,7 +527,7 @@ instances {
   id: "r1"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: -59.0
+    x: -81.0
     y: -276.0
     z: 0.0
   }
@@ -526,6 +536,14 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
   scale3 {
     x: 0.25
@@ -537,7 +555,7 @@ instances {
   id: "r2"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 589.0
+    x: 569.0
     y: -914.0
     z: 0.0
   }
@@ -546,6 +564,14 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
   scale3 {
     x: 0.25
