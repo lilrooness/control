@@ -27,7 +27,7 @@ local state = {
 	}
 }
 
-function M.get_door_id(n)
+function M.get_display_id(n)
 	return state.ids[n]
 end
 

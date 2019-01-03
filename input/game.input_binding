@@ -26,6 +26,10 @@ key_trigger {
   input: KEY_D
   action: "d"
 }
+key_trigger {
+  input: KEY_R
+  action: "r"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "click"

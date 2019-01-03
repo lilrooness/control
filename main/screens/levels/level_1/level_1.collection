@@ -247,6 +247,16 @@ instances {
       value: "5.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "room1"
+      value: "/r6#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -285,6 +295,16 @@ instances {
       value: "10.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "room1"
+      value: "/r7#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r8#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -318,6 +338,16 @@ instances {
       value: "6.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "room1"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r9#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -350,6 +380,16 @@ instances {
       id: "door_number"
       value: "7.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r7#room_proxy"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -388,6 +428,16 @@ instances {
       id: "door_number"
       value: "8.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r6#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r8#room_proxy"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -504,7 +554,7 @@ instances {
   id: "r3"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 956.0
+    x: 1019.0
     y: -278.0
     z: 0.0
   }
@@ -532,8 +582,8 @@ instances {
   id: "r4"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 570.0
-    y: -402.0
+    x: 542.0
+    y: -408.0
     z: 0.0
   }
   rotation {
@@ -565,8 +615,8 @@ instances {
   id: "r1"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: -81.0
-    y: -276.0
+    x: -129.0
+    y: -290.0
     z: 0.0
   }
   rotation {
@@ -598,8 +648,8 @@ instances {
   id: "r2"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 569.0
-    y: -914.0
+    x: 424.0
+    y: -1126.0
     z: 0.0
   }
   rotation {
@@ -631,7 +681,7 @@ instances {
   id: "r5"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 707.0
+    x: 670.0
     y: -95.0
     z: 0.0
   }
@@ -664,7 +714,7 @@ instances {
   id: "r6"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: -220.0
+    x: -210.0
     y: 417.0
     z: 0.0
   }
@@ -697,7 +747,7 @@ instances {
   id: "r7"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 1095.0
+    x: 1054.0
     y: 417.0
     z: 0.0
   }
@@ -730,7 +780,7 @@ instances {
   id: "r8"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 589.0
+    x: 548.0
     y: 998.0
     z: 0.0
   }
@@ -763,7 +813,7 @@ instances {
   id: "r9"
   prototype: "/main/objects/room_proxy.go"
   position {
-    x: 560.0
+    x: 576.0
     y: 727.0
     z: 0.0
   }
@@ -892,7 +942,6 @@ embedded_instances {
   children: "r7"
   children: "r8"
   children: "r9"
-  children: "room_labels"
   data: "components {\n"
   "  id: \"level_1_tilemap\"\n"
   "  component: \"/main/screens/levels/level_1/level_1_tilemap.tilemap\"\n"
@@ -954,189 +1003,7 @@ embedded_instances {
   ""
   position {
     x: 110.0
-    y: 875.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "room_labels"
-  data: "embedded_components {\n"
-  "  id: \"r3\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.5019608\\n"
-  "  y: 0.7019608\\n"
-  "  z: 0.5019608\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"r3\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 913.0\n"
-  "    y: -278.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"r2\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.5019608\\n"
-  "  y: 0.7019608\\n"
-  "  z: 0.5019608\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"r2\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 627.0\n"
-  "    y: -914.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"r1\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "  z: 0.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "scale {\\n"
-  "  x: 0.25\\n"
-  "  y: 0.25\\n"
-  "  z: 1.0\\n"
-  "  w: 0.0\\n"
-  "}\\n"
-  "color {\\n"
-  "  x: 0.5019608\\n"
-  "  y: 0.7019608\\n"
-  "  z: 0.5019608\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "outline {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "shadow {\\n"
-  "  x: 0.0\\n"
-  "  y: 0.0\\n"
-  "  z: 0.0\\n"
-  "  w: 1.0\\n"
-  "}\\n"
-  "leading: 1.0\\n"
-  "tracking: 0.0\\n"
-  "pivot: PIVOT_CENTER\\n"
-  "blend_mode: BLEND_MODE_ALPHA\\n"
-  "line_break: false\\n"
-  "text: \\\"r1\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: -20.0\n"
-  "    y: -276.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
+    y: 926.0
     z: 0.0
   }
   rotation {

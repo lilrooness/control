@@ -56,7 +56,7 @@ embedded_components {
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
-    x: 89.0
+    x: 257.0
     y: 10.0
     z: 0.0
   }
@@ -110,7 +110,7 @@ embedded_components {
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
-    x: -39.0
+    x: 129.0
     y: 10.0
     z: 0.0
   }
@@ -130,7 +130,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: -34.0
+    x: 134.0
     y: 0.0
     z: -1.0
   }
@@ -150,9 +150,63 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
-    x: 94.0
+    x: 262.0
     y: 0.0
     z: -1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "label"
+  type: "label"
+  data: "size {\n"
+  "  x: 128.0\n"
+  "  y: 32.0\n"
+  "  z: 0.0\n"
+  "  w: 0.0\n"
+  "}\n"
+  "scale {\n"
+  "  x: 0.9\n"
+  "  y: 0.9\n"
+  "  z: 1.0\n"
+  "  w: 0.0\n"
+  "}\n"
+  "color {\n"
+  "  x: 0.5019608\n"
+  "  y: 0.7019608\n"
+  "  z: 0.5019608\n"
+  "  w: 1.0\n"
+  "}\n"
+  "outline {\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
+  "  w: 1.0\n"
+  "}\n"
+  "shadow {\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
+  "  w: 1.0\n"
+  "}\n"
+  "leading: 1.0\n"
+  "tracking: 0.0\n"
+  "pivot: PIVOT_CENTER\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  "line_break: false\n"
+  "text: \"Rx\"\n"
+  "font: \"/main/computer_font.font\"\n"
+  "material: \"/builtins/fonts/label.material\"\n"
+  ""
+  position {
+    x: -100.0
+    y: 10.0
+    z: 0.0
   }
   rotation {
     x: 0.0
