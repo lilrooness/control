@@ -604,6 +604,11 @@ instances {
       value: "4.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "opened_doors"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
   scale3 {
     x: 0.25
@@ -634,6 +639,11 @@ instances {
     }
     properties {
       id: "room_number"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "opened_doors"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
     }

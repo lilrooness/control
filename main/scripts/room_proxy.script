@@ -3,6 +3,8 @@ local utils = require("main.modules.utils")
 go.property("pressure", 100)
 go.property("room_number", 0)
 
+go.property("opened_doors", 0)
+
 go.property("selected", false)
 go.property("scale_to", vmath.vector3(2,2,1))
 go.property("selected_color", vmath.vector4(1,1,1,1))
@@ -73,6 +75,14 @@ function on_message(self, message_id, message, sender)
 		go.animate("#room_proxy", "pressure", go.PLAYBACK_ONCE_FORWARD, message.pressure, go.EASING_LINEAR, 1, 0, function()
 			self.alarm = false -- force alarm animation to reset
 		end)
+	end
+
+	if message_id == hash("door_opened") then
+		self.opened_doors = self.opened_doors + 1
+	end
+
+	if message_id == hash("door_closed") then
+		self.opened_doors = self.opened_doors - 1
 	end
 end
 

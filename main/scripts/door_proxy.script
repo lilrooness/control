@@ -82,27 +82,28 @@ function open_door(self)
 	local room2_pressure = go.get(self.room2, "pressure")
 	
 	local difference = math.max(room1_pressure, room2_pressure) - math.min(room1_pressure, room2_pressure)
-	print(difference)
-	local new_pressure = math.min(room1_pressure, room2_pressure) + (difference/2)
 
-	if difference > 0 then
-		--msg.post(self.room1, "set_pressure", {pressure = new_pressure})
-		--msg.post(self.room2, "set_pressure", {pressure = new_pressure})
+	if difference > 0 and not self.open then
 		msg.post("#warning", "enable")
 		go.animate("#warning", "color", go.PLAYBACK_ONCE_FORWARD, vmath.vector4(1,1,1,1), vmath.vector({0,1,0,1,0}), 2, 0, function()
 			go.set("#warning", "color", vmath.vector4(1,0,0,1))
 			msg.post("#warning", "disable")
 		end)
 	else
+		msg.post(self.room1, "door_opened")
+		msg.post(self.room2, "door_opened")
 		self.open = true
 		tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.open_tile)
 	end
-	
 end
 
 function close_door(self)
-	self.open = false
-	tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.closed_tile)
+	if self.open then
+		msg.post(self.room1, "door_closed")
+		msg.post(self.room2, "door_closed")
+		self.open = false
+		tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.closed_tile)
+	end
 end
 
 function on_reload(self)
