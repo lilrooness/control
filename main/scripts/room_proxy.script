@@ -3,6 +3,10 @@ local utils = require("main.modules.utils")
 go.property("pressure", 100)
 go.property("room_number", 0)
 
+go.property("selected", false)
+go.property("scale_to", vmath.vector3(2,2,1))
+go.property("selected_color", vmath.vector4(1,1,1,1))
+
 function init(self)
 
 	self.alarm = false
@@ -10,6 +14,8 @@ function init(self)
 	-- Remove this function if not needed
 	sprite.set_constant("#bg1", "alarm_color", vmath.vector4(0,0,0,0))
 	sprite.set_constant("#bg2", "alarm_color", vmath.vector4(0,0,0,0))
+
+	label.set_text("#label", "R"..string.upper(map_state.get_display_id(self.room_number)))
 end
 
 function final(self)
@@ -33,6 +39,32 @@ function update(self, dt)
 	elseif self.pressure >= 100 and self.alarm then
 		reset_alarm_animations()
 		self.alarm = false
+	end
+
+	if not self.selected and map_state.rooms_selected() then
+		self.selected = true
+		label.set_text("#label", string.upper(map_state.get_display_id(self.room_number)))
+		local tmp_scale = self.scale_to
+		scale = go.get("#label", "scale")
+		self.scale_to = scale
+		go.set("#label", "scale", tmp_scale)
+
+		local tmp_color = self.selected_color
+		color = go.get("#label", "color")
+		self.selected_color = color
+		go.set("#label", "color", tmp_color)
+	elseif self.selected and not map_state.rooms_selected() then
+		self.selected = false
+		label.set_text("#label", "R"..string.upper(map_state.get_display_id(self.room_number)))
+		local tmp_scale = self.scale_to
+		scale = go.get("#label", "scale")
+		self.scale_to = scale
+		go.set("#label", "scale", tmp_scale)
+
+		local tmp_color = self.selected_color
+		color = go.get("#label", "color")
+		self.selected_color = color
+		go.set("#label", "color", tmp_color)
 	end
 end
 
