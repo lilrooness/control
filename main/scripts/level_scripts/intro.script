@@ -1,4 +1,3 @@
-local monarch = require("monarch.monarch")
 local ps = require("main.modules.pubsub")
 
 function init(self)

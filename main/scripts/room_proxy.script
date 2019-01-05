@@ -44,6 +44,7 @@ function update(self, dt)
 	end
 
 	if not self.selected and map_state.rooms_selected() then
+		msg.post(".", "acquire_input_focus")
 		self.selected = true
 		label.set_text("#label", string.upper(map_state.get_display_id(self.room_number)))
 		local tmp_scale = self.scale_to
@@ -56,6 +57,7 @@ function update(self, dt)
 		self.selected_color = color
 		go.set("#label", "color", tmp_color)
 	elseif self.selected and not map_state.rooms_selected() then
+		msg.post(".", "release_input_focus")
 		self.selected = false
 		label.set_text("#label", "R"..string.upper(map_state.get_display_id(self.room_number)))
 		local tmp_scale = self.scale_to
@@ -94,8 +96,10 @@ function reset_alarm_animations()
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+
+	if action_id == hash("text") and hash(action.text) == hash(map_state.get_display_id(self.room_number)) then
+		monarch.show("room_menu", {}, {url = msg.url(), room_number = self.room_number})
+	end
 end
 
 function on_reload(self)

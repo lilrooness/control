@@ -14,7 +14,6 @@ go.property("open_tile", 53)
 function init(self)
 	msg.post("#warning", "disable")
 	label.set_text("#label", "D"..string.upper(map_state.get_display_id(self.door_number)))
-	msg.post(".", "acquire_input_focus")
 	if self.open then
 		open_door(self)
 	else
@@ -30,6 +29,7 @@ end
 function update(self, dt)
 
 	if not self.selected and map_state.doors_selected() then
+		msg.post(".", "acquire_input_focus")
 		self.selected = true
 		label.set_text("#label", string.upper(map_state.get_display_id(self.door_number)))
 		local tmp_scale = self.scale_to
@@ -43,6 +43,7 @@ function update(self, dt)
 		go.set("#label", "color", tmp_color)
 		
 	elseif self.selected and not map_state.doors_selected() then
+		msg.post(".", "release_input_focus")
 		self.selected = false
 		label.set_text("#label", "D"..string.upper (map_state.get_display_id(self.door_number)))
 		local tmp_scale = self.scale_to
