@@ -3,13 +3,13 @@ local utils = require("main.modules.utils")
 go.property("pressure", 100)
 go.property("room_number", 0)
 
-go.property("opened_doors", 0)
-
 go.property("selected", false)
 go.property("scale_to", vmath.vector3(2,2,1))
 go.property("selected_color", vmath.vector4(1,1,1,1))
 
 function init(self)
+
+	self.opened_doors = 0
 
 	self.alarm = false
 	-- Add initialization code here
@@ -38,7 +38,7 @@ function update(self, dt)
 		self.alarm = true
 		go.animate("#bg1", "alarm_color", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(1, 1, 0, 1), go.EASING_LINEAR, 1)
 		go.animate("#bg2", "alarm_color", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(1, 1, 0, 1), go.EASING_LINEAR, 1)
-	elseif self.pressure >= 100 and self.alarm then
+	elseif self.pressure == 100 and self.alarm then
 		reset_alarm_animations()
 		self.alarm = false
 	end
@@ -76,15 +76,39 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("set_pressure") then
 		go.animate("#room_proxy", "pressure", go.PLAYBACK_ONCE_FORWARD, message.pressure, go.EASING_LINEAR, 1, 0, function()
 			self.alarm = false -- force alarm animation to reset
+
+			if message.pressure == 100 then
+				reset_alarm_animations() -- the alarm will continue if this is not called here
+			end
 		end)
 	end
 
 	if message_id == hash("door_opened") then
+		print("opened")
 		self.opened_doors = self.opened_doors + 1
 	end
 
 	if message_id == hash("door_closed") then
+		print(self.opened_doors)
 		self.opened_doors = self.opened_doors - 1
+	end
+
+	if message_id == hash("depressurise") then
+		if self.opened_doors == 0 then
+			msg.post("#room_proxy", "set_pressure", {pressure = 0})
+		else
+			-- alert: seal room
+		end
+	end
+
+	if message_id == hash("pressurise") then
+		print(self.opened_doors)
+		
+		if self.opened_doors == 0 then
+			msg.post("#room_proxy", "set_pressure", {pressure = 100})
+		else
+			-- alert: seal room
+		end
 	end
 end
 
@@ -98,6 +122,7 @@ end
 function on_input(self, action_id, action)
 
 	if action_id == hash("text") and hash(action.text) == hash(map_state.get_display_id(self.room_number)) then
+		msg.post(":/sound#660", "play_sound")
 		monarch.show("room_menu", {}, {url = msg.url(), room_number = self.room_number})
 	end
 end
