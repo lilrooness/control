@@ -84,12 +84,10 @@ function on_message(self, message_id, message, sender)
 	end
 
 	if message_id == hash("door_opened") then
-		print("opened")
 		self.opened_doors = self.opened_doors + 1
 	end
 
 	if message_id == hash("door_closed") then
-		print(self.opened_doors)
 		self.opened_doors = self.opened_doors - 1
 	end
 
@@ -102,12 +100,11 @@ function on_message(self, message_id, message, sender)
 	end
 
 	if message_id == hash("pressurise") then
-		print(self.opened_doors)
 		
 		if self.opened_doors == 0 then
 			msg.post("#room_proxy", "set_pressure", {pressure = 100})
 		else
-			-- alert: seal room
+			-- TODO: alert - seal room before depressurising
 		end
 	end
 end

@@ -95,6 +95,7 @@ function open_door(self)
 		msg.post(self.room2, "door_opened")
 		self.open = true
 		tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.open_tile)
+		map_state.door_opened_event(self.door_number)
 	end
 end
 
@@ -104,6 +105,7 @@ function close_door(self)
 		msg.post(self.room2, "door_closed")
 		self.open = false
 		tilemap.set_tile(":/map_obj#level_1_tilemap", "layer1", self.door_tile.x, self.door_tile.y, self.closed_tile)
+		map_state.door_closed_event(self.door_number)
 	end
 end
 

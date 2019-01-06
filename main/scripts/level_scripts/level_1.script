@@ -1,6 +1,5 @@
 function init(self)
-	-- Add initialization code here
-	-- Remove this function if not needed
+	map_state.set_level_script(msg.url())
 end
 
 function final(self)
@@ -14,8 +13,13 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+	if message_id == hash("door_opened") then
+		print(message.door_id.." is open")
+	end
+
+	if message_id == hash("door_closed") then
+		print(message.door_id.." is closed")
+	end
 end
 
 function on_input(self, action_id, action)
