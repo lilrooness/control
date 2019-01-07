@@ -1,4 +1,4 @@
-local ps = require("main.modules.pubsub")
+local tbutils = require("main.modules.textbox_utils")
 
 go.property("leaking_section", msg.url())
 
@@ -6,10 +6,9 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("ambiance#sound_fade", "fade_in", {target_gain=1})
 	msg.post("menu_sounds#440_660", "play_sound")
-	ps.subscribe("textbox", go.get_id())
+	
 
 	self.comms_created = false
-	self.stop_text = false
 
 	self.texts = {
 		{text = "A speaker crackle rips the shocked silence", name = ""},
@@ -43,8 +42,8 @@ function init(self)
 		end, stop = true}
 	}
 
-	self.textNumber = 1
-	self.numberOfTexts = table_length(self.texts)
+	tbutils.start(self, self.texts)
+	
 	print("Property:")
 	print(self.leaking_section.path)
 end
@@ -67,12 +66,11 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("textbox") and not message.created and not self.stop_text then
-		show_text(self)
-	end
+
+	tbutils.handle_textbox_message(self, message_id, message)
 
 	if self.comms_alert_obj and message_id == hash("comms_alert_selected") then
-		show_text(self)
+		tbutils.show_text(self)
 		go.delete(self.comms_alert_obj)
 		self.comms_alert_obj = nil
 	end
@@ -85,25 +83,4 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
-end
-
-function show_text(self)
-	local text = self.texts[self.textNumber]
-	textbox = factory.create(":/textbox_factory#factory")
-	msg.post(textbox, "text", {text = text.text, name = text.name, parent_obj = textbox})
-	self.textNumber = self.textNumber + 1
-
-	if text.callback ~= nil then
-		text.callback()
-	end
-
-	if text.stop then
-		self.stop_text = true
-	end
-end
-
-function table_length(T)
-	local count = 0
-	for _ in pairs(T) do count = count + 1 end
-	return count
 end

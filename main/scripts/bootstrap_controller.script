@@ -1,6 +1,7 @@
 monarch = require("monarch.monarch")
 ov_state = require("main.modules.overview_screen")
 map_state = require("main.modules.map_state")
+ps = require("main.modules.pubsub")
 
 go.property("start", hash("intro"))
 
