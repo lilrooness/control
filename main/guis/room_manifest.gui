@@ -1,7 +1,7 @@
 script: "/main/scripts/gui/room_info.gui_script"
 fonts {
   name: "computer_font"
-  font: "/main/computer_font.font"
+  font: "/assets/computer_font.font"
 }
 textures {
   name: "main"

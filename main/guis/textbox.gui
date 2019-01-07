@@ -1,7 +1,7 @@
 script: "/main/scripts/gui/text_box.gui_script"
 fonts {
   name: "computer_font"
-  font: "/main/computer_font.font"
+  font: "/assets/textbox_font.font"
 }
 textures {
   name: "main"
@@ -81,8 +81,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -144,13 +144,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 1900.0
+    x: 950.0
     y: 100.0
     z: 0.0
     w: 1.0

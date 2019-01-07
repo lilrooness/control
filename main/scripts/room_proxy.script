@@ -4,7 +4,7 @@ go.property("pressure", 100)
 go.property("room_number", 0)
 
 go.property("selected", false)
-go.property("scale_to", vmath.vector3(2,2,1))
+go.property("scale_to", vmath.vector3(4,4,1))
 go.property("selected_color", vmath.vector4(1,1,1,1))
 
 function init(self)

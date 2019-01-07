@@ -41,7 +41,7 @@ embedded_instances {
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "line_break: false\\n"
   "text: \\\"S.P\\\"\\n"
-  "font: \\\"/main/computer_font.font\\\"\\n"
+  "font: \\\"/assets/computer_font.font\\\"\\n"
   "material: \\\"/builtins/fonts/label.material\\\"\\n"
   "\"\n"
   "  position {\n"

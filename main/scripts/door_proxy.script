@@ -1,5 +1,4 @@
 go.property("selected", false)
-go.property("scale_to", vmath.vector3(2,2,1))
 go.property("door_tile", vmath.vector3())
 go.property("selected_color", vmath.vector4(1,1,1,1))
 go.property("door_number", 1)
@@ -12,6 +11,7 @@ go.property("closed_tile", 33)
 go.property("open_tile", 53)
 
 function init(self)
+	self.scale_to = vmath.vector3(4,4,1)
 	msg.post("#warning", "disable")
 	label.set_text("#label", "D"..string.upper(map_state.get_display_id(self.door_number)))
 	if self.open then

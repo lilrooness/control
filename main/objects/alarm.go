@@ -37,7 +37,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
   "text: \"Atmosphere Alarm\"\n"
-  "font: \"/main/computer_font.font\"\n"
+  "font: \"/assets/computer_font.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
@@ -91,7 +91,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
   "text: \"Chriobay 3\"\n"
-  "font: \"/main/computer_font.font\"\n"
+  "font: \"/assets/computer_font.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
