@@ -5,7 +5,7 @@
 
 local M = {}
 
-function M.first_start(self, texts)
+function M.fresh_start(self, texts)
 	M.start(self, texts)
 	ps.subscribe("textbox", go.get_id())
 end

@@ -817,6 +817,26 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "emily_marker"
+  prototype: "/main/objects/emily_marker.go"
+  position {
+    x: 1068.0
+    y: -456.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "hmenu_factory"
@@ -908,6 +928,7 @@ embedded_instances {
   children: "d7"
   children: "d8"
   children: "d9"
+  children: "emily_marker"
   children: "r1"
   children: "r2"
   children: "r3"
@@ -979,44 +1000,6 @@ embedded_instances {
   position {
     x: -211.0
     y: 793.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "emily_factory"
-  data: "embedded_components {\n"
-  "  id: \"collectionfactory\"\n"
-  "  type: \"collectionfactory\"\n"
-  "  data: \"prototype: \\\"/main/collections/human_marker.collection\\\"\\n"
-  "load_dynamically: false\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
     z: 0.0
   }
   rotation {
