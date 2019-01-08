@@ -1,5 +1,23 @@
+local tbutils = require("main.modules.textbox_utils")
+
 function init(self)
 	map_state.set_level_script(msg.url())
+
+	local texts = {
+		{text = "You see me yet? I'm in room 3 over.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Yes, I can see you over.", name="You"},
+		{text = "Good. You think you can get the door open? Over.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end, stop = true}
+	}
+	
+	tbutils.start(self, texts)
+
+	timer.delay(3, false, function()
+		tbutils.show_text(self)
+	end)
 end
 
 function final(self)
@@ -13,6 +31,8 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
+	tbutils.handle_textbox_message(self, message_id, message)
+	
 	if message_id == hash("door_opened") then
 		print(message.door_id.." is open")
 	end
