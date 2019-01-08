@@ -977,8 +977,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 110.0
-    y: 926.0
+    x: -211.0
+    y: 793.0
     z: 0.0
   }
   rotation {

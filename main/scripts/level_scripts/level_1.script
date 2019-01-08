@@ -3,17 +3,39 @@ local tbutils = require("main.modules.textbox_utils")
 function init(self)
 	map_state.set_level_script(msg.url())
 
-	local texts = {
+	self.expected_event_callback = function(message_id, message)
+		
+	end
+
+	local texts_1 = {
 		{text = "You see me yet? I'm in room 3 over.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "Yes, I can see you over.", name="You"},
 		{text = "Good. You think you can get the door open? Over.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
+			self.expected_event_callback = function(message_id, message)
+				if message_id == hash("door_opened") and message.door_id == 3 then
+					self.expected_event_callback = function(message_id, message) end
+					msg.post(msg.url(), "progress_story", {text_table = "texts_2", delay = 1})
+				end
+			end
 		end, stop = true}
 	}
+
+	self["texts_2"] = {
+		{text = "Door should be opening now over", name="You"},
+		{text = "Yeah its opening over.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Im moving to room 2 . . .", name="Emily"},
+		{text = "Keep an eye on me over.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Just report back what you see over", name="You", stop = true}
+	}
 	
-	tbutils.start(self, texts)
+	tbutils.first_start(self, texts_1)
 
 	timer.delay(3, false, function()
 		tbutils.show_text(self)
@@ -26,12 +48,22 @@ function final(self)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Remove this function if not needed
+	
 end
 
 function on_message(self, message_id, message, sender)
+
+	self.expected_event_callback(message_id, message)
+	
 	tbutils.handle_textbox_message(self, message_id, message)
+
+	if message_id == hash("progress_story") then
+		tbutils.start(self, self[message.text_table])
+
+		timer.delay(message.delay, false, function()
+			tbutils.show_text(self)
+		end)
+	end
 	
 	if message_id == hash("door_opened") then
 		print(message.door_id.." is open")

@@ -5,13 +5,17 @@
 
 local M = {}
 
+function M.first_start(self, texts)
+	M.start(self, texts)
+	ps.subscribe("textbox", go.get_id())
+end
+
 function M.start(self, texts)
 	self.tbstate = {}
 	self.tbstate.texts = texts
 	self.tbstate.textNumber = 1
 	self.tbstate.numberOfTexts = M.table_length(texts)
 	self.tbstate.stop_text = false
-	ps.subscribe("textbox", go.get_id())
 end
 
 function M.show_text(self)
