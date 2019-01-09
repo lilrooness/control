@@ -7,6 +7,10 @@ function init(self)
 	self.target = nil
 	self.selected = false;
 	self.name = "Emily";
+	self.tile_path = {
+		path = {},
+		next_index = 1
+	}
 
 	go.animate("#sprite", "tint", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(0.5, 0.5, 0.5, 1), go.EASING_LINEAR, 1)
 	go.animate("#label", "color", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(0.5, 0.5, 0.5, 1), go.EASING_LINEAR, 1)
@@ -18,12 +22,15 @@ function final(self)
 end
 
 function update(self, dt)
-
+	if self.tile_path.path ~= {} then
+		
+	end
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("move_to_tile") then
-		-- set target tile
+	if message_id == hash("set_tile_path") then
+		self.tile_path.path = message.path
+		self.tile_path.next_index = 1
 	end
 end
 
