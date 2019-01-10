@@ -1,3 +1,5 @@
+local djk = require("main.modules.dijkstra")
+
 go.property("speed", 1)
 go.property("tilesize", 128)
 go.property("start", vmath.vector3())
