@@ -1,14 +1,10 @@
-monarch = require("monarch.monarch")
-ov_state = require("main.modules.overview_screen")
-map_state = require("main.modules.map_state")
-ps = require("main.modules.pubsub")
-djk = require("main.modules.dijkstra")
-
-go.property("start", hash("intro"))
+go.property("node_id", 0)
+go.property("edges", vmath.vector4())
+go.property("connections", 0) -- max 4
 
 function init(self)
-	msg.post(".", "acquire_input_focus")
-	msg.post("#", "start")
+	djk.set_node(self.node_id, get_edges(self), go.get_id())
+	msg.post("#sprite", "disable")
 end
 
 function final(self)
@@ -22,9 +18,7 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("start") then
-		monarch.show(self.start)
-	end
+	
 end
 
 function on_input(self, action_id, action)
@@ -35,4 +29,17 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
+end
+
+
+function get_edges(self)
+	local c = {self.edges.x, self.edges.y, self.edges.z, self.edges.w}
+
+	local r = {}
+	
+	for i=1, self.connections, 1 do
+		table.insert(r, c[i])
+	end
+
+	return r
 end

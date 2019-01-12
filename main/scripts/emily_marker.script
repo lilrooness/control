@@ -22,15 +22,17 @@ function final(self)
 end
 
 function update(self, dt)
-	if self.tile_path.path ~= {} then
-		
-	end
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("set_tile_path") then
+	if message_id == hash("set_path") then
 		self.tile_path.path = message.path
-		self.tile_path.next_index = 1
+		self.tile_path.next_index = 2
+		move(self)
+	end
+
+	if message_id == hash("move") then
+		move(self)
 	end
 end
 
@@ -41,4 +43,18 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
+end
+
+function move(self)
+	if self.tile_path.next_index <= #(self.tile_path.path) then
+		go.animate(".", "position",
+		go.PLAYBACK_ONCE_FORWARD,
+		go.get_position(self.tile_path.path[self.tile_path.next_index]), 
+		go.EASING_LINEAR,
+		2, 2,
+		function()
+			msg.post("#", "move")
+		end)
+		self.tile_path.next_index = self.tile_path.next_index + 1
+	end
 end
