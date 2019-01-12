@@ -60,6 +60,10 @@ function M.level_event(event_code, event)
 	end
 end
 
+function M.room_entered_event(room_id)
+	M.level_event("room_entered", {room_id = room_id})
+end
+
 function M.door_opened_event(door_id)
 	M.level_event("door_opened", {door_id = door_id})
 end

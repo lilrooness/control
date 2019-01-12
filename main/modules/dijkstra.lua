@@ -27,6 +27,15 @@ function M.get_obj_id(node_id)
 	return node_obj_ids[node_id]
 end
 
+function M.path_to_obj_ids(path)
+	local id_path = {}
+	for _, n in pairs(path) do
+		table.insert(id_path, M.get_obj_id(n))
+	end
+
+	return id_path
+end
+
 function M.path(a, b)
 
 	local dists = {[a] = {dist = 0, prev = a}}

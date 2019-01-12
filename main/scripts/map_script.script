@@ -26,13 +26,7 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("path_test") then
 		local path = djk.path(3, 5)
-		local id_path = {}
-		for _, n in pairs(path) do
-			print(djk.get_obj_id(n))
-			table.insert(id_path, djk.get_obj_id(n))
-		end
-
-		msg.post(":/emily_marker#emily_marker", "set_path", {path = id_path})
+		msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
 	end
 end
 

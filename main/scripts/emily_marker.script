@@ -2,6 +2,7 @@ local state = require("main.modules.human_state")
 local ps = require("main.modules.pubsub")
 
 go.property("BPM", 50)
+go.property("current_node", 0)
 
 function init(self)
 	self.target = nil
@@ -11,6 +12,8 @@ function init(self)
 		path = {},
 		next_index = 1
 	}
+
+	go.set_position(go.get_position(djk.get_obj_id(self.current_node)))
 
 	go.animate("#sprite", "tint", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(0.5, 0.5, 0.5, 1), go.EASING_LINEAR, 1)
 	go.animate("#label", "color", go.PLAYBACK_LOOP_PINGPONG, vmath.vector4(0.5, 0.5, 0.5, 1), go.EASING_LINEAR, 1)
@@ -47,14 +50,18 @@ end
 
 function move(self)
 	if self.tile_path.next_index <= #(self.tile_path.path) then
+		local node_obj_id = djk.get_obj_id(self.tile_path.path[self.tile_path.next_index])
+		self.current_node = self.tile_path.path[self.tile_path.next_index]
 		go.animate(".", "position",
-		go.PLAYBACK_ONCE_FORWARD,
-		go.get_position(self.tile_path.path[self.tile_path.next_index]), 
-		go.EASING_LINEAR,
-		2, 2,
-		function()
-			msg.post("#", "move")
-		end)
+			go.PLAYBACK_ONCE_FORWARD,
+			go.get_position(node_obj_id),
+			go.EASING_LINEAR,
+			8, 2,
+			function()
+				msg.post("#", "move")
+			end)
 		self.tile_path.next_index = self.tile_path.next_index + 1
+	else
+		map_state.room_entered_event(self.current_node)
 	end
 end
