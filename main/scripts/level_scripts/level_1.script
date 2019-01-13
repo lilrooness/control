@@ -52,17 +52,94 @@ function init(self)
 				if message_id == hash("door_opened") and message.door_id == 4 then
 					local path = djk.path(4, 5)
 					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
-					self.expected_event_callback = function(message_id, message)
-						
-						if message_id == hash("room_entered") and message.room_id == 5 then
-							self.expected_event_callback = function(message_id, message) end
-							timer.delay(2, false, function() factory.create(":/malfunction_alarm#factory") end)
-						end
-					end
+					self["event_4"]()
 				end
 			end
 		end, stop = true}
 	}
+
+	self["event_4"] = function()
+		self.expected_event_callback = function(message_id, message)
+
+			if message_id == hash("room_entered") and message.room_id == 5 then
+				self.expected_event_callback = function(message_id, message) end
+				timer.delay(2, false, function() 
+					local alarm_obj = factory.create(":/malfunction_alarm#factory")
+					sound.play(":/sound#chirp_alarm_400_800")
+					map_state.disable_input()
+
+					-- START LOSE CONTROLL SEQUENCE
+					local chain_id = map_state.begin_event_chain(function()
+						map_state.move_camera_to_obj(":/r8", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						sound.play(":/sound#tone_alarm", {gain = 0.25})
+					end, 2)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/r8", "set_pressure", {pressure = 0})
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/r6", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/r6", "set_pressure", {pressure = 0})
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/d8", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d8", "open_door")
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/d5", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d5", "open_door")
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/d6", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d6", "open_door")
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/r7", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/r7", "set_pressure", {pressure = 0})
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/d10", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d10", "open_door")
+					end, 1.5)
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/d7", 0.5)
+					end, 0.5)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d7", "open_door")
+					end, 1.5)
+
+					map_state.chain_event(chain_id, function() 
+						map_state.move_camera_to_obj(":/emily_marker", 0.75)
+					end, 0.5)
+					-- ...
+
+					map_state.chain_event(chain_id, function()
+						map_state.enable_input()
+						go.delete(alarm_obj)
+						sound.stop(":/sound#chirp_alarm_400_800")
+					end, 1)
+					map_state.chain_event(chain_id, function()
+						sound.stop(":/sound#tone_alarm")
+					end, 0)
+					map_state.execute_event_chain(chain_id)
+					-- END LOSE CONTROL SEQUENCE
+				end)
+			end
+		end
+	end
 	
 	tbutils.fresh_start(self, texts_1)
 
