@@ -48,10 +48,17 @@ function init(self)
 			msg.post("sound#static_blip", "play_sound")
 
 			self.expected_event_callback = function(message_id, message)
+				
 				if message_id == hash("door_opened") and message.door_id == 4 then
-					self.expected_event_callback = function(message_id, message) end
 					local path = djk.path(4, 5)
 					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+					self.expected_event_callback = function(message_id, message)
+						
+						if message_id == hash("room_entered") and message.room_id == 5 then
+							self.expected_event_callback = function(message_id, message) end
+							timer.delay(2, false, function() factory.create(":/malfunction_alarm#factory") end)
+						end
+					end
 				end
 			end
 		end, stop = true}
