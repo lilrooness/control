@@ -28,7 +28,7 @@ function init(self)
 		{text = "Yeah its opening over.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "Im moving to room two . . .", name="Emily"},
+		{text = "Im moving to room four . . .", name="Emily"},
 		{text = "Keep an eye on me over.", name="Emily"},
 		{text = "Just report back what you see over", name="You", stop = true, callback = function()
 			msg.post("sound#static_blip", "play_sound")
@@ -44,7 +44,17 @@ function init(self)
 	}
 
 	self["texts_3"] = {
-		{text = "Im here", name="Emily", stop = true}
+		{text = "Could you get door four open for me?", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+
+			self.expected_event_callback = function(message_id, message)
+				if message_id == hash("door_opened") and message.door_id == 4 then
+					self.expected_event_callback = function(message_id, message) end
+					local path = djk.path(4, 5)
+					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+				end
+			end
+		end, stop = true}
 	}
 	
 	tbutils.fresh_start(self, texts_1)
