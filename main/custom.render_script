@@ -85,6 +85,7 @@ function update(self)
     render.enable_state(render.STATE_STENCIL_TEST)
     render.draw(self.gui_pred)
     render.draw(self.text_pred)
+    
     render.disable_state(render.STATE_STENCIL_TEST)
 
     render.set_depth_mask(false)
@@ -100,6 +101,7 @@ function update(self)
     render.enable_texture(0, self.target, render.BUFFER_COLOR_BIT)
     render.draw(self.bloom_pred)
     render.disable_texture(0, self.target)
+    
 end
 
 function on_message(self, message_id, message)
