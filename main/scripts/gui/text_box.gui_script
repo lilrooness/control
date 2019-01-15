@@ -37,6 +37,10 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("skip_or_close") then
 		skip_or_close(self)
 	end
+
+	if message_id == hash("close") then
+		msg.post(self.parent, "delete")
+	end
 end
 
 function on_input(self, action_id, action)

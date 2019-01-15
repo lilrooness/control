@@ -24,13 +24,13 @@ function init(self)
 	}
 
 	self["texts_2"] = {
-		{text = "Door should be opening now over", name="You"},
+		{text = "Door should be opening now over.", name="You"},
 		{text = "Yeah its opening over.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "Im moving to room four . . .", name="Emily"},
 		{text = "Keep an eye on me over.", name="Emily"},
-		{text = "Just report back what you see over", name="You", stop = true, callback = function()
+		{text = "Just report back what you see over.", name="You", stop = true, callback = function()
 			msg.post("sound#static_blip", "play_sound")
 			local path = djk.path(3, 4)
 			msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
@@ -107,7 +107,7 @@ function init(self)
 					end, 1)
 
 					-- ...
-					
+
 					map_state.chain_event(chain_id, function()
 						sound.stop(":/sound#tone_alarm")
 					end, 0)
@@ -123,17 +123,15 @@ function init(self)
 	end
 	
 	self["texts_5"] = {
-		{text = "What the fuck are you doing! You almost killed me with that door!", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "That wasn't me over", name = "You"},
+		{text = "HEY WATCH OUT! You almost killed me with that door!", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "Sorry, but that wasn't me over.", name = "You"},
 		{text = "Urrr what do you mean that wasn't you? over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "I mean I didn't close that door, my control screen malfunctioned", name = "You"},
+		{text = "I mean I didn't close that door, my control screen malfunctioned, door four shut by itself over.", name = "You"},
 		{text = " . . . ", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "Well that fills me with confidence over", name = "Emily"},
-		{text = "Just be extra careful from this point on", name = "You"},
-		{text = "The failsafes should stop the rooms from depressurising with you in them", name = "You"},
-		{text = "But theres nothing we can do about the doors over", name = "You"},
-		{text = "As if we needed more problems. Over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "It'l be fine, just mind the doors over", name = "You", stop=true}
+		{text = "Well that fills me with confidence over.", name = "Emily"},
+		{text = "The control systems must have been damaged. Just be extra careful from this point on.", name = "You"},
+		{text = "The failsafes should stop the rooms from depressurising with you inside, but theres nothing I can do about the doors over.", name = "You"},
+		{text = "As if we needed more problems over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end, stop=true}
 	}
 	
 	tbutils.fresh_start(self, texts_1)

@@ -33,8 +33,10 @@ function M.show_text(self)
 	end
 end
 
-function M.skip_or_close(self)
-	msg.post(self.tbstate.textbox_id, "skip_or_close")
+function M.close(self)
+	if self.tbstate ~= nil and self.tbstate.textbox_id ~= nil then
+		msg.post(self.tbstate.textbox_id, "close")
+	end
 end
 
 function M.table_length(T)

@@ -18,10 +18,12 @@ function init(self)
 		{text = "Emily, this is control responding. What is your status over", name = "You"},
 		{text = "Oh thank god! I thought my comms were down", name = "Emily"},
 		{text = "The power out. It's . . . ", name = "Emily"},
-		{text = "Her radio silence speaks words", name = ""},
-		{text = "It's a mess down here over", name = "Emily", callback = function()
+		{text = " . . . ", name = "Emily"},
+		{text = "The silence is heavey", name = ""},
+		{text = " . . . ", name = "Emily", callback = function()
 			msg.post(":/menu_sounds#static_blip", "play_sound")
 		end},
+		{text = "It's a mess down here over", name = "Emily"},
 		{text = "About twenty minutes ago there were a number of bolide strikes.", name = "you"},
 		{text = "It hit part of the main deck, one engine, it took out a fuel tank and completely disabled two chriobays", name = "you"},
 		{text = "Chriobay three is still partially operational, though we're still assessing the damage over", name = "you"},
@@ -70,6 +72,7 @@ function on_message(self, message_id, message, sender)
 	tbutils.handle_textbox_message(self, message_id, message)
 
 	if self.comms_alert_obj and message_id == hash("comms_alert_selected") then
+		tbutils.fresh_start(self, self.texts)
 		tbutils.show_text(self)
 		go.delete(self.comms_alert_obj)
 		self.comms_alert_obj = nil
