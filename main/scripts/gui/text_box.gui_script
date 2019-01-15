@@ -33,11 +33,15 @@ function on_message(self, message_id, message, sender)
 		self.target_text = message.text
 		self.parent = message.parent_obj
 	end
+
+	if message_id == hash("skip_or_close") then
+		skip_or_close(self)
+	end
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("click") and action.released == true then
-		if gui.pick_node(gui.get_node("box"), action.x, action.y) then
+		if gui.pick_node(gui.get_node("outline"), action.x, action.y) then
 			skip_or_close(self)
 		end
 	end

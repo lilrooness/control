@@ -20,8 +20,8 @@ end
 
 function M.show_text(self)
 	local text = self.tbstate.texts[self.tbstate.textNumber]
-	textbox = factory.create(":/textbox_factory#factory")
-	msg.post(textbox, "text", {text = text.text, name = text.name, parent_obj = textbox})
+	self.tbstate.textbox_id = factory.create(":/textbox_factory#factory")
+	msg.post(self.tbstate.textbox_id, "text", {text = text.text, name = text.name, parent_obj = self.tbstate.textbox_id})
 	self.tbstate.textNumber = self.tbstate.textNumber + 1
 
 	if text.callback ~= nil then
@@ -31,6 +31,10 @@ function M.show_text(self)
 	if text.stop then
 		self.tbstate.stop_text = true
 	end
+end
+
+function M.skip_or_close(self)
+	msg.post(self.tbstate.textbox_id, "skip_or_close")
 end
 
 function M.table_length(T)

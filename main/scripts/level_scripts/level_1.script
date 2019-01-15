@@ -64,82 +64,77 @@ function init(self)
 			if message_id == hash("room_entered") and message.room_id == 5 then
 				self.expected_event_callback = function(message_id, message) end
 				timer.delay(2, false, function() 
-					local alarm_obj = factory.create(":/malfunction_alarm#factory")
+					local alarm_obj = {}--
 					sound.play(":/sound#chirp_alarm_400_800")
 					map_state.disable_input()
 
 					-- START LOSE CONTROLL SEQUENCE
 					local chain_id = map_state.begin_event_chain(function()
-						map_state.move_camera_to_obj(":/r8", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
 						sound.play(":/sound#tone_alarm", {gain = 0.25})
-					end, 2)
+						alarm_obj = factory.create(":/malfunction_alarm#factory")
+					end, 1)
 					map_state.chain_event(chain_id, function()
-						msg.post(":/r8", "set_pressure", {pressure = 0})
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/r6", 0.5)
+						map_state.move_camera_to_obj(":/r4", 0.1)
+					end, 0)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "close_door")
+						msg.post(":/d4", "open_door")
+					end, 0.25)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "open_door")
+					end, 0.25)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "close_door")
+					end, 0.25)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "open_door")
+					end, 0.25)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "close_door")
+					end, 0.25)
+					map_state.chain_event(chain_id, function()
+						msg.post(":/d4", "close_door")
+						msg.post(":/d3", "close_door")
+						msg.post(":/d2", "close_door")
+						msg.post(":/d1", "close_door")
 					end, 0.5)
 					map_state.chain_event(chain_id, function()
-						msg.post(":/r6", "set_pressure", {pressure = 0})
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/d8", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/d8", "open_door")
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/d5", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/d5", "open_door")
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/d6", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/d6", "open_door")
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/r7", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/r7", "set_pressure", {pressure = 0})
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/d10", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/d10", "open_door")
-					end, 1.5)
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/d7", 0.5)
-					end, 0.5)
-					map_state.chain_event(chain_id, function()
-						msg.post(":/d7", "open_door")
-					end, 1.5)
+						msg.post(":/r4", "set_pressure", {pressure = 0})
+						msg.post(":/r3", "set_pressure", {pressure = 0})
+						msg.post(":/r2", "set_pressure", {pressure = 0})
+						msg.post(":/r1", "set_pressure", {pressure = 0})
+						msg.post(msg.url(), "progress_story", {text_table = "texts_5", delay  = 0})
+					end, 1)
 
-					map_state.chain_event(chain_id, function() 
-						map_state.move_camera_to_obj(":/emily_marker", 0.75)
-					end, 0.5)
 					-- ...
-
+					
+					map_state.chain_event(chain_id, function()
+						sound.stop(":/sound#tone_alarm")
+					end, 0)
 					map_state.chain_event(chain_id, function()
 						map_state.enable_input()
 						go.delete(alarm_obj)
 						sound.stop(":/sound#chirp_alarm_400_800")
 					end, 1)
-					map_state.chain_event(chain_id, function()
-						sound.stop(":/sound#tone_alarm")
-					end, 0)
 					map_state.execute_event_chain(chain_id)
-					-- END LOSE CONTROL SEQUENCE
 				end)
 			end
 		end
 	end
+	
+	self["texts_5"] = {
+		{text = "What the fuck are you doing! You almost killed me with that door!", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "That wasn't me over", name = "You"},
+		{text = "Urrr what do you mean that wasn't you? over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "I mean I didn't close that door, my control screen malfunctioned", name = "You"},
+		{text = " . . . ", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "Well that fills me with confidence over", name = "Emily"},
+		{text = "Just be extra careful from this point on", name = "You"},
+		{text = "The failsafes should stop the rooms from depressurising with you in them", name = "You"},
+		{text = "But theres nothing we can do about the doors over", name = "You"},
+		{text = "As if we needed more problems. Over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "It'l be fine, just mind the doors over", name = "You", stop=true}
+	}
 	
 	tbutils.fresh_start(self, texts_1)
 
