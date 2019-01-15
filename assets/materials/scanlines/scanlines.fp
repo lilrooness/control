@@ -68,7 +68,8 @@ void main()
 
 
 
-	if(mod(var_texcoord0.y * resolution.y, 2.0) > 0.5) {
+	//if(mod(var_texcoord0.y * resolution.y, 2.0) > 0.5) {
+	if(mod(var_texcoord0.y * resolution.y, 1.0) > 0.5) {
 
 		gl_FragColor = vec4(vec3(red, green, blue) * options.z, 1.0);
 
