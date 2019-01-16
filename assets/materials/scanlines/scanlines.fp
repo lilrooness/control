@@ -28,6 +28,8 @@ void main()
 
 	float corner = 500.0;
 
+	float opt_z = options.z;
+
 
 
 
@@ -36,11 +38,11 @@ void main()
 
 		if(var_texcoord0.y < 0.5) {
 
-			options.z = min(var_texcoord0.x * var_texcoord0.y * corner, 1.0);
+			opt_z = min(var_texcoord0.x * var_texcoord0.y * corner, 1.0);
 
 		} else {
 
-			options.z = min(var_texcoord0.x * (1.0 - var_texcoord0.y) * corner, 1.0);
+			opt_z = min(var_texcoord0.x * (1.0 - var_texcoord0.y) * corner, 1.0);
 
 		}
 
@@ -48,11 +50,11 @@ void main()
 
 		if(var_texcoord0.y < 0.5) {
 
-			options.z = min((1.0 - var_texcoord0.x) * var_texcoord0.y * corner, 1.0);
+			opt_z = min((1.0 - var_texcoord0.x) * var_texcoord0.y * corner, 1.0);
 
 		} else {
 
-			options.z = min((1.0 - var_texcoord0.x) * (1.0 - var_texcoord0.y) * corner, 1.0);
+			opt_z = min((1.0 - var_texcoord0.x) * (1.0 - var_texcoord0.y) * corner, 1.0);
 
 		}
 
@@ -68,14 +70,14 @@ void main()
 
 
 
-	//if(mod(var_texcoord0.y * resolution.y, 2.0) > 0.5) {
-	if(mod(var_texcoord0.y * resolution.y, 1.0) > 0.5) {
+	if(mod(var_texcoord0.y * resolution.y, 2.0) > 0.5) {
+	//if(mod(var_texcoord0.y * resolution.y, 1.0) > 0.5) {
 
-		gl_FragColor = vec4(vec3(red, green, blue) * options.z, 1.0);
+		gl_FragColor = vec4(vec3(red, green, blue) * opt_z, 1.0);
 
 	} else {
 
-		gl_FragColor = vec4(vec3(red * 0.75, green * 0.75, blue * 0.75) * options.z, 1.0);
+		gl_FragColor = vec4(vec3(red * 0.75, green * 0.75, blue * 0.75) * opt_z, 1.0);
 
 	} 
 
