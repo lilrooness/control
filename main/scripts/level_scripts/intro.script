@@ -8,10 +8,13 @@ function init(self)
 	self.texts = {
 		"You are ripped from a deep sleep",
 		"Pulled from a hot spring into a chilly breeze ...",
-		"Mission critical emergency alarm ... threat to life",
+		"What alarm is that? Are we loosing atmosphere?",
+		"No that's not it",
+		"Mission critical emergency alarm",
 		"Your heart is pounding thick sleepy blood",
 		"Your limbs hurt and your ears feel strange",
-		"Like waking up on a plane back on earth",
+		"It's colder than it should be",
+		"Something's wrong",
 		"Head to the Bridge."
 	}
 
