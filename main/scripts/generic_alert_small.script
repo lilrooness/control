@@ -1,7 +1,7 @@
 go.property("ttl", 3)
 
 function init(self)
-	
+	self.easing = vmath.vector({0,1,0,1,0})
 end
 
 function final(self)
@@ -16,9 +16,11 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("start") then
 		local id = go.get_id()
 		label.set_text("#alert_text", message.text)
-		go.animate("#alert_text", "color", go.PLAYBACK_ONCE_FORWARD, vmath.vector4(1,1,1,1), vmath.vector({0,1,0,1,0}), self.ttl, 0, function()
+		go.animate("#alert_text", "color", go.PLAYBACK_ONCE_FORWARD, vmath.vector4(1,1,1,1), self.easing, self.ttl, 0, function()
 			go.delete(id)
 		end)
+	elseif message_id == hash("set_easing") then
+		self.easing = vmath.vector({0,1,0,1,0})
 	end
 end
 
