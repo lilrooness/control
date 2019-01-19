@@ -10,6 +10,8 @@ go.property("room2", msg.url())
 go.property("closed_tile", 33)
 go.property("open_tile", 53)
 
+go.property("disabled", false)
+
 function init(self)
 	self.scale_to = vmath.vector3(4,4,1)
 	msg.post("#warning", "disable")

@@ -1,7 +1,7 @@
 name: "level_1"
 instances {
   id: "bloom"
-  prototype: "/main/objects/bloom_render_target.go"
+  prototype: "/main/objects/render_target.go"
   position {
     x: 0.0
     y: 0.0
@@ -333,6 +333,11 @@ instances {
       value: "/r9#room_proxy"
       type: PROPERTY_TYPE_URL
     }
+    properties {
+      id: "disabled"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
   }
   scale3 {
     x: 0.25
@@ -427,39 +432,6 @@ instances {
   }
 }
 instances {
-  id: "d9"
-  prototype: "/main/objects/door_proxy.go"
-  position {
-    x: 450.0
-    y: 625.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "door_label"
-    properties {
-      id: "door_tile"
-      value: "4.0, 6.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
-    properties {
-      id: "door_number"
-      value: "9.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
-  scale3 {
-    x: 0.25
-    y: 0.25
-    z: 1.0
-  }
-}
-instances {
   id: "d12"
   prototype: "/main/objects/door_proxy.go"
   position {
@@ -517,6 +489,16 @@ instances {
       id: "door_number"
       value: "11.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r8#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r9#room_proxy"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -645,6 +627,11 @@ instances {
       value: "2.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "alarm_offset"
+      value: "0.0, 30.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
   }
   scale3 {
     x: 0.25
@@ -677,6 +664,11 @@ instances {
       id: "room_number"
       value: "5.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "alarm_offset"
+      value: "0.0, 30.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
     }
   }
   scale3 {
@@ -711,6 +703,11 @@ instances {
       value: "6.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "alarm_offset"
+      value: "0.0, 30.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
   }
   scale3 {
     x: 0.25
@@ -743,6 +740,11 @@ instances {
       id: "room_number"
       value: "7.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "alarm_offset"
+      value: "0.0, 30.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
     }
   }
   scale3 {
@@ -1201,7 +1203,6 @@ embedded_instances {
   children: "d6"
   children: "d7"
   children: "d8"
-  children: "d9"
   children: "emily_marker"
   children: "n1"
   children: "n2"

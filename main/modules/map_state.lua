@@ -29,6 +29,8 @@ local state = {
 		"k"
 	},
 
+	emily_room = -1,
+
 	level_script_url = nil
 }
 
@@ -91,6 +93,7 @@ end
 
 function M.room_entered_event(room_id)
 	M.level_event("room_entered", {room_id = room_id})
+	state.emily_room = room_id
 end
 
 function M.door_opened_event(door_id)
@@ -115,6 +118,14 @@ function M.move_camera_to_obj(obj_id, duration)
 	move_vec = obj_pos - ref_pos
 
 	M.move_camera_by(move_vec.x, move_vec.y, duration)
+end
+
+function M.get_emily_room()
+	return state.emily_room
+end
+
+function M.set_emily_room(room_id)
+	state.emily_room = room_id
 end
 
 function M.move_camera_by(x, y, duration)

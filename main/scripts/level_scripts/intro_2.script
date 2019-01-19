@@ -12,10 +12,10 @@ function init(self)
 
 	self.texts = {
 		{text = "A speaker crackle rips the shocked silence", name = ""},
-		{text = "Hello? This is Emily Karnes, I'm in chriobay 3, is anyone recieving me? Over", name = "Radio Voice", callback = function()
+		{text = "Hello? This is Emily Karnes, I'm in chriobay 3, is anyone recieving me?", name = "Radio Voice", callback = function()
 			msg.post(":/menu_sounds#static_blip", "play_sound")
 		end},
-		{text = "Emily, this is control responding. What is your status over", name = "You"},
+		{text = "Emily, this is control responding. What is your status", name = "You"},
 		{text = "Oh thank god! I thought my comms were down", name = "Emily"},
 		{text = "The power out. It's . . . ", name = "Emily"},
 		{text = " . . . ", name = "Emily"},
@@ -23,19 +23,19 @@ function init(self)
 		{text = " . . . ", name = "Emily", callback = function()
 			msg.post(":/menu_sounds#static_blip", "play_sound")
 		end},
-		{text = "It's a mess down here over", name = "Emily"},
+		{text = "It's a mess down here", name = "Emily"},
 		{text = "About twenty minutes ago there were a number of bolide strikes.", name = "you"},
 		{text = "It hit part of the main deck, one engine, it took out a fuel tank and completely disabled two chriobays", name = "you"},
-		{text = "Chriobay three is still partially operational, though we're still assessing the damage over", name = "you"},
+		{text = "Chriobay three is still partially operational, though we're still assessing the damage", name = "you"},
 		{text = "The chrio pods are open but nobody's awake. They must have opened automatically", name = "Emily", callback = function()
 			msg.post(":/menu_sounds#static_blip", "play_sound")
 		end},
 		{text = "I don't . . . ", name = "Emily"},
 		{text = "", name = "Emily"},
-		{text = "I don't think anyone else made it down here over", name = "Emily", callback = function()
+		{text = "I don't think anyone else made it down here", name = "Emily", callback = function()
 			msg.post(":/menu_sounds#static_blip", "play_sound")
 		end},
-		{text = "Well, im still breathing, I think this room is secure over", name = "Emily", callback = function()
+		{text = "Well, im still breathing, I think this room is secure", name = "Emily", callback = function()
 			timer.delay(3, false, function()
 				ov_state.set_alarm(self.leaking_section.path, true)
 				msg.post("menu_sounds#2_tone_alarm", "play_sound")

@@ -3,16 +3,18 @@ local tbutils = require("main.modules.textbox_utils")
 function init(self)
 	map_state.set_level_script(msg.url())
 
+	map_state.set_emily_room(3)
+
 	self.expected_event_callback = function(message_id, message)
 		
 	end
 
 	local texts_1 = {
-		{text = "You see me yet? I'm in room 3 over.", name="Emily", callback = function()
+		{text = "You see me yet? I'm in room 3.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "Yes, I can see you over.", name="You"},
-		{text = "Good. You think you can get door three open? Over.", name="Emily", callback = function()
+		{text = "Yes, I can see you.", name="You"},
+		{text = "Good. You think you can get door three open?.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 			self.expected_event_callback = function(message_id, message)
 				if message_id == hash("door_opened") and message.door_id == 3 then
@@ -24,13 +26,13 @@ function init(self)
 	}
 
 	self["texts_2"] = {
-		{text = "Door should be opening now over.", name="You"},
-		{text = "Yeah its opening over.", name="Emily", callback = function()
+		{text = "Door should be opening now.", name="You"},
+		{text = "Yeah its opening.", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "Im moving to room four . . .", name="Emily"},
-		{text = "Keep an eye on me over.", name="Emily"},
-		{text = "Just report back what you see over.", name="You", stop = true, callback = function()
+		{text = "Keep an eye on me.", name="Emily"},
+		{text = "Just report back what you see.", name="You", stop = true, callback = function()
 			msg.post("sound#static_blip", "play_sound")
 			local path = djk.path(3, 4)
 			msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
@@ -124,14 +126,14 @@ function init(self)
 	
 	self["texts_5"] = {
 		{text = "HEY WATCH OUT! You almost killed me with that door!", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "Sorry, but that wasn't me over.", name = "You"},
-		{text = "Urrr what do you mean that wasn't you? over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "I mean I didn't close that door, my control screen malfunctioned, door four shut by itself over.", name = "You"},
+		{text = "Sorry, but that wasn't me.", name = "You"},
+		{text = "Urrr what do you mean that wasn't you?.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
+		{text = "I mean I didn't close that door, my control screen malfunctioned, door four shut by itself.", name = "You"},
 		{text = " . . . ", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end},
-		{text = "Well that fills me with confidence over.", name = "Emily"},
+		{text = "Well that fills me with confidence.", name = "Emily"},
 		{text = "The control systems must have been damaged. Just be extra careful from this point on.", name = "You"},
-		{text = "The failsafes should stop the rooms from depressurising with you inside, but theres nothing I can do about the doors over.", name = "You"},
-		{text = "As if we needed more problems over.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end, stop=true}
+		{text = "The failsafes should stop the rooms from depressurising with you inside, but theres nothing I can do about the doors.", name = "You"},
+		{text = "As if we needed more problems.", name = "Emily", callback = function() msg.post("sound#static_blip", "play_sound") end, stop=true}
 	}
 	
 	tbutils.fresh_start(self, texts_1)
