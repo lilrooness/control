@@ -4,8 +4,8 @@ local M = {}
 
 local state = {
 	event_chains = {},
-	doors = false,
-	rooms = false,
+	doors_selected = false,
+	rooms_selected = false,
 	ids = {
 		"1",
 		"2",
@@ -29,13 +29,63 @@ local state = {
 		"k"
 	},
 
+	door_ids = {},
+	room_ids = {},
+
 	emily_room = -1,
 
 	level_script_url = nil
 }
 
-function M.begin_event_chain(event, duration)
+function M.toggle_door(display_id)
+	msg.post(M.display_id_to_door_proxy_id(display_id), "toggle")
+end
+
+function M.get_door_proxy_id(door_number)
+	return state.door_ids[door_number]
+end
+
+function M.get_room_proxy_id(room_number)
+	return state.room_ids[room_number]
+end
+
+function M.init_door(door_number, proxy_id)
+	state.door_ids[door_number] = proxy_id
+end
+
+function M.init_room(room_number, proxy_id)
+	state.room_ids[room_number] = proxy_id
+end
+
+function M.display_id_to_room_proxy_id(in_display_id)
+	local hash_in_display_id = hash(in_display_id)
+	local obj_id = nil;
+
+	for room_number, room_proxy_id in pairs(state.room_ids) do
+		if hash(state.ids[room_number]) == hash_in_display_id then
+			obj_id = room_proxy_id
+		end
+	end
+
+	return obj_id
 	
+end
+
+function M.display_id_to_door_proxy_id(in_display_id)
+	local hash_in_display_id = hash(in_display_id)
+	local obj_id = nil;
+
+	for door_number, door_proxy_id in pairs(state.door_ids) do
+		if hash(state.ids[door_number]) == hash_in_display_id then
+			obj_id = door_proxy_id
+		end
+	end
+
+	return obj_id
+end
+
+
+function M.begin_event_chain(event, duration)
 	table.insert(state.event_chains, {[1] = {event = event, duration = duration}})
 	return #state.event_chains
 end
@@ -65,19 +115,19 @@ function M.get_display_id(n)
 end
 
 function M.select_doors(selected)
-	state.doors = selected
+	state.doors_selected = selected
 end
 
 function M.select_rooms(selected)
-	state.rooms = selected
+	state.rooms_selected = selected
 end
 
 function M.doors_selected()
-	return state.doors
+	return state.doors_selected
 end
 
 function M.rooms_selected()
-	return state.rooms
+	return state.rooms_selected
 end
 
 function M.set_level_script(url)

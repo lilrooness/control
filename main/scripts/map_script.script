@@ -1,6 +1,4 @@
---local djk = require("main.modules.dijkstra")
-
-go.property("speed", 1)
+go.property("speed", 6)
 go.property("tilesize", 128)
 go.property("start", vmath.vector3())
 
@@ -27,15 +25,30 @@ end
 
 function on_input(self, action_id, action)
 
-
 	if action_id == hash("d") and action.pressed and not map_state.rooms_selected() then
 		map_state.select_doors(not map_state.doors_selected())
 		msg.post(":/sound#440_660", "play_sound")
-	end
-	
-	if action_id == hash("r") and action.pressed and not map_state.doors_selected() then
+	elseif action_id == hash("r") and action.pressed and not map_state.doors_selected() then
 		map_state.select_rooms(not map_state.rooms_selected())
 		msg.post(":/sound#440_660", "play_sound")
+	end
+	
+	if action_id == hash("text") then
+		if map_state.rooms_selected() then
+			local obj_id = map_state.display_id_to_room_proxy_id(action.text)
+			
+			if obj_id ~= nil then
+				msg.post(obj_id, "room_menu")
+				map_state.select_rooms(false)
+			end
+		elseif map_state.doors_selected() then
+			local obj_id = map_state.display_id_to_door_proxy_id(action.text)
+
+			if obj_id ~= nil then
+				msg.post(obj_id, "toggle")
+				map_state.select_doors(false)
+			end
+		end
 	end
 	
 	local xvel = 0
