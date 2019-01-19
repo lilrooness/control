@@ -10,18 +10,7 @@ uniform lowp vec4 resolution;
 
 uniform lowp vec4 time;
 
-
-
-
-
-void main()
-
-
-
-{
-
-
-
+void main() {
 	vec2 pSize = (options.w * sin(var_texcoord0.y * options.y + time.x * options.x)) / vec2(resolution.x, resolution.y);
 
 	float offsetX = sin(var_texcoord0.y * options.y + time.x * options.x) * pSize.x + cos(var_texcoord0.y * options.y + time.x * options.x * 0.5) * pSize.x;
@@ -30,55 +19,29 @@ void main()
 
 	float opt_z = options.z;
 
-
-
-
-
 	if(var_texcoord0.x < 0.5) {
-
 		if(var_texcoord0.y < 0.5) {
-
 			opt_z = min(var_texcoord0.x * var_texcoord0.y * corner, 1.0);
-
 		} else {
-
 			opt_z = min(var_texcoord0.x * (1.0 - var_texcoord0.y) * corner, 1.0);
-
 		}
-
 	} else {
-
 		if(var_texcoord0.y < 0.5) {
-
 			opt_z = min((1.0 - var_texcoord0.x) * var_texcoord0.y * corner, 1.0);
-
 		} else {
-
 			opt_z = min((1.0 - var_texcoord0.x) * (1.0 - var_texcoord0.y) * corner, 1.0);
-
 		}
-
 	}
 
-
-
 	float red = texture2D(DIFFUSE_TEXTURE, vec2(var_texcoord0.x + offsetX, var_texcoord0.y + pSize.y * 0.5)).r;
-
 	float green = texture2D(DIFFUSE_TEXTURE, vec2(var_texcoord0.x + offsetX, var_texcoord0.y - pSize.y * 0.5)).g;
-
 	float blue = texture2D(DIFFUSE_TEXTURE, vec2(var_texcoord0.x + offsetX, var_texcoord0.y)).b;
-
-
 
 	if(mod(var_texcoord0.y * resolution.y, 2.0) > 0.5) {
 	//if(mod(var_texcoord0.y * resolution.y, 1.0) > 0.5) {
-
 		gl_FragColor = vec4(vec3(red, green, blue) * opt_z, 1.0);
 
 	} else {
-
 		gl_FragColor = vec4(vec3(red * 0.75, green * 0.75, blue * 0.75) * opt_z, 1.0);
-
-	} 
-
+	}
 }
