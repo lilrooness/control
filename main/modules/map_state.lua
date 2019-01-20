@@ -4,8 +4,11 @@ local M = {}
 
 local state = {
 	event_chains = {},
+
 	doors_selected = false,
 	rooms_selected = false,
+	schematic_selected = false,
+
 	ids = {
 		"1",
 		"2",
@@ -122,12 +125,20 @@ function M.select_rooms(selected)
 	state.rooms_selected = selected
 end
 
+function M.select_schematic(selected)
+	state.schematic_selected = selected
+end
+
 function M.doors_selected()
 	return state.doors_selected
 end
 
 function M.rooms_selected()
 	return state.rooms_selected
+end
+
+function M.schematic_selected()
+	return state.schematic_selected
 end
 
 function M.set_level_script(url)

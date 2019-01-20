@@ -1,0 +1,77 @@
+go.property("power_source_id", 0)
+go.property("on", true)
+go.property("tilemap", msg.url())
+go.property("tile_power_offset", 20)
+
+function init(self)
+	--msg.post("#sprite", "disable")
+	print(self.tilemap)
+	self.layer = hash("power_"..self.power_source_id)
+
+	local _, _, w, h = tilemap.get_bounds(self.tilemap)
+	self.tile_shows_power_on = true
+	if not self.on then
+		show_off_tile(self)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	if self.tile_shows_power_on ~= self.on then
+		if self.on then
+			show_on_tile(self)
+		else
+			show_off_tile(self)
+		end
+
+		self.tile_shows_power_on = self.on
+	end
+end
+
+function show_off_tile(self)
+	local lx, ly, w, h = tilemap.get_bounds(self.tilemap)
+	if self.tile_shows_power_on then
+		self.tile_shows_power_on = false
+		for y=ly, ly + h - 1, 1 do
+			for x=lx, lx + w - 1, 1 do
+				local tile = tilemap.get_tile(self.tilemap, self.layer, x, y)
+				if tile > 100 then
+					tilemap.set_tile(self.tilemap, self.layer, x, y, tile + 60)
+				end
+			end
+		end
+	end
+end
+
+function show_on_tile(self)
+	local lx, ly, w, h = tilemap.get_bounds(self.tilemap)
+	if self.tile_shows_power_on then
+		self.tile_shows_power_on = false
+		for y=ly, ly + h - 1, 1 do
+			for x=lx, lx + w - 1, 1 do
+				local tile = tilemap.get_tile(self.tilemap, self.layer, x, y)
+				if tile > 100 then
+					tilemap.set_tile(self.tilemap, self.layer, x, y, tile - 60)
+				end
+			end
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

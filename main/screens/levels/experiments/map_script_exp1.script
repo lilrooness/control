@@ -4,11 +4,13 @@ go.property("start", vmath.vector3())
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	print(msg.url())
 	msg.post("#schematic_tilemap", "disable")
 	start_pos = tile_pos(self, self.start.x, self.start.y)
 	--emily = collectionfactory.create(":/emily_factory#collectionfactory", vmath.vector3(start_pos.x, start_pos.y, 1))
 	--msg.post(emily["/human_marker_obj"], "set_parent", {parent_id = go.get_id()})
 	msg.post("sound#sound_fade", "fade_in", {target_gain=1})
+
 end
 
 function final(self)
@@ -35,20 +37,18 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("s") and action.pressed and not map_state.doors_selected() and not map_state.rooms_selected() then
 		map_state.select_schematic(not map_state.schematic_selected())
 		if map_state.schematic_selected() then
-			print("schematic view ON")
 			tilemap.set_constant("#rooms_tilemap", "tint", vmath.vector4(0.5, 0.5, 0.5, 0.5))
 			msg.post("#schematic_tilemap", "enable")
 		else
-			print("schematic view OFF")
 			tilemap.set_constant("#rooms_tilemap", "tint", vmath.vector4(1.0, 1.0, 1.0, 1.0))
 			msg.post("#schematic_tilemap", "disable")
 		end
 	end
-	
+
 	if action_id == hash("text") then
 		if map_state.rooms_selected() then
 			local obj_id = map_state.display_id_to_room_proxy_id(action.text)
-			
+
 			if obj_id ~= nil then
 				msg.post(obj_id, "room_menu")
 				map_state.select_rooms(false)
@@ -62,12 +62,12 @@ function on_input(self, action_id, action)
 			end
 		end
 	end
-	
+
 	local xvel = 0
 	local yvel = 0
 
 	local move = false
-	
+
 	if action_id == hash("up") then
 		yvel = yvel - self.speed
 		move = true
