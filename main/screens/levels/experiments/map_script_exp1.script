@@ -4,13 +4,9 @@ go.property("start", vmath.vector3())
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	print(msg.url())
 	msg.post("#schematic_tilemap", "disable")
 	start_pos = tile_pos(self, self.start.x, self.start.y)
-	--emily = collectionfactory.create(":/emily_factory#collectionfactory", vmath.vector3(start_pos.x, start_pos.y, 1))
-	--msg.post(emily["/human_marker_obj"], "set_parent", {parent_id = go.get_id()})
 	msg.post("sound#sound_fade", "fade_in", {target_gain=1})
-
 end
 
 function final(self)

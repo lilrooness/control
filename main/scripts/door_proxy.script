@@ -100,7 +100,7 @@ function open_door(self)
 			go.set("#warning", "color", vmath.vector4(1,0,0,1))
 			msg.post("#warning", "disable")
 		end)
-	else
+	elseif not self.disabled then
 		msg.post(self.room1, "door_opened")
 		msg.post(self.room2, "door_opened")
 		self.open = true
@@ -110,7 +110,7 @@ function open_door(self)
 end
 
 function close_door(self)
-	if self.open then
+	if self.open and not self.disabled then
 		msg.post(self.room1, "door_closed")
 		msg.post(self.room2, "door_closed")
 		self.open = false
