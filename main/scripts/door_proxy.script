@@ -10,6 +10,8 @@ go.property("room2", msg.url())
 go.property("closed_tile", 33)
 go.property("open_tile", 53)
 
+go.property("power_source_url", msg.url())
+
 go.property("disabled", false)
 
 function init(self)
@@ -30,6 +32,8 @@ function final(self)
 end
 
 function update(self, dt)
+
+	disabled = not go.get(self.power_source_url, "on")
 
 	if not self.selected and map_state.doors_selected() then
 		self.selected = true
