@@ -43,7 +43,7 @@ function select_doors(selected)
 		gui.set_color(rooms_node, vmath.vector3(0.5, 0.5, 0.5))
 
 		local doors_node = gui.get_node("doors")
-		gui.set_color(doors_node, vmath.vector3(0, 1, 1))
+		gui.set_color(doors_node, vmath.vector3(1, 1, 0))
 	else
 		local rooms_node = gui.get_node("rooms")
 		gui.set_color(rooms_node, vmath.vector3(1, 1, 1))
@@ -59,7 +59,7 @@ function select_rooms(selected)
 		gui.set_color(doors_node, vmath.vector3(0.5, 0.5, 0.5))
 
 		local rooms_node = gui.get_node("rooms")
-		gui.set_color(rooms_node, vmath.vector3(0, 1, 1))
+		gui.set_color(rooms_node, vmath.vector3(1, 1, 0))
 	else
 		local doors_node = gui.get_node("doors")
 		gui.set_color(doors_node, vmath.vector3(1, 1, 1))
