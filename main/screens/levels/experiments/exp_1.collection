@@ -305,13 +305,155 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "sound"
+  prototype: "/main/objects/sound.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "power_source_1"
+  prototype: "/main/objects/power_source.go"
+  position {
+    x: 191.0
+    y: 1469.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "power_source"
+    properties {
+      id: "power_source_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "on"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "tilemap"
+      value: "/map_obj#schematic_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "r1"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 158.0
+    y: 1178.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "room_number"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d1"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 62.0
+    y: 1012.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "-1.0, 5.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r2#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_2#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
+  children: "d1"
   children: "d2"
   children: "d3"
+  children: "power_source_1"
   children: "power_source_2"
   children: "power_source_3"
+  children: "r1"
   children: "r2"
   children: "r3"
   children: "r4"
@@ -384,61 +526,6 @@ embedded_instances {
   position {
     x: 658.0
     y: 344.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "sound"
-  data: "components {\n"
-  "  id: \"sound_fade\"\n"
-  "  component: \"/main/scripts/sound_fade.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sound\"\n"
-  "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/assets/sfx/fridge-ambiance_downsampled.wav\\\"\\n"
-  "looping: 1\\n"
-  "group: \\\"master\\\"\\n"
-  "gain: 1.0\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
     z: 0.0
   }
   rotation {

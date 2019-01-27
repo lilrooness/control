@@ -35,8 +35,8 @@ key_trigger {
   action: "enter"
 }
 key_trigger {
-  input: KEY_S
-  action: "s"
+  input: KEY_P
+  action: "p"
 }
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
