@@ -409,17 +409,17 @@ instances {
     id: "door_label"
     properties {
       id: "door_tile"
-      value: "-1.0, 5.0, 0.0"
+      value: "1.0, 9.0, 0.0"
       type: PROPERTY_TYPE_VECTOR3
     }
     properties {
       id: "door_number"
-      value: "2.0"
+      value: "1.0"
       type: PROPERTY_TYPE_NUMBER
     }
     properties {
       id: "room1"
-      value: "/r2#room_proxy"
+      value: "/r1#room_proxy"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -526,6 +526,44 @@ embedded_instances {
   position {
     x: 658.0
     y: 344.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "power_hud_factory"
+  data: "embedded_components {\n"
+  "  id: \"factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/objects/power_hud_obj.go\\\"\\n"
+  "load_dynamically: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
     z: 0.0
   }
   rotation {

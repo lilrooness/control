@@ -28,7 +28,6 @@ function update(self, dt)
 
 	for i, n in pairs(self.button_nodes) do
 		local node = gui.get_node(n)
-		print(i)
 		if i == selected_node then
 			gui.set_color(node, vmath.vector3(1, 1, 0))
 		elseif selected_node > 0 then
