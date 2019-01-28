@@ -1,6 +1,6 @@
 components {
   id: "power_gui"
-  component: "/main/guis/power_gui.gui"
+  component: "/main/guis/power_hud_gui.gui"
   position {
     x: 0.0
     y: 0.0

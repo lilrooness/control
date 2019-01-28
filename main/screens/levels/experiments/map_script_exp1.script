@@ -1,7 +1,7 @@
 go.property("speed", 6)
 go.property("tilesize", 128)
 go.property("start", vmath.vector3())
-go.property("power_level", 100)
+go.property("power_level", 50)
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
