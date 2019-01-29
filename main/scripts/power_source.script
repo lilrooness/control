@@ -2,12 +2,19 @@ go.property("power_source_id", 0)
 go.property("on", true)
 go.property("tilemap", msg.url())
 go.property("tile_power_offset", 20)
+go.property("power_usage", 10)
 
 function init(self)
-	--msg.post("#sprite", "disable")
-	print(self.tilemap)
 	self.layer = hash("power_"..self.power_source_id)
-
+	local power_level = map_state.get_power_level()
+	
+	if self.on and power_level >= self.power_usage then
+		map_state.set_power_level(power_level - self.power_usage)
+		print(self.power_source_id .. map_state.get_power_level())
+	else
+		self.on = false
+	end
+	
 	local _, _, w, h = tilemap.get_bounds(self.tilemap)
 	self.tile_shows_power_on = true
 	if not self.on then

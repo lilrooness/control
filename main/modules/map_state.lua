@@ -5,6 +5,8 @@ local M = {}
 local state = {
 	event_chains = {},
 
+	power_level = 100,
+
 	doors_selected = false,
 	rooms_selected = false,
 	schematic_selected = false,
@@ -39,6 +41,14 @@ local state = {
 
 	level_script_url = nil
 }
+
+function M.get_power_level()
+	return state.power_level
+end
+
+function M.set_power_level(in_power_level)
+	state.power_level = in_power_level
+end
 
 function M.toggle_door(display_id)
 	msg.post(M.display_id_to_door_proxy_id(display_id), "toggle")

@@ -62,7 +62,7 @@ instances {
     }
     properties {
       id: "on"
-      value: "false"
+      value: "true"
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {

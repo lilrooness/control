@@ -156,7 +156,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "100%"
   font: "computer_font_DF"
-  id: "text"
+  id: "value"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -185,7 +185,7 @@ nodes {
 }
 nodes {
   position {
-    x: 102.0
+    x: 94.0
     y: 644.0
     z: 0.0
     w: 1.0
@@ -216,7 +216,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Power Use"
+  text: "Capacity"
   font: "computer_font_DF"
   id: "text1"
   xanchor: XANCHOR_NONE
