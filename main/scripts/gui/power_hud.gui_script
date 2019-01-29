@@ -10,16 +10,18 @@ end
 
 function update(self, dt)
 	local power_bar_node = gui.get_node("power_bar")
+	
 	local power_level = map_state.get_power_level()
-	print(power_level)
+
 	local new_scale_x = self.full_scale_x / 100 * power_level
 	local power_bar_scale = gui.get_scale(power_bar_node)
+	
 	power_bar_scale.x = new_scale_x
-
+	
 	if new_scale_x - self.old_scale_x ~= 0 then
 		gui.animate(power_bar_node, "scale", power_bar_scale, gui.EASING_LINEAR, 0.1, 0, 
 		function()
-			self.old_scale_x = new_scale_x 
+			self.old_scale_x = new_scale_x
 		end)
 	end
 

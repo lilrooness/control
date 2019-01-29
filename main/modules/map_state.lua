@@ -36,6 +36,7 @@ local state = {
 
 	door_ids = {},
 	room_ids = {},
+	power_source_ids = {},
 
 	emily_room = -1,
 
@@ -70,6 +71,10 @@ function M.init_room(room_number, proxy_id)
 	state.room_ids[room_number] = proxy_id
 end
 
+function M.init_power_source(power_source_number, power_source_id)
+	state.power_source_ids[power_source_number] = power_source_id
+end
+
 function M.display_id_to_room_proxy_id(in_display_id)
 	local hash_in_display_id = hash(in_display_id)
 	local obj_id = nil;
@@ -91,6 +96,19 @@ function M.display_id_to_door_proxy_id(in_display_id)
 	for door_number, door_proxy_id in pairs(state.door_ids) do
 		if hash(state.ids[door_number]) == hash_in_display_id then
 			obj_id = door_proxy_id
+		end
+	end
+
+	return obj_id
+end
+
+function M.display_id_to_power_source_id(in_display_id)
+	local hash_in_display_id = hash(in_display_id)
+	local obj_id = nil;
+
+	for power_source_number, power_source_id in pairs(state.power_source_ids) do
+		if hash(state.ids[power_source_number]) == hash_in_display_id then
+			obj_id = power_source_id
 		end
 	end
 

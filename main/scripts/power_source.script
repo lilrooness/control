@@ -20,10 +20,15 @@ function init(self)
 	if not self.on then
 		show_off_tile(self)
 	end
+
+	map_state.init_power_source(self.power_source_id, go.get_id())
 end
 
 function on_message(self, message_id, message, sender)
-
+	if message_id == hash("power_source_menu") then
+		msg.post(":/sound#660", "play_sound")
+		monarch.show("power_source_menu", {}, {url = msg.url(), power_source_id = self.power_source_id})
+	end
 end
 
 function final(self)
@@ -40,6 +45,12 @@ function update(self, dt)
 		end
 
 		self.tile_shows_power_on = self.on
+	end
+
+	if map_state.schematic_selected() then
+		label.set_text("#label", string.upper(map_state.get_display_id(self.power_source_id)))
+	else
+		label.set_text("#label", "")
 	end
 end
 

@@ -1,0 +1,58 @@
+function init(self)
+
+	msg.post(".", "acquire_input_focus")
+
+	self.selection = {
+		"on",
+		"off",
+		"back"
+	}
+
+	self.selected = 1
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("down") and action.pressed and self.selected < table.getn(self.selection) then
+		self.selected = self.selected + 1
+		msg.post(":/sound#440", "play_sound")
+
+		pos = gui.get_position(gui.get_node("selector"))
+		pos.y = gui.get_position(gui.get_node(self.selection[self.selected])).y
+		gui.animate(gui.get_node("selector"), "position", pos, gui.EASING_LINEAR, 0.1)
+	elseif action_id == hash("up") and action.pressed and self.selected > 1 then
+		self.selected = self.selected - 1
+		msg.post(":/sound#440", "play_sound")
+
+		pos = gui.get_position(gui.get_node("selector"))
+		pos.y = gui.get_position(gui.get_node(self.selection[self.selected])).y
+		gui.animate(gui.get_node("selector"), "position", pos, gui.EASING_LINEAR, 0.1)
+	end
+
+	if action_id == hash("enter") and action.pressed then
+		if hash(self.selection[self.selected]) ~= hash("back") then	
+			msg.post(monarch.data("power_source_menu").url, self.selection[self.selected])
+		end
+		map_state.select_rooms(false)
+		monarch.back()
+	end
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end

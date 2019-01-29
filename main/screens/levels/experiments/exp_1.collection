@@ -44,7 +44,7 @@ instances {
   prototype: "/main/objects/power_source.go"
   position {
     x: -66.0
-    y: -328.0
+    y: -237.0
     z: 0.0
   }
   rotation {
@@ -271,8 +271,8 @@ instances {
   id: "power_source_2"
   prototype: "/main/objects/power_source.go"
   position {
-    x: -66.0
-    y: -328.0
+    x: -496.0
+    y: 703.0
     z: 0.0
   }
   rotation {
@@ -330,7 +330,7 @@ instances {
   prototype: "/main/objects/power_source.go"
   position {
     x: 191.0
-    y: 1469.0
+    y: 1386.0
     z: 0.0
   }
   rotation {
