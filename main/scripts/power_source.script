@@ -5,12 +5,14 @@ go.property("tile_power_offset", 20)
 go.property("power_usage", 10)
 
 function init(self)
+	self.using_power = false
 	self.layer = hash("power_"..self.power_source_id)
 	local power_level = map_state.get_power_level()
 	
-	if self.on and power_level >= self.power_usage then
+	if self.on and not self.using_power and power_level >= self.power_usage then
 		map_state.set_power_level(power_level - self.power_usage)
 		print(self.power_source_id .. map_state.get_power_level())
+		self.using_power = true
 	else
 		self.on = false
 	end
@@ -29,6 +31,12 @@ function on_message(self, message_id, message, sender)
 		msg.post(":/sound#660", "play_sound")
 		monarch.show("power_source_menu", {}, {url = msg.url(), power_source_id = self.power_source_id})
 	end
+
+	if message_id == hash("on") then
+		self.on = true
+	elseif message_id == hash("off") then
+		self.on = false
+	end
 end
 
 function final(self)
@@ -37,6 +45,18 @@ function final(self)
 end
 
 function update(self, dt)
+
+	local power_level = map_state.get_power_level()
+	
+	if self.on and not self.using_power and power_level >= self.power_usage then
+		map_state.set_power_level(power_level - self.power_usage)
+		print(self.power_source_id .. map_state.get_power_level())
+		self.using_power = true
+	elseif not self.on and self.using_power then
+		map_state.set_power_level(power_level + self.power_usage)
+		self.using_power = false
+	end
+
 	if self.tile_shows_power_on ~= self.on then
 		if self.on then
 			show_on_tile(self)
@@ -71,8 +91,8 @@ end
 
 function show_on_tile(self)
 	local lx, ly, w, h = tilemap.get_bounds(self.tilemap)
-	if self.tile_shows_power_on then
-		self.tile_shows_power_on = false
+	if not self.tile_shows_power_on then
+		self.tile_shows_power_on = true
 		for y=ly, ly + h - 1, 1 do
 			for x=lx, lx + w - 1, 1 do
 				local tile = tilemap.get_tile(self.tilemap, self.layer, x, y)
