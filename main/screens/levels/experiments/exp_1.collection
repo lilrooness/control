@@ -72,7 +72,7 @@ instances {
     }
     properties {
       id: "power_usage"
-      value: "90.0"
+      value: "30.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -459,15 +459,255 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "power_source_4"
+  prototype: "/main/objects/power_source.go"
+  position {
+    x: 62.0
+    y: 661.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "power_source"
+    properties {
+      id: "power_source_id"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "on"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "tilemap"
+      value: "/map_obj#schematic_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_usage"
+      value: "90.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "d4"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 234.0
+    y: 838.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "3.0, 7.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_4#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d5"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 232.0
+    y: 583.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "3.0, 5.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_4#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "power_source_5"
+  prototype: "/main/objects/power_source.go"
+  position {
+    x: 616.0
+    y: -224.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "power_source"
+    properties {
+      id: "power_source_id"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "on"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "tilemap"
+      value: "/map_obj#schematic_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_usage"
+      value: "100.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "power_source_6"
+  prototype: "/main/objects/power_source.go"
+  position {
+    x: 1595.0
+    y: 1509.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "power_source"
+    properties {
+      id: "power_source_id"
+      value: "6.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "on"
+      value: "false"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
+      id: "tilemap"
+      value: "/map_obj#schematic_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_usage"
+      value: "100.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
   children: "d1"
   children: "d2"
   children: "d3"
+  children: "d4"
+  children: "d5"
   children: "power_source_1"
   children: "power_source_2"
   children: "power_source_3"
+  children: "power_source_4"
+  children: "power_source_5"
+  children: "power_source_6"
   children: "r1"
   children: "r2"
   children: "r3"
@@ -489,7 +729,7 @@ embedded_instances {
   "}\n"
   "components {\n"
   "  id: \"schematic_tilemap\"\n"
-  "  component: \"/main/screens/levels/experiments/exp_1_copy.tilemap\"\n"
+  "  component: \"/main/screens/levels/experiments/exp_1_power.tilemap\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"

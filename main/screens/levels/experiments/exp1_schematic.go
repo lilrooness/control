@@ -1,6 +1,6 @@
 components {
   id: "exp_1_copy"
-  component: "/main/screens/levels/experiments/exp_1_copy.tilemap"
+  component: "/main/screens/levels/experiments/exp_1_power.tilemap"
   position {
     x: 0.0
     y: 0.0
