@@ -50,11 +50,12 @@ function update(self, dt)
 	
 	if self.on and not self.using_power and power_level >= self.power_usage then
 		map_state.set_power_level(power_level - self.power_usage)
-		print(self.power_source_id .. map_state.get_power_level())
 		self.using_power = true
 	elseif not self.on and self.using_power then
 		map_state.set_power_level(power_level + self.power_usage)
 		self.using_power = false
+	elseif self.on and not self.using_power and power_level < self.power_usage then
+		self.on = false
 	end
 
 	if self.tile_shows_power_on ~= self.on then

@@ -96,6 +96,10 @@ end
 
 function open_door(self)
 
+	if not go.get(self.power_source_url, "on") then
+		return
+	end
+
 	local room1_pressure = go.get(self.room1, "pressure")
 	local room2_pressure = go.get(self.room2, "pressure")
 	
@@ -117,6 +121,9 @@ function open_door(self)
 end
 
 function close_door(self)
+	if not go.get(self.power_source_url, "on") then
+		return
+	end
 	if self.open and not self.disabled then
 		msg.post(self.room1, "door_closed")
 		msg.post(self.room2, "door_closed")

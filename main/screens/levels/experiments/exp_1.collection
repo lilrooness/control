@@ -62,13 +62,18 @@ instances {
     }
     properties {
       id: "on"
-      value: "true"
+      value: "false"
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
       id: "tilemap"
       value: "/map_obj#schematic_tilemap"
       type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_usage"
+      value: "90.0"
+      type: PROPERTY_TYPE_NUMBER
     }
   }
   scale3 {
@@ -298,6 +303,11 @@ instances {
       value: "/map_obj#schematic_tilemap"
       type: PROPERTY_TYPE_URL
     }
+    properties {
+      id: "power_usage"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
   }
   scale3 {
     x: 1.0
@@ -355,6 +365,11 @@ instances {
       id: "tilemap"
       value: "/map_obj#schematic_tilemap"
       type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_usage"
+      value: "30.0"
+      type: PROPERTY_TYPE_NUMBER
     }
   }
   scale3 {
@@ -429,7 +444,7 @@ instances {
     }
     properties {
       id: "power_source_url"
-      value: "/power_source_2#power_source"
+      value: "/power_source_1#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
