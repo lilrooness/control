@@ -27,6 +27,9 @@ function init(self)
 	else
 		close_door(self)
 	end
+
+
+	self.display_disabled = false
 end
 
 function final(self)
@@ -36,9 +39,27 @@ end
 
 function update(self, dt)
 
-	disabled = not go.get(self.power_source_url, "on")
+	disabled =  not go.get(self.power_source_url, "on")
 
-	if not self.selected and map_state.doors_selected() then
+	if disabled and not self.display_disabled then
+		local current_tile = tilemap.get_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y)
+		tilemap.set_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y, current_tile + 1)
+		go.set("#label", "color", vmath.vector4(0.5, 0.5, 0.5, 1))
+		self.display_disabled = true
+	elseif not disabled and self.display_disabled then
+		local current_tile = tilemap.get_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y)
+		tilemap.set_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y, current_tile - 1)
+		go.set("#label", "color", vmath.vector4(1, 0, 0, 1))
+		self.display_disabled = false
+	end
+
+	if disabled then
+		go.set("#label", "color", vmath.vector4(0.5, 0.5, 0.5, 1))
+	elseif not self.selected then
+		go.set("#label", "color", vmath.vector4(1, 0, 0, 1))
+	end
+
+	if not self.selected and map_state.doors_selected() and not disabled then
 		self.selected = true
 		label.set_text("#label", string.upper(map_state.get_display_id(self.door_number)))
 		local tmp_scale = self.scale_to
@@ -48,8 +69,8 @@ function update(self, dt)
 
 		local tmp_color = self.selected_color
 		color = go.get("#label", "color")
-		self.selected_color = color
 		go.set("#label", "color", tmp_color)
+		self.selected_color = color
 		
 	elseif self.selected and not map_state.doors_selected() then
 		self.selected = false
