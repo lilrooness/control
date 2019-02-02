@@ -62,7 +62,7 @@ instances {
     }
     properties {
       id: "on"
-      value: "false"
+      value: "true"
       type: PROPERTY_TYPE_BOOLEAN
     }
     properties {
@@ -72,7 +72,7 @@ instances {
     }
     properties {
       id: "power_usage"
-      value: "30.0"
+      value: "20.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -152,9 +152,19 @@ instances {
   component_properties {
     id: "room_proxy"
     properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
       id: "room_number"
       value: "4.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_4#power_source"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -184,6 +194,11 @@ instances {
       value: "3.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "power_source"
+      value: "/power_source_3#power_source"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
@@ -211,6 +226,11 @@ instances {
       id: "room_number"
       value: "2.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_2#power_source"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -305,7 +325,7 @@ instances {
     }
     properties {
       id: "power_usage"
-      value: "30.0"
+      value: "20.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -368,7 +388,7 @@ instances {
     }
     properties {
       id: "power_usage"
-      value: "30.0"
+      value: "20.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -398,6 +418,11 @@ instances {
       id: "room_number"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_1#power_source"
+      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -492,7 +517,7 @@ instances {
     }
     properties {
       id: "power_usage"
-      value: "90.0"
+      value: "40.0"
       type: PROPERTY_TYPE_NUMBER
     }
   }
@@ -540,7 +565,7 @@ instances {
     }
     properties {
       id: "power_source_url"
-      value: "/power_source_4#power_source"
+      value: "/power_source_6#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -801,6 +826,24 @@ embedded_instances {
   "  id: \"factory\"\n"
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/main/objects/power_hud_obj.go\\\"\\n"
+  "load_dynamically: false\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sidebar_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/objects/power_sidebar_gui_obj.go\\\"\\n"
   "load_dynamically: false\\n"
   "\"\n"
   "  position {\n"

@@ -43,6 +43,10 @@ local state = {
 	level_script_url = nil
 }
 
+function M.get_power_source_ids()
+	return state.power_source_ids
+end
+
 function M.get_power_level()
 	return state.power_level
 end

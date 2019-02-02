@@ -2,6 +2,7 @@ local utils = require("main.modules.utils")
 
 go.property("pressure", 100)
 go.property("room_number", 0)
+go.property("power_source", msg.url())
 
 go.property("selected", false)
 go.property("scale_to", vmath.vector3(4,4,1))
@@ -21,6 +22,8 @@ function init(self)
 	sprite.set_constant("#bg2", "alarm_color", vmath.vector4(0,0,0,0))
 
 	label.set_text("#label", "R"..string.upper(map_state.get_display_id(self.room_number)))
+
+	self.display_disabled = false
 end
 
 function final(self)
@@ -46,7 +49,18 @@ function update(self, dt)
 		self.alarm = false
 	end
 
-	if not self.selected and map_state.rooms_selected() then
+	local disabled =  not go.get(self.power_source, "on")
+
+	if disabled and not self.display_disabled then
+		self.non_disabled_color = go.get("#label", "color")
+		go.set("#label", "color", vmath.vector4(0.5, 0.5, 0.5, 1))
+		self.display_disabled = true
+	elseif not disabled and self.display_disabled then
+		go.set("#label", "color", self.non_disabled_color)
+		self.display_disabled = false
+	end
+
+	if not self.selected and map_state.rooms_selected() and not disabled then
 		self.selected = true
 		label.set_text("#label", string.upper(map_state.get_display_id(self.room_number)))
 		local tmp_scale = self.scale_to
@@ -112,7 +126,7 @@ function on_message(self, message_id, message, sender)
 		end
 	end
 
-	if message_id == hash("room_menu") then
+	if message_id == hash("room_menu") and go.get(self.power_source, "on") then
 		msg.post(":/sound#660", "play_sound")
 		monarch.show("room_menu", {}, {url = msg.url(), room_number = self.room_number})
 	end

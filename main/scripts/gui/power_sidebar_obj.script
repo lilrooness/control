@@ -1,0 +1,39 @@
+function init(self)
+	-- Add initialization code here
+	-- Remove this function if not needed
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	local id_map = map_state.get_power_source_ids()
+	local state_map = {}
+	for ps_number, ps_id in pairs(id_map) do
+		local ps_url = msg.url()
+		ps_url.path = ps_id
+		ps_url.fragment = "power_source"
+		state_map[ps_number] = go.get(ps_url, "on")
+	end
+
+	msg.post("#power_sidebar_gui", "power_source_update", {
+		power_source_states = state_map
+	})
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

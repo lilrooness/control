@@ -1,0 +1,51 @@
+function init(self)
+	self.bar_shift = 500
+	self.animation_speed = 0.25
+	local sidebar_node = gui.get_node("sidebar")
+	local sidebar_pos = gui.get_position(sidebar_node)
+	sidebar_pos.x = sidebar_pos.x + self.bar_shift
+	gui.set_position(sidebar_node, sidebar_pos)
+
+	sidebar_pos.x = sidebar_pos.x - self.bar_shift
+	gui.animate(sidebar_node, "position.x", sidebar_pos, gui.EASING_LINEAR, self.animation_speed)
+
+	self.power_source_states = {}
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	local text = ""
+
+	for ps_id, state in pairs(self.power_source_states) do
+		local state_text = ""
+		if state then
+			state_text = "ON"
+		else
+			state_text = "OFF"
+		end
+		text = text .. ps_id .. " - " .. state_text .. "\n\n"
+	end
+
+	gui.set_text(gui.get_node("text"), text)
+end
+
+function on_message(self, message_id, message, sender)
+
+	if hash("power_source_update") == message_id then
+		self.power_source_states = message.power_source_states
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end

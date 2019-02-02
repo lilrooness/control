@@ -39,7 +39,7 @@ end
 
 function update(self, dt)
 
-	disabled =  not go.get(self.power_source_url, "on")
+	local disabled =  not go.get(self.power_source_url, "on")
 
 	if disabled and not self.display_disabled then
 		local current_tile = tilemap.get_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y)
