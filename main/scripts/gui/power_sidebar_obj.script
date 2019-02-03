@@ -15,7 +15,10 @@ function update(self, dt)
 		local ps_url = msg.url()
 		ps_url.path = ps_id
 		ps_url.fragment = "power_source"
-		state_map[ps_number] = go.get(ps_url, "on")
+		state_map[ps_number] = {
+			power_usage = go.get(ps_url, "power_usage"),
+			on = go.get(ps_url, "on")
+		}
 	end
 
 	msg.post("#power_sidebar_gui", "power_source_update", {

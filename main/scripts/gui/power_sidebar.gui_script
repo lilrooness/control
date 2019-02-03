@@ -22,12 +22,14 @@ function update(self, dt)
 
 	for ps_id, state in pairs(self.power_source_states) do
 		local state_text = ""
-		if state then
+		local text_start = ""
+		if state.on then
 			state_text = "ON"
+			text_start = "    "
 		else
 			state_text = "OFF"
 		end
-		text = text .. ps_id .. " - " .. state_text .. "\n\n"
+		text =  text .. text_start .. ps_id .. " - " .. state_text .. " "..state.power_usage .. "%" .. "\n\n"
 	end
 
 	gui.set_text(gui.get_node("text"), text)

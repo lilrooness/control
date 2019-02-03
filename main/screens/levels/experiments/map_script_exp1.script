@@ -63,6 +63,8 @@ function on_input(self, action_id, action)
 		end
 	end
 
+
+	-- Emulate the camera here
 	local xvel = 0
 	local yvel = 0
 
@@ -106,12 +108,6 @@ end
 function on_reload(self)
 	-- Add reload-handling code here
 	-- Remove this function if not needed
-end
-
-function set_alarm(self, x, y)
-	target = tile_pos(self, x, y)
-	o = factory.create("#alarm_overlay_factory", vmath.vector3(target.x, target.y, 1))
-	msg.post(o, "set_parent", {parent_id = go.get_id()})
 end
 
 function tile_pos(self, x, y)
