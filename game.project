@@ -24,3 +24,6 @@ app_icon = /assets/appicons/appicon.ico
 [osx]
 app_icon = /assets/appicons/appicon.icns
 
+[label]
+max_count = 128
+

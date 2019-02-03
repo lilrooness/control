@@ -608,12 +608,12 @@ instances {
     }
     properties {
       id: "room1"
-      value: "/r1#room_proxy"
+      value: "/r4#room_proxy"
       type: PROPERTY_TYPE_URL
     }
     properties {
       id: "room2"
-      value: "/r4#room_proxy"
+      value: "/r5#room_proxy"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -1317,6 +1317,317 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "r5"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 426.0
+    y: 282.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_4#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d6"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 578.0
+    y: 112.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "5.0, 2.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "6.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r6#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_4#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r6"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 915.0
+    y: 99.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "6.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_5#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r7"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 1313.0
+    y: -99.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_5#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d7"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 974.0
+    y: -49.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "9.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r6#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r7#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_5#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d8"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 960.0
+    y: -526.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "8.0, -3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "8.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r6#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r8#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "power_source_url"
+      value: "/power_source_5#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: "/map_obj#rooms_tilemap"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r8"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 558.0
+    y: -544.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "8.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "power_source"
+      value: "/power_source_5#power_source"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
@@ -1325,6 +1636,9 @@ embedded_instances {
   children: "d3"
   children: "d4"
   children: "d5"
+  children: "d6"
+  children: "d7"
+  children: "d8"
   children: "emily_marker"
   children: "node_1"
   children: "node_10"
@@ -1351,6 +1665,10 @@ embedded_instances {
   children: "r2"
   children: "r3"
   children: "r4"
+  children: "r5"
+  children: "r6"
+  children: "r7"
+  children: "r8"
   data: "components {\n"
   "  id: \"rooms_tilemap\"\n"
   "  component: \"/main/screens/levels/experiments/exp_1.tilemap\"\n"
