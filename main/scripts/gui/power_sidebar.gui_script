@@ -29,7 +29,12 @@ function update(self, dt)
 		else
 			state_text = "OFF"
 		end
-		text =  text .. text_start .. ps_id .. " - " .. state_text .. " "..state.power_usage .. "%" .. "\n\n"
+		text = text 
+		.. text_start 
+		.. ps_id 
+		.. " - " .. state_text 
+		.. " "..state.power_usage .. "%" 
+		.. "\n\n"
 	end
 
 	gui.set_text(gui.get_node("text"), text)
