@@ -1,7 +1,5 @@
-local state = require("main.modules.human_state")
 local ps = require("main.modules.pubsub")
 
-go.property("BPM", 50)
 go.property("current_node", 0)
 
 function init(self)

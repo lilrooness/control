@@ -33,7 +33,7 @@ function update(self, dt)
 		.. text_start 
 		.. ps_id 
 		.. " - " .. state_text 
-		.. " "..state.power_usage .. "%" 
+		.. " "..state.power_usage .. "%"
 		.. "\n\n"
 	end
 

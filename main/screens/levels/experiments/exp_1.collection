@@ -719,6 +719,604 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "node_3"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 64.0
+    y: -190.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "4.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_4"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 64.0
+    y: 573.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "3.0, 2.0, 5.0, 6.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_2"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: -451.0
+    y: 573.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "4.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_1"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 64.0
+    y: 1337.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "5.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_5"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 64.0
+    y: 824.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "1.0, 4.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "emily_marker"
+  prototype: "/main/objects/emily_marker.go"
+  position {
+    x: 64.0
+    y: -188.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "emily_marker"
+    properties {
+      id: "current_node"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_6"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 568.0
+    y: 574.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "6.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "4.0, 7.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_7"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 568.0
+    y: -76.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "7.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "8.0, 9.0, 6.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_8"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 953.0
+    y: -321.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "8.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "7.0, 10.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_9"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 1332.0
+    y: -54.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "9.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "7.0, 15.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_10"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 953.0
+    y: -767.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "10.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "8.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_11"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 448.0
+    y: 824.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "11.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "5.0, 12.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_12"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 448.0
+    y: 1344.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "12.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "11.0, 13.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_13"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 952.0
+    y: 1344.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "13.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "12.0, 14.0, 15.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_14"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 1378.0
+    y: 1344.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "14.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "13.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "node_15"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 1343.0
+    y: 940.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "15.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "13.0, 9.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
@@ -727,6 +1325,22 @@ embedded_instances {
   children: "d3"
   children: "d4"
   children: "d5"
+  children: "emily_marker"
+  children: "node_1"
+  children: "node_10"
+  children: "node_11"
+  children: "node_12"
+  children: "node_13"
+  children: "node_14"
+  children: "node_15"
+  children: "node_2"
+  children: "node_3"
+  children: "node_4"
+  children: "node_5"
+  children: "node_6"
+  children: "node_7"
+  children: "node_8"
+  children: "node_9"
   children: "power_source_1"
   children: "power_source_2"
   children: "power_source_3"

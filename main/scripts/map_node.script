@@ -3,8 +3,18 @@ go.property("edges", vmath.vector4())
 go.property("connections", 0) -- max 4
 
 function init(self)
-	djk.set_node(self.node_id, get_edges(self), go.get_id())
-	msg.post("#sprite", "disable")
+	local edges = get_edges(self)
+	djk.set_node(self.node_id, edges, go.get_id())
+	-- msg.post("#sprite", "disable")
+	label.set_text("#node_id_label", ""..self.node_id)
+	
+	local connections_dbg_text = "Edges: "
+
+	for _, edge in pairs(edges) do
+		connections_dbg_text = connections_dbg_text..", "..edge
+	end
+
+	label.set_text("#connections_label", connections_dbg_text)
 end
 
 function final(self)
