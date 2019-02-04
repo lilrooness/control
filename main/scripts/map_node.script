@@ -2,6 +2,8 @@ go.property("node_id", 0)
 go.property("edges", vmath.vector4())
 go.property("connections", 0) -- max 4
 
+go.property("door_url", msg.url())
+
 function init(self)
 	local edges = get_edges(self)
 	djk.set_node(self.node_id, edges, go.get_id())
@@ -12,6 +14,13 @@ function init(self)
 
 	for _, edge in pairs(edges) do
 		connections_dbg_text = connections_dbg_text..", "..edge
+	end
+
+	-- if the door_url property has not been overriden, set it to hash("not_set")
+	-- If it has been overriden, then we assume that it is a door node
+	-- and Emily checks whether that door is open before passing through
+	if self.door_url.path == (msg.url()).path then
+		self.door_url = hash("not_set")
 	end
 
 	label.set_text("#connections_label", connections_dbg_text)

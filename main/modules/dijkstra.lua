@@ -12,13 +12,14 @@ local edges = {}
 
 local node_obj_ids = {}
 
+local node_states = {}
+
 function M.clear_nodes()
 	edges = {}
 	node_obj_ids = {}
 end
 
 function M.set_node(node_id, connections, obj_id)
-	--print("setting node"..node_id.." "..)
 	edges[node_id] = connections
 	node_obj_ids[node_id] = obj_id
 end
@@ -37,6 +38,8 @@ function M.path_to_obj_ids(path)
 end
 
 function M.path(a, b)
+
+	N.preload_door_states()
 
 	local dists = {[a] = {dist = 0, prev = a}}
 	local visited = {}
@@ -105,6 +108,24 @@ function N.reverse_order(t)
 	end
 
 	return reversed
+end
+
+function N.preload_door_states()
+	for node_id, obj_id in pairs(node_obj_ids) do
+		local node_url = msg.url()
+		node_url.path = obj_id
+		node_url.fragment = "map_node"
+		local door_url = go.get(node_url, "door_url")
+
+		-- if the door url has not been overriden
+		if door_url ~= hash("not_set") then
+			node_states[node_id] = go.get(door_url, "open")
+		else
+			node_states[node_id] = true
+		end
+
+		print(node_id.." : "..tostring(node_states[node_id]))
+	end
 end
 
 return M
