@@ -6,6 +6,7 @@ local state = {
 	event_chains = {},
 
 	power_level = 100,
+	air_level = 100,
 
 	doors_selected = false,
 	rooms_selected = false,
@@ -49,6 +50,10 @@ end
 
 function M.get_power_level()
 	return state.power_level
+end
+
+function M.get_air_level()
+	return state.air_level
 end
 
 function M.set_power_level(in_power_level)
