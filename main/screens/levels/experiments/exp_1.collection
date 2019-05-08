@@ -119,11 +119,6 @@ instances {
       type: PROPERTY_TYPE_URL
     }
     properties {
-      id: "power_source_url"
-      value: "/power_source_3#power_source"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
       id: "tilesource_url"
       value: "/map_obj#rooms_tilemap"
       type: PROPERTY_TYPE_URL
@@ -161,11 +156,6 @@ instances {
       value: "4.0"
       type: PROPERTY_TYPE_NUMBER
     }
-    properties {
-      id: "power_source"
-      value: "/power_source_4#power_source"
-      type: PROPERTY_TYPE_URL
-    }
   }
   scale3 {
     x: 0.25
@@ -194,11 +184,6 @@ instances {
       value: "3.0"
       type: PROPERTY_TYPE_NUMBER
     }
-    properties {
-      id: "power_source"
-      value: "/power_source_3#power_source"
-      type: PROPERTY_TYPE_URL
-    }
   }
   scale3 {
     x: 0.25
@@ -226,11 +211,6 @@ instances {
       id: "room_number"
       value: "2.0"
       type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "power_source"
-      value: "/power_source_2#power_source"
-      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -273,11 +253,6 @@ instances {
     properties {
       id: "room2"
       value: "/r4#room_proxy"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "power_source_url"
-      value: "/power_source_2#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -419,11 +394,6 @@ instances {
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
     }
-    properties {
-      id: "power_source"
-      value: "/power_source_1#power_source"
-      type: PROPERTY_TYPE_URL
-    }
   }
   scale3 {
     x: 0.25
@@ -465,11 +435,6 @@ instances {
     properties {
       id: "room2"
       value: "/r4#room_proxy"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "power_source_url"
-      value: "/power_source_1#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -564,11 +529,6 @@ instances {
       type: PROPERTY_TYPE_URL
     }
     properties {
-      id: "power_source_url"
-      value: "/power_source_6#power_source"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
       id: "tilesource_url"
       value: "/map_obj#rooms_tilemap"
       type: PROPERTY_TYPE_URL
@@ -614,11 +574,6 @@ instances {
     properties {
       id: "room2"
       value: "/r5#room_proxy"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "power_source_url"
-      value: "/power_source_4#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -1343,11 +1298,6 @@ instances {
       value: "5.0"
       type: PROPERTY_TYPE_NUMBER
     }
-    properties {
-      id: "power_source"
-      value: "/power_source_4#power_source"
-      type: PROPERTY_TYPE_URL
-    }
   }
   scale3 {
     x: 0.25
@@ -1392,11 +1342,6 @@ instances {
       type: PROPERTY_TYPE_URL
     }
     properties {
-      id: "power_source_url"
-      value: "/power_source_4#power_source"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
       id: "tilesource_url"
       value: "/map_obj#rooms_tilemap"
       type: PROPERTY_TYPE_URL
@@ -1434,11 +1379,6 @@ instances {
       value: "6.0"
       type: PROPERTY_TYPE_NUMBER
     }
-    properties {
-      id: "power_source"
-      value: "/power_source_5#power_source"
-      type: PROPERTY_TYPE_URL
-    }
   }
   scale3 {
     x: 0.25
@@ -1471,11 +1411,6 @@ instances {
       id: "room_number"
       value: "7.0"
       type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "power_source"
-      value: "/power_source_5#power_source"
-      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {
@@ -1518,11 +1453,6 @@ instances {
     properties {
       id: "room2"
       value: "/r7#room_proxy"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "power_source_url"
-      value: "/power_source_5#power_source"
       type: PROPERTY_TYPE_URL
     }
     properties {
@@ -1574,11 +1504,6 @@ instances {
       type: PROPERTY_TYPE_URL
     }
     properties {
-      id: "power_source_url"
-      value: "/power_source_5#power_source"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
       id: "tilesource_url"
       value: "/map_obj#rooms_tilemap"
       type: PROPERTY_TYPE_URL
@@ -1615,11 +1540,6 @@ instances {
       id: "room_number"
       value: "8.0"
       type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "power_source"
-      value: "/power_source_5#power_source"
-      type: PROPERTY_TYPE_URL
     }
   }
   scale3 {

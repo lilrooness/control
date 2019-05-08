@@ -10,8 +10,6 @@ go.property("room2", msg.url())
 go.property("closed_tile", 33)
 go.property("open_tile", 53)
 
-go.property("power_source_url", msg.url())
-
 go.property("tilesource_url", msg.url(":/map_obj#level_1_tilemap"))
 go.property("tile_map_room_layer", hash("layer1"))
 
@@ -39,7 +37,7 @@ end
 
 function update(self, dt)
 
-	local disabled =  not go.get(self.power_source_url, "on")
+	local disabled =  false
 
 	if disabled and not self.display_disabled then
 		local current_tile = tilemap.get_tile(self.tilesource_url, self.tile_map_room_layer, self.door_tile.x, self.door_tile.y)
@@ -117,10 +115,6 @@ end
 
 function open_door(self)
 
-	if not go.get(self.power_source_url, "on") then
-		return
-	end
-
 	local room1_pressure = go.get(self.room1, "pressure")
 	local room2_pressure = go.get(self.room2, "pressure")
 	
@@ -142,9 +136,6 @@ function open_door(self)
 end
 
 function close_door(self)
-	if not go.get(self.power_source_url, "on") then
-		return
-	end
 	if self.open and not self.disabled then
 		msg.post(self.room1, "door_closed")
 		msg.post(self.room2, "door_closed")

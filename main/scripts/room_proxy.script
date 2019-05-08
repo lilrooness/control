@@ -2,7 +2,6 @@ local utils = require("main.modules.utils")
 
 go.property("pressure", 100)
 go.property("room_number", 0)
-go.property("power_source", msg.url())
 
 go.property("selected", false)
 go.property("scale_to", vmath.vector3(4,4,1))
@@ -49,7 +48,7 @@ function update(self, dt)
 		self.alarm = false
 	end
 
-	local disabled =  not go.get(self.power_source, "on")
+	local disabled =  false
 
 	if disabled and not self.display_disabled then
 		self.non_disabled_color = go.get("#label", "color")
@@ -126,7 +125,7 @@ function on_message(self, message_id, message, sender)
 		end
 	end
 
-	if message_id == hash("room_menu") and go.get(self.power_source, "on") then
+	if message_id == hash("room_menu") then
 		msg.post(":/sound#660", "play_sound")
 		monarch.show("room_menu", {}, {url = msg.url(), room_number = self.room_number})
 	end
