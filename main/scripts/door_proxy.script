@@ -16,6 +16,10 @@ go.property("tile_map_room_layer", hash("layer1"))
 go.property("disabled", false)
 
 function init(self)
+
+	print(self.door_tile.x)
+	print(self.door_tile.y)
+	
 	map_state.init_door(self.door_number, go.get_id())
 	self.scale_to = vmath.vector3(4,4,1)
 	msg.post("#warning", "disable")

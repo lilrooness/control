@@ -85,6 +85,11 @@ instances {
       value: "/r2#room_proxy"
       type: PROPERTY_TYPE_URL
     }
+    properties {
+      id: "tilesource_url"
+      value: ":/map_obj#new_level_1"
+      type: PROPERTY_TYPE_URL
+    }
   }
   scale3 {
     x: 0.25
