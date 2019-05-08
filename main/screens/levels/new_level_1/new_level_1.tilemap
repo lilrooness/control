@@ -69,7 +69,7 @@ layers {
   cell {
     x: -1
     y: -3
-    tile: 60
+    tile: 61
     h_flip: 0
     v_flip: 0
   }
@@ -223,7 +223,7 @@ layers {
   cell {
     x: 4
     y: 2
-    tile: 2
+    tile: 64
     h_flip: 0
     v_flip: 0
   }
@@ -244,7 +244,7 @@ layers {
   cell {
     x: -6
     y: 2
-    tile: 61
+    tile: 62
     h_flip: 0
     v_flip: 0
   }
@@ -258,7 +258,7 @@ layers {
   cell {
     x: -1
     y: 2
-    tile: 69
+    tile: 0
     h_flip: 0
     v_flip: 0
   }

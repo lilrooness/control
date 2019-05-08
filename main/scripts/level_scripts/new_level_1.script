@@ -1,0 +1,57 @@
+local tbutils = require("main.modules.textbox_utils")
+
+function init(self)
+	map_state.set_level_script(msg.url())
+	map_state.set_emily_room(2)
+
+	self.expected_event_callback = function(message_id, message) end
+
+	local texts_1 = {
+		{text = "You see me yet? I'm in room 2", name="Emily", callback = function() 
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Yes, I can see you.", name="You"},
+		{text = "Good.", name="Emily", stop=true}
+	}
+
+	tbutils.fresh_start(self, texts_1)
+
+	timer.delay(3, false, function()
+		tbutils.show_text(self)
+	end)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	
+	self.expected_event_callback(message_id, message)
+	
+	tbutils.handle_textbox_message(self, message_id, message)
+
+	if message_id == hash("progress_story") then
+		tbutils.start(self, self[message.text_table])
+
+		timer.delay(message.delay, false, function()
+			tbutils.show_text(self)
+		end)
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
