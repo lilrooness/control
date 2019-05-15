@@ -3,6 +3,7 @@ ov_state = require("main.modules.overview_screen")
 map_state = require("main.modules.map_state")
 ps = require("main.modules.pubsub")
 djk = require("main.modules.dijkstra")
+game_state = require("main.modules.game_state")
 
 go.property("start", hash("intro"))
 

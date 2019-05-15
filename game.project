@@ -27,3 +27,6 @@ app_icon = /assets/appicons/appicon.icns
 [label]
 max_count = 128
 
+[collection_proxy]
+max_count = 128
+
