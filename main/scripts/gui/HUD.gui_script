@@ -6,7 +6,7 @@ function init(self)
 	self.rooms_selected = false
 	msg.post(".", "acquire_input_focus")
 
-	self.button_nodes = {[1] = "power", [2] = "doors", [3] = "rooms"}
+	self.button_nodes = {[1] = "doors", [2] = "rooms"}
 end
 
 function final(self)
@@ -18,12 +18,10 @@ function update(self, dt)
 
 	local selected_node = 0
 
-	if map_state.schematic_selected() then
+	if map_state.doors_selected() then
 		selected_node = 1
-	elseif map_state.doors_selected() then
-		selected_node = 2
 	elseif map_state.rooms_selected() then
-		selected_node = 3
+		selected_node = 2
 	end
 
 	for i, n in pairs(self.button_nodes) do
