@@ -1,6 +1,8 @@
 [project]
 title = control
 dependencies = https://github.com/britzl/monarch/archive/master.zip
+custom_resources = game_data
+bundle_resources = 
 
 [bootstrap]
 main_collection = /main/main.collectionc

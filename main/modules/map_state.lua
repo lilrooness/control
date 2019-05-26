@@ -181,6 +181,8 @@ function M.level_event(event_code, event)
 	-- during level init, this might be nil but door events can still fire
 	if state.level_script_url ~= nil then
 		msg.post(state.level_script_url, event_code, event)
+		print(event.door_id)
+		print(state.level_script_url)
 	end
 end
 

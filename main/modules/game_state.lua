@@ -4,14 +4,19 @@
 -- in any script using the functions.
 
 local N = {
-	audio_log_ids = {},
-	audio_log_keys_gathered = {}
+	transcript_data = json.decode(sys.load_resource("/game_data/data.json")),
+	transcript_keys_gathered = {},
+	hash_key_index = {}
 }
+
+for key, _ in pairs(N.transcript_data["transcripts"]) do
+	N.hash_key_index[hash(key)] = key
+end
 
 local M = {}
 
-function M.get_audio_log_ids()
-	return N.audio_log_ids
+function M.get_transcript(key_hash)
+	return N.transcript_data[N.hash_key_index[key_hash]]
 end
 
 return M

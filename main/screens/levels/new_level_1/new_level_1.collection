@@ -114,6 +114,11 @@ instances {
   component_properties {
     id: "room_proxy"
     properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
       id: "room_number"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
@@ -153,12 +158,295 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "transcript_key"
+  prototype: "/main/objects/transcript_key.go"
+  position {
+    x: -810.0
+    y: 315.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "transcript_key"
+    properties {
+      id: "key"
+      value: "officer_benny_2136_05_20"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r3"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: -616.0
+    y: 484.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "n2"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: -66.0
+    y: -420.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "1.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "n1"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: -64.0
+    y: 323.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "3.0, 2.0, 4.0, 5.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "n3"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: -598.0
+    y: 321.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "1.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "n5"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: 460.0
+    y: 318.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "1.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "n4"
+  prototype: "/main/objects/map_node.go"
+  position {
+    x: -74.0
+    y: 1201.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "map_node"
+    properties {
+      id: "node_id"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "edges"
+      value: "1.0, 0.0, 0.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR4
+    }
+    properties {
+      id: "connections"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "emily_marker"
+  prototype: "/main/objects/emily_marker.go"
+  position {
+    x: -65.0
+    y: -308.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "emily_marker"
+    properties {
+      id: "current_node"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
   children: "d1"
+  children: "emily_marker"
+  children: "nodes"
   children: "r1"
   children: "r2"
+  children: "r3"
+  children: "transcript_key"
   data: "components {\n"
   "  id: \"new_level_1\"\n"
   "  component: \"/main/screens/levels/new_level_1/new_level_1.tilemap\"\n"
@@ -263,6 +551,31 @@ embedded_instances {
   "  }\n"
   "}\n"
   ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "nodes"
+  children: "n1"
+  children: "n2"
+  children: "n3"
+  children: "n4"
+  children: "n5"
+  data: ""
   position {
     x: 0.0
     y: 0.0

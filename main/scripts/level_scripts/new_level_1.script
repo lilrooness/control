@@ -11,7 +11,28 @@ function init(self)
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "Yes, I can see you.", name="You"},
-		{text = "Good.", name="Emily", stop=true}
+		{text = "Good.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "I've been trying to get this door open but everything's on lock down in here, can you help?", name="Emily"},
+		{text = "looks like there's no pressure in the room next door. I'll have to repressurise it then I'll be able to open the door", name="You"},
+		{text = "No pressure? What the hell is going on?", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "I know about as much as you at this point", name="You", callback=function() 
+			self.expected_event_callback = function(message_id, message)
+				if message_id == hash("door_opened") and message.door_id == 1 then
+					self.expected_event_callback = function(message_id, message) end
+					msg.post(msg.url(), "progress_story", {text_table = "texts_2", delay = 1})
+				end
+			end
+		end, stop=true}
+	}
+
+	self["texts_2"] = {
+		{text = "Thanks", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end, stop=true}
 	}
 
 	tbutils.fresh_start(self, texts_1)
