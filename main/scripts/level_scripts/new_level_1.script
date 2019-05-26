@@ -32,6 +32,48 @@ function init(self)
 	self["texts_2"] = {
 		{text = "Thanks", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "I'm moving in to the crio lobby ... ", name="Emily", callback = function()
+			self.expected_event_callback = function(message_id, message)
+				local path = djk.path(2, 1)
+				msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+				if message_id == hash("room_entered") and message.room_id == 1 then
+					self.expected_event_callback = function(message_id, message) end
+					msg.post(msg.url(), "progress_story", {text_table = "texts_3", delay = 1})
+				end
+			end
+		end, stop=true}
+	}
+
+	self["texts_3"] = {
+		{text = "It's ...", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Can you describe what you see?", name="You"},
+		{text = "Oh God ...", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Emily tell me what your seeing", name="You"},
+		{text = "Bodies.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "How many?", name="You"},
+		{text = "Two", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "...", name="Emily"},
+		{text = "Three bodies.", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "What condition are they in?", name="You"},
+		{text = "My god the smell ...", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Maybe a couple of weeks?", name="Emily"},
+		{text = "Looks like they were stabbed, two males in the throat", name="Emily"},
+		{text = "One female with a ...", name="Emily"},
+		{text = "A chest wound", name="Emily", callback = function()
+			msg.post("sound#static_blip", "play_sound")
 		end, stop=true}
 	}
 
