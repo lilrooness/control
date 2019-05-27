@@ -6,6 +6,33 @@ function init(self)
 
 	self.expected_event_callback = function(message_id, message) end
 
+	self["going_left"] = {
+		{text = "Entering the room on my left", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end}
+	}
+
+	self.room_choices = {
+		[1] = {{text="Enter room on left", callback=function()
+				local chain_id = map_state.begin_event_chain(function()
+					msg.post(msg.url(), "progress_story", {text_table = "going_left"})
+				end, 1)
+				map_state.chain_event(chain_id, function()
+					local path = djk.path(1, 3)
+					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+				end, 0)
+				map_state.execute_event_chain(chain_id)
+				self.expected_event_callback = function(message_id, message)
+					if message_id == hash("room_entered") and message.room_id == 3 then
+						msg.post(msg.url(), "progress_story", {text_table = "going_left"})
+					end
+				end
+			end},
+			{text="Enter room on right"},
+			{text="Enter room ahaed"}},
+		[3] = nil
+	}
+
 	local texts_1 = {
 		{text = "You see me yet? I'm in room 2", name="Emily", callback = function() 
 			msg.post("sound#static_blip", "play_sound")
@@ -106,6 +133,14 @@ function on_message(self, message_id, message, sender)
 		timer.delay(message.delay, false, function()
 			tbutils.show_text(self)
 		end)
+	elseif message_id == hash("comms") then
+		local choice_obj = factory.create(":/choicebox_factory#factory")
+		local choices = {}
+		print("Emily Room:"..map_state.get_emily_room())
+		for _, choice in pairs(self.room_choices[map_state.get_emily_room()]) do
+			table.insert(choices, choice.text)
+		end
+		msg.post(choice_obj, "set_choices", {choices=choices})
 	end
 end
 

@@ -6,7 +6,7 @@ function init(self)
 	self.rooms_selected = false
 	msg.post(".", "acquire_input_focus")
 
-	self.button_nodes = {[1] = "doors", [2] = "rooms"}
+	self.button_nodes = {[1] = "doors", [2] = "rooms", [3] = "comms"}
 end
 
 function final(self)
@@ -22,6 +22,8 @@ function update(self, dt)
 		selected_node = 1
 	elseif map_state.rooms_selected() then
 		selected_node = 2
+	elseif map_state.comms_selected() then
+		selected_node = 3
 	end
 
 	for i, n in pairs(self.button_nodes) do

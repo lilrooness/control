@@ -28,6 +28,9 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("f") and action.pressed then
 		print("pressed f!")
 		monarch.show("file_menu", {}, {})
+	elseif action_id == hash("c") and action.pressed then
+		map_state.select_comms(not map_state.comms_selected())
+		msg.post(":/script#script", "comms")
 	end
 
 	if action_id == hash("text") then

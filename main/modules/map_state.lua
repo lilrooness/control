@@ -9,6 +9,7 @@ local state = {
 
 	doors_selected = false,
 	rooms_selected = false,
+	comms_selected = false,
 	schematic_selected = false,
 
 	ids = {
@@ -149,6 +150,10 @@ function M.get_display_id(n)
 	return state.ids[n]
 end
 
+function M.select_comms(selected)
+	state.comms_selected = selected
+end
+
 function M.select_doors(selected)
 	state.doors_selected = selected
 end
@@ -167,6 +172,10 @@ end
 
 function M.rooms_selected()
 	return state.rooms_selected
+end
+
+function M.comms_selected()
+	return state.comms_selected
 end
 
 function M.schematic_selected()
