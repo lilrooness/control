@@ -14,7 +14,7 @@ components {
   }
 }
 components {
-  id: "choicebox_obj"
+  id: "script"
   component: "/main/scripts/gui/choicebox_obj.script"
   position {
     x: 0.0

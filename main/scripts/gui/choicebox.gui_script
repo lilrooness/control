@@ -1,5 +1,22 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	map_state.select_comms(true)
+
+	self.choices = monarch.data("choicebox").choices
+
+	if table.getn(self.choices) > 4 then 
+		print("WARNING: MORE THAN 4 CHOICES!")
+	end
+	
+	self.nchoices = table.getn(self.choices)
+
+	local choice_nodes = {[1]="text_1", [2]="text_2", [3]="text_3", [4]="text_4"}
+	
+	for i = 1,self.nchoices do
+		gui.set_text(gui.get_node(choice_nodes[i]), self.choices[i])
+	end
+
+	self.selected = 1
 end
 
 function final(self)
@@ -13,27 +30,17 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	print("RECEIVED!!!")
-	if message_id == hash("set_choices") then
-		if table.getn(message.choices) > 4 then 
-			print("WARNING: MORE THAN 4 CHOICES!")
-		end
-		
-		self.choices = message.choices
-		self.nchoices = table.getn(self.choices)
-
-		local choice_nodes = {[1]="text_1", [2]="text_2", [3]="text_3", [4]="text_4"}
-		
-		for i = 1,self.nchoices do
-			gui.set_text(gui.get_node(choice_nodes[i]), self.choices[i])
-		end
-
-	end
+	
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here
-	-- Remove this function if not needed
+	if action_id == hash("e") and action.released then
+		map_state.select_comms(false)
+		monarch.back()
+	elseif action_id == hash("enter") and action.pressed then
+		msg.post(monarch.data("choicebox").url, "choice_selected", {selected=self.selected})
+		monarch.back()
+	end
 end
 
 function on_reload(self)
