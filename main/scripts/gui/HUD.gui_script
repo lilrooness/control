@@ -7,6 +7,7 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 
 	self.button_nodes = {[1] = "doors", [2] = "rooms", [3] = "comms"}
+
 end
 
 function final(self)
@@ -35,6 +36,10 @@ function update(self, dt)
 		else
 			gui.set_color(node, vmath.vector3(1, 1, 1))
 		end
+	end
+
+	if not map_state.comms_enabled() then
+		gui.set_color(gui.get_node("comms"), vmath.vector3(0.5, 0.5, 0.5))
 	end
 
 end

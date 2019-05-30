@@ -11,6 +11,7 @@ local state = {
 	rooms_selected = false,
 	comms_selected = false,
 	schematic_selected = false,
+	comms_enabled = false,
 
 	ids = {
 		"1",
@@ -43,6 +44,14 @@ local state = {
 
 	level_script_url = nil
 }
+
+function M.comms_enabled()
+	return state.comms_enabled
+end
+
+function M.enable_comms(enabled)
+	state.comms_enabled = enabled
+end
 
 function M.get_power_source_ids()
 	return state.power_source_ids

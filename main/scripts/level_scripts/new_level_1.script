@@ -41,7 +41,7 @@ function init(self)
 		{text = "No pressure? What the hell is going on?", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "I know about as much as you at this point", name="You", callback=function() 
+		{text = "I know about as much as you at this point", name="You", callback=function()
 			self.expected_event_callback = function(message_id, message)
 				if message_id == hash("door_opened") and message.door_id == 1 then
 					self.expected_event_callback = function(message_id, message) end
@@ -96,6 +96,7 @@ function init(self)
 		{text = "One female with a ...", name="Emily"},
 		{text = "A chest wound", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
+			map_state.enable_comms(true)
 		end, stop=true}
 	}
 
