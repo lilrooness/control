@@ -1,8 +1,9 @@
 function init(self)
-	-- TEST
-	msg.post("#AL_1", "play_sound")
-	local node = gui.new_box_node(vmath.vector3(500, 500, 1), vmath.vector3(100, 50, 1))
-	
+	msg.post(".", "acquire_input_focus")
+
+	self.keys = game_state.get_transcript_keys()
+	local text = game_state.get_transcript(self.keys[1])["lines"][1]["Captain"]
+	gui.set_text(gui.get_node("text"), text)
 end
 
 function final(self)
@@ -21,7 +22,7 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("f") then
+	if action_id == hash("e") and action.pressed then
 		monarch.back()
 	end
 end
