@@ -39,6 +39,7 @@ function on_input(self, action_id, action)
 		monarch.back()
 	elseif action_id == hash("enter") and action.pressed then
 		msg.post(monarch.data("choicebox").url, "choice_selected", {selected=self.selected})
+		map_state.select_comms(false)
 		monarch.back()
 	end
 

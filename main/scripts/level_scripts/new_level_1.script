@@ -68,33 +68,26 @@ function init(self)
 	}
 
 	self["texts_3"] = {
-		{text = "It's ...", name="Emily", callback = function()
+		{text = "Urrr . . .", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "Can you describe what you see?", name="You"},
-		{text = "Oh God ...", name="Emily", callback = function()
+		{text = "Everything ok?", name="You"},
+		{text = "It smells really bad in here", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "Emily tell me what your seeing", name="You"},
-		{text = "Bodies.", name="Emily", callback = function()
+		{text = "That's weird, the room was just pressurised", name="You"},
+		{text = "There's stuff in the air . . . Its . . .", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "How many?", name="You"},
-		{text = "Two", name="Emily", callback = function()
+		{text = "I think it's dust", name="Emily"},
+		{text = "It's everywhere . . . on the reception desk, the floor . . .", name="Emily"},
+		{text = ". . .", name="Emily"},
+		{text = "Any ideas?", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "...", name="Emily"},
-		{text = "Three bodies.", name="Emily", callback = function()
-			msg.post("sound#static_blip", "play_sound")
-		end},
-		{text = "What condition are they in?", name="You"},
-		{text = "My god the smell ...", name="Emily", callback = function()
-			msg.post("sound#static_blip", "play_sound")
-		end},
-		{text = "Maybe a couple of weeks?", name="Emily"},
-		{text = "Looks like they were stabbed, two males in the throat", name="Emily"},
-		{text = "One female with a ...", name="Emily"},
-		{text = "A chest wound", name="Emily", callback = function()
+		{text = "And don't stay quiet for so long, it's making me nervous", name="Emily"},
+		{text = "I'm Here. Sorry, i'm thinking", name="You"},
+		{text = "Yeah? While your thinking I'm shitting myself down here so bear that in mind ok? smart guy?", name="Emily", callback = function()
 			msg.post("sound#static_blip", "play_sound")
 			map_state.enable_comms(true)
 		end, stop=true}
@@ -137,7 +130,6 @@ function on_message(self, message_id, message, sender)
 			table.insert(choices, choice.text)
 		end
 		monarch.show("choicebox", {}, {url=msg.url(), choices=choices})
-		-- msg.post(choice_obj, "set_choices", {choices=choices})
 	elseif message_id == hash("choice_selected") then
 		self.room_choices[map_state.get_emily_room()][message["selected"]].callback()
 	end
