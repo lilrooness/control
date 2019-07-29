@@ -6,8 +6,14 @@ function init(self)
 
 	self.expected_event_callback = function(message_id, message) end
 
-	self["going_left"] = {
+	self["confirm_order"] = {
 		{text = "Entering the room on my left", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end, stop=true}
+	}
+
+	self["door_is_closed"] = {
+		{text = "Open the door and I'll consider it", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end, stop=true}
 	}
@@ -15,7 +21,7 @@ function init(self)
 	self.room_choices = {
 		[1] = {{text="Enter room on left", callback=function()
 				local chain_id = map_state.begin_event_chain(function()
-					msg.post(msg.url(), "progress_story", {text_table = "going_left", delay = 1})
+					msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
 				end, 1)
 				map_state.chain_event(chain_id, function()
 					local path = djk.path(1, 3)
