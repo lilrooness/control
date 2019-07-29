@@ -437,10 +437,64 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "d2"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: -447.0
+    y: 225.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_number"
+      value: "2.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r3#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: ":/map_obj#new_level_1"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room1_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room2_id"
+      value: "3.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
   children: "d1"
+  children: "d2"
   children: "emily_marker"
   children: "nodes"
   children: "r1"

@@ -41,9 +41,29 @@ local state = {
 	power_source_ids = {},
 
 	emily_room = -1,
-
 	level_script_url = nil
 }
+
+function M.is_seperating_door_open(room1Id, room2Id, socket)
+	print("well . . . . we called it :shrug:")
+	print(table.getn(state.door_ids))
+
+
+	for door_number, door_proxy_id in pairs(state.door_ids) do
+		local url = msg.url()
+		url.socket = socket
+		url.fragment = "door_label"
+		url.path = door_proxy_id
+		local connected_room_1 = go.get(url, "room1_id")
+		local connected_room_2 = go.get(url, "room2_id")
+		if (room1Id == connected_room_1 or room1Id == connected_room_2) and (room2Id == connected_room_1 or room2Id == connected_room_2) then
+			return go.get(url, "open")
+		end
+	end
+	print("CANT FIND DOOR CONNECTING ROOMS - ASSUMING NO DOOR EXISTS")
+	-- return true
+	return true
+end
 
 function M.comms_enabled()
 	return state.comms_enabled

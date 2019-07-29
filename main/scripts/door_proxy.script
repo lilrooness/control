@@ -15,7 +15,16 @@ go.property("tile_map_room_layer", hash("layer1"))
 
 go.property("disabled", false)
 
+go.property("room1_id", 0)
+go.property("room2_id", 0)
+
 function init(self)
+
+	local room1_number = go.get(self.room1, "room_number")
+	local room2_number = go.get(self.room2, "room_number")
+	
+	go.set(msg.url(), "room1_id", room1_number)
+	go.set(msg.url(), "room2_id", room2_number)
 
 	print(self.door_tile.x)
 	print(self.door_tile.y)

@@ -20,14 +20,20 @@ function init(self)
 
 	self.room_choices = {
 		[1] = {{text="Enter room on left", callback=function()
-				local chain_id = map_state.begin_event_chain(function()
-					msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
-				end, 1)
-				map_state.chain_event(chain_id, function()
-					local path = djk.path(1, 3)
-					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
-				end, 0)
-				map_state.execute_event_chain(chain_id)
+
+			if map_state.is_seperating_door_open(map_state.get_emily_room(), 3, msg.url()["socket"]) then
+					local chain_id = map_state.begin_event_chain(function()
+						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+					end, 1)
+					map_state.chain_event(chain_id, function()
+						local path = djk.path(map_state.get_emily_room(), 3)
+						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+					end, 0)
+					map_state.execute_event_chain(chain_id)
+				else
+					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+				end
+				
 			end},
 			{text="Enter room on right"},
 			{text="Enter room ahaed"}},
