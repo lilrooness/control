@@ -7,7 +7,7 @@ function init(self)
 	self.expected_event_callback = function(message_id, message) end
 
 	self["confirm_order"] = {
-		{text = "Entering the room on my left", name="Emily", callback= function()
+		{text = "Ok, on my way", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end, stop=true}
 	}
@@ -16,6 +16,27 @@ function init(self)
 		{text = "Open the door and I'll consider it", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end, stop=true}
+	}
+
+	self["room_3"] = {
+		{text = "Looks like an office", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "A desk . . . some drawers", name="Emily"},
+		{text = "which aren't locked", name="Emily"},
+		{text = "...", name=""},
+		{text = "... ...", name=""},
+		{text = "Come in Emily", name="You"},
+		{text = "Found something . . . looks like a data drive", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "Any way you can read what's on it from there?", name="You"},
+		{text = "Noop. That sure does sound a whole lot like your job though . . .", name="Emily"},
+		{text = "I'm going to plug this in to my tansponder and send it to you now", name="Emily"},
+		{text = "Thanks Emily", name="You"},
+		{text = "Sorry. The sarcasm is a defence mechanism", name="Emily"},
+		{text = "That's ok, its almost helping", name="You"}
+		
 	}
 
 	self.room_choices = {
@@ -135,9 +156,7 @@ function on_message(self, message_id, message, sender)
 			tbutils.show_text(self)
 		end)
 	elseif message_id == hash("comms") then
-		-- local choice_obj = factory.create(":/choicebox_factory#factory")
 		local choices = {}
-		print("Emily Room:"..map_state.get_emily_room())
 		for _, choice in pairs(self.room_choices[map_state.get_emily_room()]) do
 			table.insert(choices, choice.text)
 		end

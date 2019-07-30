@@ -454,6 +454,11 @@ instances {
   component_properties {
     id: "door_label"
     properties {
+      id: "door_tile"
+      value: "-3.0, 3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
       id: "door_number"
       value: "2.0"
       type: PROPERTY_TYPE_NUMBER
