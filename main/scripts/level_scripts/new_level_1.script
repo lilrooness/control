@@ -31,11 +31,15 @@ function init(self)
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "Any way you can read what's on it from there?", name="You"},
-		{text = "Noop. That sure does sound a whole lot like your job though . . .", name="Emily"},
+		{text = "Noop. That sure does sound a whole lot like your job though . . .", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
 		{text = "I'm going to plug this in to my tansponder and send it to you now", name="Emily"},
 		{text = "Thanks Emily", name="You"},
-		{text = "Sorry. The sarcasm is a defence mechanism", name="Emily"},
-		{text = "That's ok, its almost helping", name="You"}
+		{text = "Sorry. The sarcasm is a defence mechanism", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "That's ok, its almost helping", name="You", stop=true}
 		
 	}
 
@@ -51,6 +55,12 @@ function init(self)
 						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
 					end, 0)
 					map_state.execute_event_chain(chain_id)
+					self.expected_event_callback = function(message_id, message)
+						if message_id == hash("room_entered") and message.room_id == 3 then
+							self.expected_event_callback = function(message_id, message) end
+							msg.post(msg.url(), "progress_story", {text_table = "room_3", delay = 1})
+						end
+					end
 				else
 					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
 				end
