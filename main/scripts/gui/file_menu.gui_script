@@ -2,8 +2,11 @@ function init(self)
 	msg.post(".", "acquire_input_focus")
 
 	self.keys = game_state.get_transcript_keys()
-	local text = game_state.get_transcript(self.keys[1])["lines"][1]["Captain"]
-	gui.set_text(gui.get_node("text"), text)
+	if table.getn(self.keys) > 0 then
+		local text = game_state.get_transcript(self.keys[1])["lines"][1]["Benny"]
+		gui.set_text(gui.get_node("text"), text)
+	end
+	
 end
 
 function final(self)

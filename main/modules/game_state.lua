@@ -5,7 +5,8 @@
 
 local N = {
 	transcript_data = json.decode(sys.load_resource("/game_data/data.json")),
-	transcript_keys_gathered = {[1] = hash("captain_2136_05_20")},
+	-- transcript_keys_gathered = {[1] = hash("captain_2136_05_20")},
+	transcript_keys_gathered = {},
 	hash_key_index = {}
 }
 
@@ -14,6 +15,10 @@ for key, _ in pairs(N.transcript_data["transcripts"]) do
 end
 
 local M = {}
+
+function M.discover_transcript(key)
+	table.insert(N.transcript_keys_gathered, hash(key))
+end
 
 function M.get_transcript(key_hash)
 	return N.transcript_data["transcripts"][N.hash_key_index[key_hash]]

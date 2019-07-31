@@ -39,7 +39,9 @@ function init(self)
 		{text = "Sorry. The sarcasm is a defence mechanism", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "That's ok, its almost helping", name="You", stop=true}
+		{text = "That's ok, its almost helping", name="You", callback= function()
+			game_state.discover_transcript("officer_benny_2136_05_20") -- benny talking to "himself"
+		end, stop=true}
 		
 	}
 
