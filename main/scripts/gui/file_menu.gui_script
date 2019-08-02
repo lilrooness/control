@@ -1,12 +1,14 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
-	self.keys = game_state.get_transcript_keys()
-	if table.getn(self.keys) > 0 then
-		local text = game_state.get_transcript(self.keys[1])["lines"][1]["Benny"]
-		gui.set_text(gui.get_node("text"), text)
-	end
+	self.scroll_size = 5
 	
+	self.transcript_key_index = 0
+
+	self.keys = game_state.get_transcript_keys()
+
+	gui.set_position(gui.get_node("selector"), gui.get_position(gui.get_node("space_5")))
+
 end
 
 function final(self)
