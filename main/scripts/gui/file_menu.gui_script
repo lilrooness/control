@@ -39,6 +39,16 @@ function reload_menu(self)
 
 	local selected_transcript = game_state.get_transcript(self.keys[self.selected_index])
 	gui.set_text(gui.get_node("title"), selected_transcript["title"])
+
+
+	local lines = ""
+	
+	for idx, line in pairs(selected_transcript["lines"]) do
+		lines = lines..line.name..": "..line.line.."\n\n"
+	end
+
+	gui.set_text(gui.get_node("text"), lines)
+	
 	gui.set_position(gui.get_node("selector"), gui.get_position(gui.get_node("space_5")))
 
 	self.first_index = math.max(1, self.selected_index - self.select_box_number)

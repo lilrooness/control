@@ -3,25 +3,28 @@
 		"2136_05_20": {
 			"title": "Canteen Incident",
 			"lines": [
-				{"Captain": "There was an incident the other day with one of the engineering staff. During dinner one of the officers stood a table and tried to cut his wrist open with a steak knife. Luckily, he was restrained before he hit a major artery. But ever since then he’s been sitting in the med bay whispering into thin air, even when nobody's in the room, he’s gone completely insane. Apparently he'd been acting strangely the whole week. He got really obsessed with some problem with the Comms system or something. But until recently he’s been a picture of health. We’ve sealed off his sleeping quarters for good measure, but honestly we found nothing suspicious in his personal effects, no traces of any chemicals that could have caused any kind of psychosis. Anyway, this is only one isolated incident, and the priority should be the mission, we can’t afford to be side tracked by incidents like this; however disturbing they may be."}
+				{
+					"name": "Captain",
+					"line": "There was an incident the other day with one of the engineering staff. During dinner one of the officers stood a table and tried to cut his wrist open with a steak knife. Luckily, he was restrained before he hit a major artery. But ever since then he’s been sitting in the med bay whispering into thin air, even when nobody's in the room, he’s gone completely insane. Apparently he'd been acting strangely the whole week. He got really obsessed with some problem with the Comms system or something. But until recently he’s been a picture of health. We’ve sealed off his sleeping quarters for good measure, but honestly we found nothing suspicious in his personal effects, no traces of any chemicals that could have caused any kind of psychosis. Anyway, this is only one isolated incident, and the priority should be the mission, we can’t afford to be side tracked by incidents like this; however disturbing they may be."
+				}
 			]
 		},
 
 		"2136_05_13": {
 			"title": "Interference Patterns",
 			"lines": [
-				{"Benny": "There’s a pattern to this interference. It’s not just noise, it’s not background radiation and its not random. If you separate out all the expected normal traffic from the data, and just look at the interference, it looks like speech. Not speech as in English that I can understand; it’s more like lots of incoherent Babel all happening at once. I know this doesn’t make any sense; and it's definitely not enough to present my findings to Gurd. I’m going to need a few more days to study this to really figure out what’s going on here."}
+				{"name": "Benny", "line": "There’s a pattern to this interference. It’s not just noise, it’s not background radiation and its not random. If you separate out all the expected normal traffic from the data, and just look at the interference, it looks like speech. Not speech as in English that I can understand; it’s more like lots of incoherent Babel all happening at once. I know this doesn’t make any sense; and it's definitely not enough to present my findings to Gurd. I’m going to need a few more days to study this to really figure out what’s going on here."}
 			]
 		},
 
 		"2136_05_21": {
 			"title": "MEDBAY-SND_ACTIVATED_REC",
 			"lines": [
-				{"Benny": "I  I’m so sorry. I tried to reach you but . . . . . they stopped me!"},
-				{"Benny": "They don’t understand."},
-				{"unknown": "[inaudible]"},
-				{"Benny": "[wimper]"},
-				{"Benny": "Please"}
+				{"name":" Benny", "line": "I  I’m so sorry. I tried to reach you but . . . . . they stopped me!"},
+				{"name": "Benny", "line": "They don’t understand."},
+				{"name": "unknown", "line": "[inaudible]"},
+				{"name": "Benny", "line": "[wimper]"},
+				{"name": "Benny", "line": "Please"}
 			]
 		}
 	}
