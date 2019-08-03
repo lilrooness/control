@@ -46,6 +46,10 @@ key_trigger {
   input: KEY_C
   action: "c"
 }
+key_trigger {
+  input: KEY_U
+  action: "u"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "click"

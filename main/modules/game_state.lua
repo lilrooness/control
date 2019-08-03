@@ -28,4 +28,8 @@ function M.get_transcript_keys()
 	return N.transcript_keys_gathered
 end
 
+function M.get_transcript_name(key)
+	return N.hash_key_index[key]
+end
+
 return M

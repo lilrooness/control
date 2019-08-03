@@ -1,14 +1,11 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
-
-	self.scroll_size = 5
-	
-	self.transcript_key_index = 0
-
 	self.keys = game_state.get_transcript_keys()
-
-	gui.set_position(gui.get_node("selector"), gui.get_position(gui.get_node("space_5")))
-
+	self.created_text_nodes = {}
+	self.selected_index = math.ceil(table.getn(self.keys)/2)
+	self.scroll_size = 5
+	self.select_box_number = 5
+	reload_menu(self)
 end
 
 function final(self)
@@ -29,6 +26,49 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash("e") and action.pressed then
 		monarch.back()
+	elseif action_id == hash("d") and action.pressed then
+		self.selected_index = self.selected_index + 1
+		reload_menu(self)
+	elseif action_id == hash("u") and action.pressed then
+		self.selected_index = self.selected_index - 1
+		reload_menu(self)
+	end
+end
+
+function reload_menu(self)
+
+
+	gui.set_position(gui.get_node("selector"), gui.get_position(gui.get_node("space_5")))
+
+	self.first_index = math.max(1, self.selected_index - self.select_box_number)
+
+	-- assumes select box number is right in the middle
+	self.last_index = math.min(table.getn(self.keys), self.selected_index + self.select_box_number)
+
+	for _, text_node in pairs(self.created_text_nodes) do
+		gui.delete_node(text_node)
+	end
+	
+	self.created_text_nodes = {}
+
+	local transformation = 5 - self.selected_index
+	for i = self.first_index,self.last_index do
+		local text = game_state.get_transcript_name(self.keys[i])
+
+		local node_name = "space_"..(math.max(i+transformation, 1))
+		local position = gui.get_position(gui.get_node(node_name))
+		position.x = position.x + 25
+
+		local new_node = gui.new_text_node(position, text)
+		gui.set_parent(new_node, gui.get_node("scroll_section"), false)
+		gui.set_layer(new_node, "text")
+		gui.set_pivot(new_node, gui.PIVOT_W)
+		gui.set_font(new_node, "computer_font")
+		local scale = gui.get_scale(new_node)
+		scale.x = 1.5
+		scale.y = 1.5
+		gui.set_scale(new_node, scale)
+		table.insert(self.created_text_nodes, new_node)
 	end
 end
 
