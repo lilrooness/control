@@ -3,7 +3,7 @@ local tbutils = require("main.modules.textbox_utils")
 function init(self)
 	game_state.discover_transcript("2136_05_20")
 	game_state.discover_transcript("2136_05_13")
-	game_state.discover_transcript("2136_05_20")
+	game_state.discover_transcript("2136_05_21")
 	map_state.set_level_script(msg.url())
 	map_state.set_emily_room(2)
 
@@ -43,7 +43,7 @@ function init(self)
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "That's ok, its almost helping", name="You", callback= function()
-			game_state.discover_transcript("2136_05_20") -- benny talking to "himself"
+			game_state.discover_transcript("2136_05_21") -- benny talking to "himself"
 		end, stop=true}
 		
 	}
