@@ -6,7 +6,7 @@ function init(self)
 	self.rooms_selected = false
 	msg.post(".", "acquire_input_focus")
 
-	self.button_nodes = {[1] = "doors", [2] = "rooms", [3] = "comms"}
+	self.button_nodes = {[1] = "doors", [2] = "rooms", [3] = "comms", [4] = "files"}
 
 end
 
@@ -25,6 +25,8 @@ function update(self, dt)
 		selected_node = 2
 	elseif map_state.comms_selected() then
 		selected_node = 3
+	elseif map_state.files_selected() then
+		selected_node = 4
 	end
 
 	for i, n in pairs(self.button_nodes) do
@@ -40,6 +42,10 @@ function update(self, dt)
 
 	if not map_state.comms_enabled() then
 		gui.set_color(gui.get_node("comms"), vmath.vector3(0.5, 0.5, 0.5))
+	end
+
+	if not map_state.files_enabled() then
+		gui.set_color(gui.get_node("files"), vmath.vector3(0.5, 0.5, 0.5))
 	end
 
 end

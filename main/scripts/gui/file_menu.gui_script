@@ -25,6 +25,7 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("e") and action.pressed then
+		map_state.select_files(false)
 		monarch.back()
 	elseif action_id == hash("d") and action.pressed then
 		self.selected_index = self.selected_index + 1

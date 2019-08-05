@@ -11,7 +11,10 @@ local state = {
 	rooms_selected = false,
 	comms_selected = false,
 	schematic_selected = false,
+	files_selected = false,
+	
 	comms_enabled = false,
+	files_enabled = false,
 
 	ids = {
 		"1",
@@ -63,6 +66,14 @@ function M.is_seperating_door_open(room1Id, room2Id, socket)
 	print("CANT FIND DOOR CONNECTING ROOMS - ASSUMING NO DOOR EXISTS")
 	-- return true
 	return true
+end
+
+function M.files_enabled()
+	return state.files_enabled
+end
+
+function M.enable_files(enabled)
+	state.files_enabled = enabled
 end
 
 function M.comms_enabled()
@@ -191,6 +202,10 @@ function M.select_rooms(selected)
 	state.rooms_selected = selected
 end
 
+function M.select_files(selected)
+	state.files_selected = selected
+end
+
 function M.select_schematic(selected)
 	state.schematic_selected = selected
 end
@@ -205,6 +220,10 @@ end
 
 function M.comms_selected()
 	return state.comms_selected
+end
+
+function M.files_selected()
+	return state.files_selected
 end
 
 function M.schematic_selected()

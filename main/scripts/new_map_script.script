@@ -24,13 +24,16 @@ function on_input(self, action_id, action)
 
 		map_state.select_rooms(not map_state.rooms_selected())
 		msg.post(":/sound#440_660", "play_sound")
-		
-	elseif action_id == hash("f") and action.pressed then
-		print("pressed f!")
-		monarch.show("file_menu", {}, {})
-	elseif action_id == hash("c") and action.released and map_state.comms_enabled() and not map_state.comms_selected() then
+	elseif action_id == hash("c") and action.released and map_state.comms_enabled() then
 		map_state.select_comms(not map_state.comms_selected())
-		msg.post(":/script#script", "comms")
+		if map_state.comms_selected() then
+			msg.post(":/script#script", "comms")
+		end
+	elseif action_id == hash("f") and action.pressed and map_state.files_enabled() then
+		map_state.select_files(not map_state.files_selected())
+		if map_state.files_selected() then
+			monarch.show("file_menu", {}, {})
+		end
 	end
 
 	if action_id == hash("text") then
