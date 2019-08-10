@@ -102,7 +102,7 @@ instances {
   prototype: "/main/objects/room_proxy.go"
   position {
     x: 156.0
-    y: 24.0
+    y: 53.0
     z: 0.0
   }
   rotation {
@@ -495,16 +495,202 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "d4"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: -67.0
+    y: 627.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "0.0, 6.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: ":/map_obj#new_level_1"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room1_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room2_id"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r4"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 11.0
+    y: 830.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "4.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "r5"
+  prototype: "/main/objects/room_proxy.go"
+  position {
+    x: 450.0
+    y: 484.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_proxy"
+    properties {
+      id: "pressure"
+      value: "0.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_number"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "d5"
+  prototype: "/main/objects/door_proxy.go"
+  position {
+    x: 322.0
+    y: 215.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "door_label"
+    properties {
+      id: "door_tile"
+      value: "3.0, 3.0, 0.0"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+    properties {
+      id: "door_number"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room1"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room2"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "tilesource_url"
+      value: ":/map_obj#new_level_1"
+      type: PROPERTY_TYPE_URL
+    }
+    properties {
+      id: "room1_id"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room2_id"
+      value: "5.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+  }
+  scale3 {
+    x: 0.25
+    y: 0.25
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
   children: "d1"
   children: "d2"
+  children: "d4"
+  children: "d5"
   children: "emily_marker"
   children: "nodes"
   children: "r1"
   children: "r2"
   children: "r3"
+  children: "r4"
+  children: "r5"
   children: "transcript_key"
   data: "components {\n"
   "  id: \"new_level_1\"\n"
