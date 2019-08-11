@@ -1,9 +1,6 @@
 local tbutils = require("main.modules.textbox_utils")
 
 function init(self)
-	-- game_state.discover_transcript("2136_05_20")
-	-- game_state.discover_transcript("2136_05_13")
-	-- game_state.discover_transcript("2136_05_21")
 	map_state.set_level_script(msg.url())
 	map_state.set_emily_room(2)
 
@@ -26,31 +23,38 @@ function init(self)
 			msg.post("sound#static_blip", "play_sound")
 		end},
 		{text = "A desk . . . some drawers", name="Emily"},
-		{text = "which aren't locked", name="Emily"},
 		{text = "...", name=""},
 		{text = "... ...", name=""},
 		{text = "Come in Emily", name="You"},
 		{text = "Found something . . . looks like a data drive", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "Any way you can read what's on it from there?", name="You"},
-		{text = "Noop. That sure does sound a whole lot like your job though . . .", name="Emily", callback= function()
+		{text = "Not sure what to make of this . . . here, I've sent it to you", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
 		end},
-		{text = "I'm going to plug this in to my tansponder and send it to you now", name="Emily"},
-		{text = "Thanks Emily", name="You"},
-		{text = "Sorry. The sarcasm is a defence mechanism", name="Emily", callback= function()
-			msg.post("sound#static_blip", "play_sound")
-		end},
-		{text = "That's ok, its almost helping", name="You", callback= function()
+		{text = "Received", name="You", callback= function()
 			game_state.discover_transcript("2136_05_21") -- benny talking to "himself"
 			map_state.enable_files(true)
+			table.insert(self.room_choices[3], {text="Discuss Transcript", callback=function()
+				msg.post(msg.url(), "progress_story", {text_table = "discuss_room3_tanscript", delay = 1})
+			end})
 		end, stop=true}
-		
+	}
+
+	self["discuss_room3_tanscript"] = {
+		{text = "The title says sound activated, it must have been recorded automatically.", name="You"},
+		{text = "Sound's like that guy completely lost it.", name="You"},
+		{text = "Yeah. But what's that transcript doing in the Commander's office?", name="Emily", callback=function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text = "That's Commander Sheen's office?", name="You"},
+		{text="Well it's his stuff in the drawers", name="Emily", callback=function()
+			msg.post("sound#static_blip", "play_sound")
+		end, stop=true}
 	}
 
 	self.room_choices = {
-		[1] = {{text="Enter room on left", callback=function()
+		[1] = {{text="Enter room 3", callback=function()
 
 			if map_state.is_seperating_door_open(map_state.get_emily_room(), 3, msg.url()["socket"]) then
 					local chain_id = map_state.begin_event_chain(function()
@@ -73,8 +77,24 @@ function init(self)
 				
 			end},
 			{text="Enter room on right"},
-			{text="Enter room ahaed"}},
-		[3] = nil
+			{text="Enter room ahead"}},
+		[3] = {
+			{text="Back to room 1", callback=function()
+				if map_state.is_seperating_door_open(map_state.get_emily_room(), 1, msg.url()["socket"]) then
+					local chain_id = map_state.begin_event_chain(function()
+						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+					end, 1)
+					map_state.chain_event(chain_id, function()
+						local path = djk.path(map_state.get_emily_room(), 1)
+						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+					end, 0)
+					map_state.execute_event_chain(chain_id)
+					self.expected_event_callback = function(message_id, message) end
+				else
+					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+				end
+			end}
+		}
 	}
 
 	local texts_1 = {

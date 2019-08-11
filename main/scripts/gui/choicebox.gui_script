@@ -4,13 +4,14 @@ function init(self)
 
 	self.choices = monarch.data("choicebox").choices
 
-	if table.getn(self.choices) > 4 then 
+	self.nchoices = table.getn(self.choices)
+
+	self.choice_nodes = {[1]="text_1", [2]="text_2", [3]="text_3", [4]="text_4", [5]="text_5"}
+
+	if table.getn(self.choices) > table.getn(self.choice_nodes) then 
 		print("WARNING: MORE THAN 4 CHOICES!")
 	end
 	
-	self.nchoices = table.getn(self.choices)
-
-	self.choice_nodes = {[1]="text_1", [2]="text_2", [3]="text_3", [4]="text_4"}
 	
 	for i = 1,self.nchoices do
 		gui.set_text(gui.get_node(self.choice_nodes[i]), self.choices[i])

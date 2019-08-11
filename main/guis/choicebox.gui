@@ -70,7 +70,7 @@ nodes {
 nodes {
   position {
     x: -195.0
-    y: 131.0
+    y: 170.0
     z: 0.0
     w: 1.0
   }
@@ -100,7 +100,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
+  text: "1"
   font: "textbox_font"
   id: "text_1"
   xanchor: XANCHOR_NONE
@@ -133,7 +133,7 @@ nodes {
 nodes {
   position {
     x: -195.0
-    y: 31.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -163,7 +163,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
+  text: "2"
   font: "textbox_font"
   id: "text_2"
   xanchor: XANCHOR_NONE
@@ -196,7 +196,7 @@ nodes {
 nodes {
   position {
     x: -195.0
-    y: -69.0
+    y: -30.0
     z: 0.0
     w: 1.0
   }
@@ -226,7 +226,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
+  text: "3"
   font: "textbox_font"
   id: "text_3"
   xanchor: XANCHOR_NONE
@@ -259,7 +259,7 @@ nodes {
 nodes {
   position {
     x: -211.0
-    y: 131.0
+    y: 170.0
     z: 0.0
     w: 1.0
   }
@@ -271,7 +271,7 @@ nodes {
   }
   scale {
     x: 2.154
-    y: 0.888
+    y: 0.731
     z: 1.0
     w: 1.0
   }
@@ -314,7 +314,7 @@ nodes {
 nodes {
   position {
     x: -195.0
-    y: -169.0
+    y: -130.0
     z: 0.0
     w: 1.0
   }
