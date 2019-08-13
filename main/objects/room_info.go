@@ -1,6 +1,6 @@
 components {
-  id: "room_proxy"
-  component: "/main/scripts/room_proxy.script"
+  id: "room_info"
+  component: "/main/scripts/room_info.script"
   position {
     x: 0.0
     y: 0.0
@@ -12,14 +12,9 @@ components {
     z: 0.0
     w: 1.0
   }
-  properties {
-    id: "room_name"
-    value: ""
-    type: PROPERTY_TYPE_HASH
-  }
 }
 embedded_components {
-  id: "pressure"
+  id: "name"
   type: "label"
   data: "size {\n"
   "  x: 128.0\n"
@@ -28,8 +23,8 @@ embedded_components {
   "  w: 0.0\n"
   "}\n"
   "scale {\n"
-  "  x: 2.0\n"
-  "  y: 2.0\n"
+  "  x: 1.0\n"
+  "  y: 1.0\n"
   "  z: 1.0\n"
   "  w: 0.0\n"
   "}\n"
@@ -40,29 +35,29 @@ embedded_components {
   "  w: 1.0\n"
   "}\n"
   "outline {\n"
-  "  x: 1.0\n"
-  "  y: 1.0\n"
-  "  z: 1.0\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
   "shadow {\n"
-  "  x: 1.0\n"
-  "  y: 1.0\n"
-  "  z: 1.0\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
-  "leading: 0.0\n"
+  "leading: 1.0\n"
   "tracking: 0.0\n"
-  "pivot: PIVOT_CENTER\n"
+  "pivot: PIVOT_W\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
-  "text: \"100%\"\n"
+  "text: \"ROOM_NAME\"\n"
   "font: \"/assets/computer_font.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
-    x: 266.0
-    y: 10.0
+    x: -88.0
+    y: 40.0
     z: 0.0
   }
   rotation {
@@ -73,7 +68,7 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "AIR"
+  id: "occupants_label"
   type: "label"
   data: "size {\n"
   "  x: 128.0\n"
@@ -82,8 +77,8 @@ embedded_components {
   "  w: 0.0\n"
   "}\n"
   "scale {\n"
-  "  x: 2.0\n"
-  "  y: 2.0\n"
+  "  x: 1.0\n"
+  "  y: 1.0\n"
   "  z: 1.0\n"
   "  w: 0.0\n"
   "}\n"
@@ -94,29 +89,29 @@ embedded_components {
   "  w: 1.0\n"
   "}\n"
   "outline {\n"
-  "  x: 1.0\n"
-  "  y: 1.0\n"
-  "  z: 1.0\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
   "shadow {\n"
-  "  x: 1.0\n"
-  "  y: 1.0\n"
-  "  z: 1.0\n"
+  "  x: 0.0\n"
+  "  y: 0.0\n"
+  "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
-  "leading: 0.0\n"
+  "leading: 1.0\n"
   "tracking: 0.0\n"
-  "pivot: PIVOT_CENTER\n"
+  "pivot: PIVOT_W\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
-  "text: \"AIR\"\n"
+  "text: \"OCCUPANTS: \"\n"
   "font: \"/assets/computer_font.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
-    x: 128.0
-    y: 10.0
+    x: -88.0
+    y: 0.0
     z: 0.0
   }
   rotation {
@@ -127,47 +122,7 @@ embedded_components {
   }
 }
 embedded_components {
-  id: "bg1"
-  type: "sprite"
-  data: "tile_set: \"/main/main.atlas\"\n"
-  "default_animation: \"blank_128\"\n"
-  "material: \"/assets/materials/alarm_overlay_mat/alarm_overlay.material\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
-  ""
-  position {
-    x: 134.0
-    y: 0.0
-    z: -1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "bg2"
-  type: "sprite"
-  data: "tile_set: \"/main/main.atlas\"\n"
-  "default_animation: \"blank_128\"\n"
-  "material: \"/assets/materials/alarm_overlay_mat/alarm_overlay.material\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
-  ""
-  position {
-    x: 262.0
-    y: 0.0
-    z: -1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "label"
+  id: "occupants"
   type: "label"
   data: "size {\n"
   "  x: 128.0\n"
@@ -176,58 +131,40 @@ embedded_components {
   "  w: 0.0\n"
   "}\n"
   "scale {\n"
-  "  x: 1.8\n"
-  "  y: 1.8\n"
+  "  x: 1.0\n"
+  "  y: 1.0\n"
   "  z: 1.0\n"
   "  w: 0.0\n"
   "}\n"
   "color {\n"
   "  x: 1.0\n"
-  "  y: 0.0\n"
-  "  z: 0.0\n"
+  "  y: 1.0\n"
+  "  z: 1.0\n"
   "  w: 1.0\n"
   "}\n"
   "outline {\n"
-  "  x: 1.0\n"
+  "  x: 0.0\n"
   "  y: 0.0\n"
   "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
   "shadow {\n"
-  "  x: 1.0\n"
+  "  x: 0.0\n"
   "  y: 0.0\n"
   "  z: 0.0\n"
   "  w: 1.0\n"
   "}\n"
-  "leading: 0.0\n"
+  "leading: 1.0\n"
   "tracking: 0.0\n"
-  "pivot: PIVOT_CENTER\n"
+  "pivot: PIVOT_W\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
-  "text: \"Rx\"\n"
+  "text: \"0\"\n"
   "font: \"/assets/computer_font.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {
-    x: -100.0
-    y: 10.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "alert_factory"
-  type: "factory"
-  data: "prototype: \"/main/objects/generic_alert_small.go\"\n"
-  "load_dynamically: false\n"
-  ""
-  position {
-    x: 0.0
+    x: 101.0
     y: 0.0
     z: 0.0
   }

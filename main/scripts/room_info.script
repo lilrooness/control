@@ -1,0 +1,32 @@
+go.property("room_url", msg.url())
+
+function init(self)
+	print(self.room_url)
+	local name_hash = go.get(self.room_url, "room_name")
+	local room_name = game_state.get_room_name(name_hash)
+	label.set_text("#name", room_name)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	label.set_text("#occupants", go.get(self.room_url, "occupants"))
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

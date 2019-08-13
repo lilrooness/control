@@ -245,6 +245,10 @@ end
 
 function M.room_entered_event(room_id)
 	M.level_event("room_entered", {room_id = room_id})
+	local room_url = msg.url()
+	room_url.path = state.room_ids[room_id]
+	room_url.fragment = "room_proxy"
+	go.set(room_url, "occupants", go.get(room_url, "occupants"))
 	state.emily_room = room_id
 end
 

@@ -100,6 +100,7 @@ instances {
 instances {
   id: "r1"
   prototype: "/main/objects/room_proxy.go"
+  children: "room_info"
   position {
     x: 156.0
     y: 53.0
@@ -122,6 +123,11 @@ instances {
       id: "room_number"
       value: "1.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_name"
+      value: "CHRIO_LOBBY"
+      type: PROPERTY_TYPE_HASH
     }
   }
   scale3 {
@@ -150,6 +156,16 @@ instances {
       id: "room_number"
       value: "2.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "occupants"
+      value: "1.0"
+      type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_name"
+      value: "CHRIO"
+      type: PROPERTY_TYPE_HASH
     }
   }
   scale3 {
@@ -211,6 +227,11 @@ instances {
       id: "room_number"
       value: "3.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_name"
+      value: "OFC_CMDR"
+      type: PROPERTY_TYPE_HASH
     }
   }
   scale3 {
@@ -579,6 +600,11 @@ instances {
       value: "4.0"
       type: PROPERTY_TYPE_NUMBER
     }
+    properties {
+      id: "room_name"
+      value: "QTN"
+      type: PROPERTY_TYPE_HASH
+    }
   }
   scale3 {
     x: 0.25
@@ -611,6 +637,11 @@ instances {
       id: "room_number"
       value: "5.0"
       type: PROPERTY_TYPE_NUMBER
+    }
+    properties {
+      id: "room_name"
+      value: "MED_BAY"
+      type: PROPERTY_TYPE_HASH
     }
   }
   scale3 {
@@ -674,6 +705,34 @@ instances {
   scale3 {
     x: 0.25
     y: 0.25
+    z: 1.0
+  }
+}
+instances {
+  id: "room_info"
+  prototype: "/main/objects/room_info.go"
+  position {
+    x: 40.0
+    y: 112.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_info"
+    properties {
+      id: "room_url"
+      value: "/r1#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
     z: 1.0
   }
 }

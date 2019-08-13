@@ -521,14 +521,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "room_number"
-      value: "3.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 0.25
     y: 0.25
@@ -548,19 +540,6 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
-  }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "0.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "4.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
   }
   scale3 {
     x: 0.25
@@ -582,19 +561,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "0.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 0.25
     y: 0.25
@@ -614,24 +580,6 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
-  }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "0.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "2.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "alarm_offset"
-      value: "0.0, 30.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
   }
   scale3 {
     x: 0.25
@@ -653,24 +601,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "5.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "alarm_offset"
-      value: "0.0, 30.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
-  }
   scale3 {
     x: 0.25
     y: 0.25
@@ -690,24 +620,6 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
-  }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "6.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "alarm_offset"
-      value: "0.0, 30.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
   }
   scale3 {
     x: 0.25
@@ -729,24 +641,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "7.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "alarm_offset"
-      value: "0.0, 30.0, 0.0"
-      type: PROPERTY_TYPE_VECTOR3
-    }
-  }
   scale3 {
     x: 0.25
     y: 0.25
@@ -767,19 +661,6 @@ instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "100.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "8.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 0.25
     y: 0.25
@@ -799,19 +680,6 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
-  }
-  component_properties {
-    id: "room_proxy"
-    properties {
-      id: "pressure"
-      value: "0.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "room_number"
-      value: "9.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
   }
   scale3 {
     x: 0.25
