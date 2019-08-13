@@ -246,10 +246,22 @@ end
 function M.room_entered_event(room_id)
 	M.level_event("room_entered", {room_id = room_id})
 	local room_url = msg.url()
+	room_url.fragment = "room_proxy"
+
+	room_url.path = state.room_ids[room_id]
+	go.set(room_url, "occupants", go.get(room_url, "occupants") + 1)
+
+	room_url.path = state.room_ids[state.emily_room]
+	go.set(room_url, "occupants", go.get(room_url, "occupants") - 1)
+	state.emily_room = room_id
+end
+
+function M.room_left_event(room_id)
+	M.level_event("room_left", {room_id = room_id})
+	local room_url = msg.url()
 	room_url.path = state.room_ids[room_id]
 	room_url.fragment = "room_proxy"
-	go.set(room_url, "occupants", go.get(room_url, "occupants"))
-	state.emily_room = room_id
+	go.set(room_url, "occupants", go.get(room_url, "occupants") - 1)
 end
 
 function M.door_opened_event(door_id)

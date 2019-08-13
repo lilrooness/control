@@ -1,7 +1,6 @@
 go.property("room_url", msg.url())
 
 function init(self)
-	print(self.room_url)
 	local name_hash = go.get(self.room_url, "room_name")
 	local room_name = game_state.get_room_name(name_hash)
 	label.set_text("#name", room_name)

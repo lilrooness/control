@@ -47,9 +47,9 @@ function on_reload(self)
 end
 
 function move(self)
-	local from_node = self.current_node
 	if self.tile_path.next_index <= #(self.tile_path.path) then
 		local node_obj_id = djk.get_obj_id(self.tile_path.path[self.tile_path.next_index])
+		local from_node = self.current_node
 		self.current_node = self.tile_path.path[self.tile_path.next_index]
 		go.animate(".", "position",
 			go.PLAYBACK_ONCE_FORWARD,
@@ -61,7 +61,6 @@ function move(self)
 			end)
 		self.tile_path.next_index = self.tile_path.next_index + 1
 	else
-		map_state.room_left_event(from_node)
 		map_state.room_entered_event(self.current_node)
 	end
 end
