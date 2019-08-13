@@ -248,9 +248,11 @@ function M.room_entered_event(room_id)
 	local room_url = msg.url()
 	room_url.fragment = "room_proxy"
 
+	-- Add one occupant to new room
 	room_url.path = state.room_ids[room_id]
 	go.set(room_url, "occupants", go.get(room_url, "occupants") + 1)
 
+	-- Minus one occupant from old room
 	room_url.path = state.room_ids[state.emily_room]
 	go.set(room_url, "occupants", go.get(room_url, "occupants") - 1)
 	state.emily_room = room_id
