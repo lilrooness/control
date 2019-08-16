@@ -100,7 +100,7 @@ instances {
 instances {
   id: "r1"
   prototype: "/main/objects/room_proxy.go"
-  children: "room_info"
+  children: "room_info_1"
   position {
     x: 156.0
     y: 53.0
@@ -139,6 +139,7 @@ instances {
 instances {
   id: "r2"
   prototype: "/main/objects/room_proxy.go"
+  children: "room_info_2"
   position {
     x: 156.0
     y: -158.0
@@ -175,36 +176,9 @@ instances {
   }
 }
 instances {
-  id: "transcript_key"
-  prototype: "/main/objects/transcript_key.go"
-  position {
-    x: -810.0
-    y: 315.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "transcript_key"
-    properties {
-      id: "key"
-      value: "officer_benny_2136_05_20"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  scale3 {
-    x: 0.25
-    y: 0.25
-    z: 1.0
-  }
-}
-instances {
   id: "r3"
   prototype: "/main/objects/room_proxy.go"
+  children: "room_info_3"
   position {
     x: -616.0
     y: 484.0
@@ -485,6 +459,11 @@ instances {
       type: PROPERTY_TYPE_NUMBER
     }
     properties {
+      id: "open"
+      value: "true"
+      type: PROPERTY_TYPE_BOOLEAN
+    }
+    properties {
       id: "room1"
       value: "/r1#room_proxy"
       type: PROPERTY_TYPE_URL
@@ -577,6 +556,7 @@ instances {
 instances {
   id: "r4"
   prototype: "/main/objects/room_proxy.go"
+  children: "room_info_4"
   position {
     x: 11.0
     y: 830.0
@@ -615,6 +595,7 @@ instances {
 instances {
   id: "r5"
   prototype: "/main/objects/room_proxy.go"
+  children: "room_info_5"
   position {
     x: 450.0
     y: 484.0
@@ -709,7 +690,7 @@ instances {
   }
 }
 instances {
-  id: "room_info"
+  id: "room_info_1"
   prototype: "/main/objects/room_info.go"
   position {
     x: 40.0
@@ -736,6 +717,118 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "room_info_2"
+  prototype: "/main/objects/room_info.go"
+  position {
+    x: 40.0
+    y: -204.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_info"
+    properties {
+      id: "room_url"
+      value: "/r2#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+  }
+}
+instances {
+  id: "room_info_3"
+  prototype: "/main/objects/room_info.go"
+  position {
+    x: 40.0
+    y: -196.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_info"
+    properties {
+      id: "room_url"
+      value: "/r3#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+  }
+}
+instances {
+  id: "room_info_5"
+  prototype: "/main/objects/room_info.go"
+  position {
+    x: 40.0
+    y: -196.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_info"
+    properties {
+      id: "room_url"
+      value: "/r5#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+  }
+}
+instances {
+  id: "room_info_4"
+  prototype: "/main/objects/room_info.go"
+  position {
+    x: 40.0
+    y: 136.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "room_info"
+    properties {
+      id: "room_url"
+      value: "/r4#room_proxy"
+      type: PROPERTY_TYPE_URL
+    }
+  }
+  scale3 {
+    x: 2.0
+    y: 2.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "map_obj"
@@ -750,7 +843,6 @@ embedded_instances {
   children: "r3"
   children: "r4"
   children: "r5"
-  children: "transcript_key"
   data: "components {\n"
   "  id: \"new_level_1\"\n"
   "  component: \"/main/screens/levels/new_level_1/new_level_1.tilemap\"\n"

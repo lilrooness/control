@@ -18,6 +18,117 @@ function init(self)
 		end, stop=true}
 	}
 
+	self.room_choices = {
+		[1] = {{text="Enter room 3", callback=function()
+
+			if map_state.is_seperating_door_open(map_state.get_emily_room(), 3, msg.url()["socket"]) then
+				local chain_id = map_state.begin_event_chain(function()
+					msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+				end, 1)
+				map_state.chain_event(chain_id, function()
+					local path = djk.path(map_state.get_emily_room(), 3)
+					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+				end, 0)
+				map_state.execute_event_chain(chain_id)
+				self.expected_event_callback = function(message_id, message)
+					if message_id == hash("room_entered") and message.room_id == 3 then
+						self.expected_event_callback = function(message_id, message) end
+						msg.post(msg.url(), "progress_story", {text_table = "room_3", delay = 1})
+					end
+				end
+			else
+				msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+			end
+
+		end},
+		{text="Enter room on right"},
+		{text="Enter room 5", callback=function() 
+			if map_state.is_seperating_door_open(map_state.get_emily_room(), 5, msg.url()["socket"]) then
+				local chain_id = map_state.begin_event_chain(function()
+					msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+				end, 1)
+				map_state.chain_event(chain_id, function()
+					local path = djk.path(map_state.get_emily_room(), 5)
+					msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+				end, 0)
+				map_state.execute_event_chain(chain_id)
+				self.expected_event_callback = function(message_id, message)
+					if message_id == hash("room_entered") and message.room_id == 5 then
+						self.expected_event_callback = function(message_id, message) end
+						msg.post(msg.url(), "progress_story", {text_table = "room_5", delay = 1})
+					end
+				end
+			else
+				msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+			end
+		end}},
+		[3] = {
+			{text="Back to room 1", callback=function()
+				if map_state.is_seperating_door_open(map_state.get_emily_room(), 1, msg.url()["socket"]) then
+					local chain_id = map_state.begin_event_chain(function()
+						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+					end, 1)
+					map_state.chain_event(chain_id, function()
+						local path = djk.path(map_state.get_emily_room(), 1)
+						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+					end, 0)
+					map_state.execute_event_chain(chain_id)
+					self.expected_event_callback = function(message_id, message) end
+				else
+					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+				end
+			end}
+		},
+
+		[5] = {
+			{text="back to room 1", callback=function()
+				if map_state.is_seperating_door_open(map_state.get_emily_room(), 1, msg.url()["socket"]) then
+					local chain_id = map_state.begin_event_chain(function()
+						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
+					end, 1)
+					map_state.chain_event(chain_id, function()
+						local path = djk.path(map_state.get_emily_room(), 1)
+						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
+					end, 0)
+					map_state.execute_event_chain(chain_id)
+					self.expected_event_callback = function(message_id, message) end
+				else
+					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
+				end
+			end}
+		}
+	}
+
+	self["room_5"] = {
+		{text= "Uhhg it's ...", name="Emily", callback= function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text= "...", name=""},
+		{text= "Come in Emily", name="You"},
+		{text= "Bodies", name="Emily",callback= function() 
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text= "...", name=""},
+		{text="Two bodies ... I think they're doctors or nurses or something", name="Emily"},
+		{text="Any idea what killed them", name="You"},
+		{text="I dont know, there's a lot of blood", name="Emily"},
+		{text="I think I'm gonna ...", name="Emily"},
+		{text="*BELCHING SOUNDS*", name=""},
+		{text="Are you alright?", name="You"},
+		{text="Yes.", name="Emily", callback=function()
+			msg.post("sound#static_blip", "play_sound")
+		end},
+		{text="Just sick.", name="Emily"},
+		{text="Not seen a body before ... trying to look around without stepping o ....", name="Emily"},
+		{text="...", name=""},
+		{text="Data drive. Sending it to you now", name="Emily"},
+		{text="Just get me out of this room", name="Emily", callback =function()
+			msg.post("sound#static_blip", "play_sound")
+			game_state.discover_transcript("2136_05_20")
+			map_state.enable_files(true)
+		end, stop=true}
+	}
+
 	self["room_3"] = {
 		{text = "Looks like an office", name="Emily", callback= function()
 			msg.post("sound#static_blip", "play_sound")
@@ -53,49 +164,6 @@ function init(self)
 		end, stop=true}
 	}
 
-	self.room_choices = {
-		[1] = {{text="Enter room 3", callback=function()
-
-			if map_state.is_seperating_door_open(map_state.get_emily_room(), 3, msg.url()["socket"]) then
-					local chain_id = map_state.begin_event_chain(function()
-						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
-					end, 1)
-					map_state.chain_event(chain_id, function()
-						local path = djk.path(map_state.get_emily_room(), 3)
-						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
-					end, 0)
-					map_state.execute_event_chain(chain_id)
-					self.expected_event_callback = function(message_id, message)
-						if message_id == hash("room_entered") and message.room_id == 3 then
-							self.expected_event_callback = function(message_id, message) end
-							msg.post(msg.url(), "progress_story", {text_table = "room_3", delay = 1})
-						end
-					end
-				else
-					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
-				end
-				
-			end},
-			{text="Enter room on right"},
-			{text="Enter room ahead"}},
-		[3] = {
-			{text="Back to room 1", callback=function()
-				if map_state.is_seperating_door_open(map_state.get_emily_room(), 1, msg.url()["socket"]) then
-					local chain_id = map_state.begin_event_chain(function()
-						msg.post(msg.url(), "progress_story", {text_table = "confirm_order", delay = 1})
-					end, 1)
-					map_state.chain_event(chain_id, function()
-						local path = djk.path(map_state.get_emily_room(), 1)
-						msg.post(":/emily_marker#emily_marker", "set_path", {path = path})
-					end, 0)
-					map_state.execute_event_chain(chain_id)
-					self.expected_event_callback = function(message_id, message) end
-				else
-					msg.post(msg.url(), "progress_story", {text_table = "door_is_closed", delay = 1})
-				end
-			end}
-		}
-	}
 
 	local texts_1 = {
 		{text = "You see me yet? I'm in room 2", name="Emily", callback = function() 
