@@ -124,7 +124,7 @@ function init(self)
 		{text="Data drive. Sending it to you now", name="Emily"},
 		{text="Just get me out of this room", name="Emily", callback =function()
 			msg.post("sound#static_blip", "play_sound")
-			game_state.discover_transcript("2136_05_20")
+			game_state.discover_transcript("2136_05_10")
 			map_state.enable_files(true)
 		end, stop=true}
 	}
